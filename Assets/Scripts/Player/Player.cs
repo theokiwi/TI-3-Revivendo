@@ -7,13 +7,16 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] Image staminaMeter;
+    [SerializeField] Transform holdPos;
     [SerializeField] float stamina, staminaDuration, staminaCoolDown;
     [SerializeField] float speed;
     [SerializeField] bool resting;
+    private GameObject heldItem;
     NavMeshAgent agent;
 
     private void Start()
     {
+        heldItem = null;
         agent = GetComponent<NavMeshAgent>();
         resting = false;
         stamina = 1;
@@ -24,6 +27,20 @@ public class Player : MonoBehaviour
         NavMesh();
         Stamina();
         SpeedControl();
+
+        if (Input.GetKeyDown(KeyCode.Escape)) GameController.instance.PauseGame(); // Pausa/despausa o jogo.
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Pickable") && heldItem == null)
+        {
+            PickUp(other.gameObject);
+        }
+        else if (other.CompareTag("DropPoint") && heldItem != null)
+        {
+
+        }
     }
 
     // IA de navegação do personagem controlavel
@@ -57,6 +74,24 @@ public class Player : MonoBehaviour
     {
         if (stamina < 0.25) agent.speed = speed / 3;
         else agent.speed = speed;
+    }
+
+    // Pega o item desejado, o transforma em filho do holdPos e envia para posição de carregamento.
+    void PickUp(GameObject item)
+    {
+        heldItem = item;
+        heldItem.transform.SetParent(holdPos.transform);
+        heldItem.transform.position = Vector3.zero;
+        heldItem.transform.rotation = Quaternion.identity;
+    }
+
+    // Deixa o item carregado na posição recebida
+    void DropItem(Transform dropPos)
+    {
+        heldItem.transform.SetParent(null);
+        heldItem.transform.position = dropPos.transform.position;
+        heldItem.transform.rotation = Quaternion.identity;
+        heldItem = null;
     }
 
 }
