@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     [SerializeField] Text moneyText;
-    [SerializeField] GameObject pauseScreen;
-    public bool paused;
+    public bool paused = true;
     private float money;
 
     public static GameController instance;
@@ -31,7 +30,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         money = 0; // Posteriormente sera substituido por playerPrefs para manter o dinheiro ao longo do jogo.
-        paused = false;
+        
         Time.timeScale = 1f;
     }
 
@@ -40,22 +39,5 @@ public class GameController : MonoBehaviour
     {
         money += value;
         moneyText.text = $" {money} ";
-    }
-
-    // Abre/fecha o menu de pausa e ajusta o timeScale de acordo.
-    public void PauseGame()
-    {
-        paused = !paused;
-
-        if (paused)
-        {
-            pauseScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            pauseScreen.SetActive(false);
-            Time.timeScale = 1f;
-        }
     }
 }

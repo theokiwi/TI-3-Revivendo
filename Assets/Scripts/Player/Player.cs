@@ -27,8 +27,6 @@ public class Player : MonoBehaviour
         NavMesh();
         Stamina();
         SpeedControl();
-
-        if (Input.GetKeyDown(KeyCode.Escape)) GameController.instance.PauseGame(); // Pausa/despausa o jogo.
     }
 
     private void OnTriggerEnter(Collider other)
