@@ -37,7 +37,10 @@ public class Player : MonoBehaviour
         }
         else if (other.CompareTag("DropPoint") && heldItem != null)
         {
-            DropItem(other.gameObject.transform);
+            if(other.transform.childCount == 0)
+            {
+                DropItem(other.gameObject);
+            }
         }
     }
 
@@ -84,10 +87,10 @@ public class Player : MonoBehaviour
     }
 
     // Deixa o item carregado na posição recebida
-    void DropItem(Transform dropPos)
+    void DropItem(GameObject dropPos)
     {
-        heldItem.transform.SetParent(null);
-        heldItem.transform.localPosition = dropPos.position;
+        heldItem.transform.SetParent(dropPos.transform);
+        heldItem.transform.localPosition = Vector3.zero;
         heldItem.transform.localRotation = Quaternion.identity;
         heldItem = null;
     }
