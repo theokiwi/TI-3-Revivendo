@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField] TMP_Text moneyText;
+    [SerializeField] Text moneyText;
     [SerializeField] GameObject pauseScreen;
     public bool paused;
     private float money;
