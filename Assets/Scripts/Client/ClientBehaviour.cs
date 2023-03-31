@@ -44,7 +44,7 @@ public class ClientBehaviour : MonoBehaviour
     private void FinishEating()
     {
         //gamemanager dinheiros adicionar blá blá
-
+        GameController.instance.AddMoney(pedido.reward);
         Destroy(gameObject);
     }
 }

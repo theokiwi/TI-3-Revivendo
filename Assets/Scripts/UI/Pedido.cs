@@ -6,7 +6,7 @@ public class Pedido : MonoBehaviour
 {
     public float timer;
     public Pedido seg;
-    public float reward;
+    public int reward;
 
     public Pedido(Pedido seg = null)
     {
