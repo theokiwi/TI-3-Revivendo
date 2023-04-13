@@ -42,6 +42,17 @@ public class Player : MonoBehaviour
                 DropItem(other.gameObject);
             }
         }
+        if (other.CompareTag("Bed"))
+        {
+            resting = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Bed"))
+        {
+            resting = false;
+        }
     }
 
     // IA de navegação do personagem controlavel
@@ -94,5 +105,4 @@ public class Player : MonoBehaviour
         heldItem.transform.localRotation = Quaternion.identity;
         heldItem = null;
     }
-
 }
