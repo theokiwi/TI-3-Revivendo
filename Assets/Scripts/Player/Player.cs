@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -7,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] Image staminaMeter;
+    [SerializeField] LayerMask floor;
     [SerializeField] Transform holdPos;
     [SerializeField] float stamina, staminaDuration, staminaCoolDown;
     [SerializeField] float speed;
@@ -48,6 +47,7 @@ public class Player : MonoBehaviour
             resting = true;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Bed"))
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit) && Time.timeScale != 0)
+            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,floor) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
                 NavMesh(hit.point);
@@ -79,7 +79,8 @@ public class Player : MonoBehaviour
     {
         if(hitTarget.CompareTag("Table"))
         {
-            target = hitTarget.GetComponent("targetPos").transform.position;
+            // O objeto referencia do target deve ser SEMPRE o primeiro objeto filho do hitTarget no inspetor
+            target = hitTarget.transform.GetChild(0).transform.position;
         }
 
         agent.SetDestination(target);
