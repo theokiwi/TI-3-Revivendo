@@ -8,6 +8,7 @@ TagManager:
   - DropPoint
   - Pickable
   - Bed
+  - Table
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] bool resting;
     private GameObject heldItem;
+    private GameObject hitTarget;
     NavMeshAgent agent;
 
     private void Start()
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        NavMesh();
+        GetMouseClick();
         Stamina();
         SpeedControl();
     }
@@ -55,22 +56,37 @@ public class Player : MonoBehaviour
         }
     }
 
-    // IA de navegação do personagem controlavel
-    void NavMesh()
+    // Faz um raycast a partir da posicao do mouse na tela quando o botÃ£o esquerdo do mouse for pressionado
+    // Retorna o Vector3 do ponto atingido pelo raycast para o metodo NavMesh que eentao decide como executar a movimentacao do player
+    // AVISO: o metodo nao chamara o metodo NavMesh caso o Time.timeScale seja igual a 0, para evitar que o player se movimente na tela de pausa
+    private void GetMouseClick()
     {
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out RaycastHit hit) && Time.timeScale != 0)
             {
-                agent.SetDestination(hit.point);
+                hitTarget = hit.transform.gameObject;
+                NavMesh(hit.point);
             }
         }
     }
 
+    // IA de navegaï¿½ï¿½o do personagem controlavel
+    // Caso o player tenha clicado em uma mesa, o target sera redirecionado para uma posicao pre-estabelicida para evitar bugs visuais
+    void NavMesh(Vector3 target)
+    {
+        if(hitTarget.CompareTag("Table"))
+        {
+            target = hitTarget.GetComponent("targetPos").transform.position;
+        }
+
+        agent.SetDestination(target);
+    }
+
     // Impede que o valor de stamina extrapole os limites estabelecidos e mantem o medidor correto
-    // Faz a stamina decair com o tempo e estabelece condição de recuperação
+    // Faz a stamina decair com o tempo e estabelece condiï¿½ï¿½o de recuperaï¿½ï¿½o
     void Stamina()
     {
         stamina = Mathf.Clamp(stamina, -0.1f, 1.1f);
@@ -88,7 +104,7 @@ public class Player : MonoBehaviour
         else agent.speed = speed;
     }
 
-    // Pega o item desejado, o transforma em filho do holdPos e envia para posição de carregamento.
+    // Pega o item desejado, o transforma em filho do holdPos e envia para posiï¿½ï¿½o de carregamento.
     void PickUp(GameObject item)
     {
         heldItem = item;
@@ -97,7 +113,7 @@ public class Player : MonoBehaviour
         heldItem.transform.rotation = Quaternion.identity;
     }
 
-    // Deixa o item carregado na posição recebida
+    // Deixa o item carregado na posiï¿½ï¿½o recebida
     void DropItem(GameObject dropPos)
     {
         heldItem.transform.SetParent(dropPos.transform);
