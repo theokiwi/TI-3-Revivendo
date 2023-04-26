@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-public class GameController : MonoBehaviour
+public class GameController : Singleton<GameController>
 {
     [SerializeField] TMP_Text  moneyText;
     public bool paused = true;
@@ -15,15 +15,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        // Codigo basico de singleton.
-        if ( instance != null && instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-        }
+        //singleton pattern transferido pra Singleton<T>
         DontDestroyOnLoad(gameObject);
     }
 

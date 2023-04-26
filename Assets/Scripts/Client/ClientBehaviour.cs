@@ -13,7 +13,7 @@ public class ClientBehaviour : MonoBehaviour
     }
     public CLIENT_STATES clientState;
 
-    public Pedido pedido;
+    //public Pedido pedido;
 
     private void Update()
     {
@@ -25,7 +25,7 @@ public class ClientBehaviour : MonoBehaviour
                 clientState = CLIENT_STATES.Waiting;
             }
 
-            if (clientState == CLIENT_STATES.Waiting && pedido.IsReady())
+            //if (clientState == CLIENT_STATES.Waiting && pedido.IsReady())
             {
                 FinishEating();
             }
@@ -39,11 +39,11 @@ public class ClientBehaviour : MonoBehaviour
 
     private void SendPedido()
     {
-        ListaController.AddPedido(this);
+        //listaController.AddPedido(this);
     }
     private void FinishEating()
     {
-        //gamemanager dinheiros adicionar blá blá
+        //gamemanager dinheiros adicionar blï¿½ blï¿½
 
         Destroy(gameObject);
     }
