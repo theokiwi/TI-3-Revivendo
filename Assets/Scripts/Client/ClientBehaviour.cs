@@ -13,7 +13,7 @@ public class ClientBehaviour : MonoBehaviour
     }
     public CLIENT_STATES clientState;
 
-    //public Pedido pedido;
+    public Pedido pedido;
 
     private void Update()
     {
