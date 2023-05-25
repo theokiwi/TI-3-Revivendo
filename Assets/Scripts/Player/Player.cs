@@ -24,9 +24,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        GetMouseClick();
-        Stamina();
-        SpeedControl();
+        if(Time.timeScale != 0)
+        {
+            GetMouseClick();
+            Stamina();
+            SpeedControl();
+        }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            GameController.instance.OpenKitchen();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
