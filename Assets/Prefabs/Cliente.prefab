@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerServingRange: 2
+  dishData: {fileID: 11400000, guid: c16dc56e444055a4dade2621f324cbd5, type: 2}
   clientState: 0
-  pedido: {fileID: 8315402627207373034, guid: 371fcb320760ad7468085d7080b9a290, type: 3}
 --- !u!1 &8365467431500561760
 GameObject:
   m_ObjectHideFlags: 0

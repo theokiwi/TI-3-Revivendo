@@ -20,9 +20,6 @@ public class GameController : Singleton<GameController>
     [SerializeField] LayerMask plateLayer;
 
 
-    public static GameController instance;
-
-
     private void Awake()
     {
         //singleton pattern transferido pra Singleton<T>

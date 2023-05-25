@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E))
         {
-            GameController.instance.OpenKitchen();
+            GameController.Instance.OpenKitchen();
         }
     }
 

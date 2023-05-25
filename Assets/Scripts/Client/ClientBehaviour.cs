@@ -4,47 +4,27 @@ using UnityEngine;
 
 public class ClientBehaviour : MonoBehaviour
 {
-    [SerializeField] private float playerServingRange;
-
+    public DishData dishData;
     public enum CLIENT_STATES
     {
         Ready,
-        Waiting
+        Waiting,
+        Eating
     }
     public CLIENT_STATES clientState;
 
-    public Pedido pedido;
-
-    private void Update()
+    private void Start() 
     {
-        if (PlayerCheck())
-        {
-            if (clientState == CLIENT_STATES.Ready)
-            {
-                SendPedido();
-                clientState = CLIENT_STATES.Waiting;
-            }
-
-            //if (clientState == CLIENT_STATES.Waiting && pedido.IsReady())
-            {
-                FinishEating();
-            }
-        }
-    }
-
-    private bool PlayerCheck()
-    {
-        return Vector3.Distance(transform.position, FindFirstObjectByType<Player>().transform.position) <= playerServingRange;
+        clientState = CLIENT_STATES.Ready;
     }
 
     private void SendPedido()
     {
-        //listaController.AddPedido(this);
+        GameController.Instance.GetOrder(dishData);
     }
     private void FinishEating()
     {
-        //gamemanager dinheiros adicionar bl� bl�
-
+        GameController.Instance.AddMoney(dishData.price);
         Destroy(gameObject);
     }
 }
