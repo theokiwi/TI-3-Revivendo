@@ -23,7 +23,7 @@ public class Cozinha : MonoBehaviour
     // Mantem a lista ordenada e atualizada enquanto o player interage com o menu da cozinha.
     public void RefreshList()
     {
-        orders = GameController.instance.orders;
+        orders = GameController.Instance.orders;
         List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
 
         options.Clear();
@@ -44,7 +44,7 @@ public class Cozinha : MonoBehaviour
         DishData dish = orders[index];
         inUse = true;
 
-        GameController.instance.StartCooking(dish);
+        GameController.Instance.StartCooking(dish);
 
         orders.RemoveAt(index);
         foreach(GameObject data in dropdowns)
