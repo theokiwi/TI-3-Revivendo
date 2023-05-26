@@ -10,6 +10,7 @@ TagManager:
   - Bed
   - Table
   - Dropdown
+  - Client
   layers:
   - Default
   - TransparentFX

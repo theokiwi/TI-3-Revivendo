@@ -48,9 +48,24 @@ public class Player : MonoBehaviour
         }
         else if (other.CompareTag("DropPoint") && heldItem != null)
         {
-            if(other.transform.childCount == 0)
-            {
-                DropItem(other.gameObject);
+            if (other.transform.childCount == 0)
+            { 
+                SeatBehaviour seat = other.GetComponent<SeatBehaviour>();
+
+                if (!seat.client)
+                {
+                    return;
+                }
+                else
+                if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready)
+                {
+                    seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
+                    //coisa da cuzinha
+                }
+                else
+                {
+                    DropItem(seat);
+                }
             }
         }
         if (other.CompareTag("Bed"))
@@ -126,20 +141,14 @@ public class Player : MonoBehaviour
     }
 
     // Deixa o item carregado na posi��o recebida, apenas se há cliente no assento.
-    void DropItem(GameObject dropPos)
+    void DropItem(SeatBehaviour seat)
     {
-        SeatBehaviour seat = dropPos.GetComponent<SeatBehaviour>();
-        if(!seat.client)
-            return;
-        if(seat.client.clientState == ClientBehaviour.CLIENT_STATES.Waiting)
-        {
             seat.ServedDish = heldItem;
 
-            heldItem.transform.SetParent(dropPos.transform);
+            heldItem.transform.SetParent(seat.transform);
             heldItem.transform.localPosition = Vector3.zero;
             heldItem.transform.localRotation = Quaternion.identity;
             heldItem.tag = "Untagged";
             heldItem = null;
-        }
     }
 }

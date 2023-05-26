@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3c70ae0c0a7f24fb13a0cd1b070e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerServingRange: 2
   dishData: {fileID: 11400000, guid: c16dc56e444055a4dade2621f324cbd5, type: 2}
   clientState: 0
 --- !u!1 &8365467431500561760
