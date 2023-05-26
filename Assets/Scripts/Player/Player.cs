@@ -34,6 +34,10 @@ public class Player : MonoBehaviour
         {
             GameController.Instance.OpenKitchen();
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            GameController.Instance.PauseMenu();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
