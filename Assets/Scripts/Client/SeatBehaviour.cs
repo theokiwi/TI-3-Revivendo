@@ -7,8 +7,32 @@ public class SeatBehaviour : MonoBehaviour
     //colisor pro player detectar (temporario)
     [SerializeField] private Collider col;
     //posição pra ir o cliente
-    [SerializeField] private Transform seat;
+    public Transform seat;
     public ClientBehaviour client;
-    public DishData servedDish;
-    
+    private DishContainer _servedDish;
+    public DishContainer ServedDish
+    {
+        get
+        {
+            return _servedDish;
+        }
+        set
+        {
+            if(client)
+            {
+                client.Served(value.dish);
+                _servedDish = value;
+                Invoke("ClearDish", value.dish.eatTime);
+            }
+            else
+            {
+                _servedDish = null;
+            }
+        }
+    }
+
+    public void ClearDish()
+    {
+        Destroy(_servedDish.gameObject);
+    }
 }

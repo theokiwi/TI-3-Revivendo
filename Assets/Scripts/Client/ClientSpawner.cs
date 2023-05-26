@@ -6,14 +6,14 @@ public class ClientSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject prefabClient;
     [SerializeField] private float summonTime;
-    [SerializeField] private List<Transform> chairs = new List<Transform>();
+    [SerializeField] private List<SeatBehaviour> chairs = new List<SeatBehaviour>();
 
     private float timer;
-    private List<Transform> emptyChairs = new List<Transform>();
+    private List<SeatBehaviour> emptyChairs = new List<SeatBehaviour>();
 
     private void Start()
     {
-        foreach(Transform chair in chairs)
+        foreach(SeatBehaviour chair in chairs)
         {
             emptyChairs.Add(chair);
         }
@@ -32,9 +32,13 @@ public class ClientSpawner : MonoBehaviour
             }
             catch
             {
+                foreach(SeatBehaviour chair in chairs)
+                {
+                    FreeChair(chair);
+                }
                 if(emptyChairs.Count == 0)
                 {
-                    Debug.LogWarning("Não tem cadeira vazia");
+                    Debug.LogWarning("Nï¿½o tem cadeira vazia");
                 }
                 else
                 {
@@ -44,7 +48,7 @@ public class ClientSpawner : MonoBehaviour
         }
     }
 
-    public void FreeChair(Transform chair)
+    public void FreeChair(SeatBehaviour chair)
     {
         if (chairs.Contains(chair) && !emptyChairs.Contains(chair))
         {
@@ -56,11 +60,11 @@ public class ClientSpawner : MonoBehaviour
     {
         Summon(emptyChairs[Random.Range(0, emptyChairs.Count)]);
     }
-    public void Summon(Transform chair)
+    public void Summon(SeatBehaviour chair)
     {
-        GameObject newClient = Instantiate(prefabClient, chair.position, chair.rotation, chair);
+        GameObject newClient = Instantiate(prefabClient, chair.seat.position, chair.seat.rotation, chair.seat);
         timer = summonTime;
         emptyChairs.Remove(chair);
-    }       //spawna os clientes como _filho_ da cadeira. não é ideal mas dá pro gasto por enquanto.
+    }       //spawna os clientes como _filho_ da cadeira. nï¿½o ï¿½ ideal mas dï¿½ pro gasto por enquanto.
 
 }

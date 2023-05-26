@@ -8,6 +8,7 @@ public class DishData : ScriptableObject
     public string dishType;
     public int price;   //quanto dinheiro dá
     public int preparationTime; //quanto tempo pra cozinhar
+    public int eatTime; //quanto tempo pra terminarem de comer (se pá mudo pro client depois)
     public GameObject inPlateObj;    //Prefab pra ser instanciado como prato (SÓ VISUAL)
     public Sprite interfaceIcon;    //ícone pra instanciar na interface
 }

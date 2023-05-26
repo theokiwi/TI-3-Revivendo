@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] float stamina, staminaDuration, staminaCoolDown;
     [SerializeField] float speed;
     [SerializeField] bool resting;
-    private GameObject heldItem;
+    private DishContainer heldItem;
     private GameObject hitTarget;
     NavMeshAgent agent;
 
@@ -115,18 +115,26 @@ public class Player : MonoBehaviour
     // Pega o item desejado, o transforma em filho do holdPos e envia para posi��o de carregamento.
     void PickUp(GameObject item)
     {
-        heldItem = item;
+        heldItem = item.GetComponent<DishContainer>();
         heldItem.transform.SetParent(holdPos);
         heldItem.transform.position = holdPos.position;
         heldItem.transform.rotation = Quaternion.identity;
     }
 
-    // Deixa o item carregado na posi��o recebida
+    // Deixa o item carregado na posi��o recebida, apenas se há cliente no assento.
     void DropItem(GameObject dropPos)
     {
-        heldItem.transform.SetParent(dropPos.transform);
-        heldItem.transform.localPosition = Vector3.zero;
-        heldItem.transform.localRotation = Quaternion.identity;
-        heldItem = null;
+        SeatBehaviour seat = dropPos.GetComponent<SeatBehaviour>();
+        if(!seat.client)
+            return;
+        if(seat.client.clientState == ClientBehaviour.CLIENT_STATES.Waiting)
+        {
+            seat.ServedDish = heldItem;
+
+            heldItem.transform.SetParent(dropPos.transform);
+            heldItem.transform.localPosition = Vector3.zero;
+            heldItem.transform.localRotation = Quaternion.identity;
+            heldItem = null;
+        }
     }
 }
