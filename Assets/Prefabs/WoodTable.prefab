@@ -255,6 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1cd7e1d672df1448849bc47e1207c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  col: {fileID: 0}
+  seat: {fileID: 6612288845362116913}
+  client: {fileID: 0}
 --- !u!1001 &2551887623714895788
 PrefabInstance:
   m_ObjectHideFlags: 0

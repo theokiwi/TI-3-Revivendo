@@ -63,6 +63,7 @@ public class ClientSpawner : MonoBehaviour
     public void Summon(SeatBehaviour chair)
     {
         GameObject newClient = Instantiate(prefabClient, chair.seat.position, chair.seat.rotation, chair.seat);
+        chair.client = newClient.GetComponent<ClientBehaviour>();
         timer = summonTime;
         emptyChairs.Remove(chair);
     }       //spawna os clientes como _filho_ da cadeira. n�o � ideal mas d� pro gasto por enquanto.

@@ -138,6 +138,7 @@ public class Player : MonoBehaviour
             heldItem.transform.SetParent(dropPos.transform);
             heldItem.transform.localPosition = Vector3.zero;
             heldItem.transform.localRotation = Quaternion.identity;
+            heldItem.tag = "Untagged";
             heldItem = null;
         }
     }
