@@ -9,6 +9,7 @@ TagManager:
   - Pickable
   - Bed
   - Table
+  - Dropdown
   layers:
   - Default
   - TransparentFX
