@@ -92,7 +92,7 @@ public class GameController : Singleton<GameController>
     {
         StartCoroutine(Cook(dish));
     }
-
+    
     // Faz uma contagem e, após, adiciona o objeto do prato cozinhado à fila de pratos a serem servidos.
     public IEnumerator Cook(DishData dish)
     {

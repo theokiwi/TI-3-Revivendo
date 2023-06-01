@@ -4991,8 +4991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6df0ab50e82ba49947674215c6f0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 1
-  rotSpeed: 1
+  panSpeed: 0.5
+  rotSpeed: 50
   panSmoothing: 0.596
   rotSmoothing: 0.599
 --- !u!1 &966001998
