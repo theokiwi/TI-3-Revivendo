@@ -10,6 +10,7 @@ public class GameController : Singleton<GameController>
     [SerializeField] TMP_Dropdown[] slots;
     [SerializeField] GameObject kitchenMenu;
     [SerializeField] TMP_Text  moneyText;
+    [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
     public bool paused = true;
     private float money;
@@ -30,6 +31,7 @@ public class GameController : Singleton<GameController>
     {
         money = 0f; // Posteriormente sera substituido por playerPrefs para manter o dinheiro ao longo do jogo.
         moneyText.text = $" {money},00 ";
+        numberOfOrders.text = $"{orders.Count}";
 
         Time.timeScale = 1f;
     }
@@ -51,6 +53,7 @@ public class GameController : Singleton<GameController>
     {
         orders.Add(order);
         orders.Sort();
+        numberOfOrders.text = $"{orders.Count}";
     }
 
     // Toggle de pausar e despausar o jogo. 

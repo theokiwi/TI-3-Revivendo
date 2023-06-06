@@ -3467,6 +3467,7 @@ MonoBehaviour:
   slots: []
   kitchenMenu: {fileID: 1442954723}
   moneyText: {fileID: 229637120}
+  numberOfOrders: {fileID: 1255510367}
   pauseScreen: {fileID: 1081450613}
   paused: 0
   dispensers: []
