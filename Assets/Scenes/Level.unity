@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3207631, g: 0.55889964, b: 0.57197094, a: 1}
+  m_IndirectSpecularColor: {r: 0.32076332, g: 0.5589, b: 0.57197183, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5012,7 +5012,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.1
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5055,10 +5055,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6df0ab50e82ba49947674215c6f0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panSpeed: 1
-  rotSpeed: 1
-  panSmoothing: 0.596
-  rotSmoothing: 0.599
+  panSpeed: 0.05
+  rotSpeed: 30
+  zoomSpeed: 5
+  panSmoothing: 0.7
+  rotSmoothing: 0.85
+  minZoom: 5
+  maxZoom: 15
 --- !u!1 &966001998
 GameObject:
   m_ObjectHideFlags: 0

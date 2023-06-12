@@ -6,8 +6,11 @@ public class CameraMovement : MonoBehaviour
 { 
     [SerializeField] private float panSpeed;
     [SerializeField] private float rotSpeed;
+    [SerializeField] private float zoomSpeed;
     [SerializeField] [Range(0, 1)] private float panSmoothing;    //quantidade de "follow through" do movimento
     [SerializeField] [Range(0, 1)] private float rotSmoothing;    //quantidade de "follow through" da rotacao
+    [SerializeField] private float minZoom;     
+    [SerializeField] private float maxZoom;     
 
     //Guardam a input pra acontecer no proximo frame de fisica
     private Vector2 panInput;   //nomes horriveis, eu sei mas nao sei do que chamar     -alu
@@ -32,6 +35,17 @@ public class CameraMovement : MonoBehaviour
         //Atualizacao de inputs
         #region inputs
 
+        //zoom (acontece primeiro pra ter o tamanho da camera)
+
+        float camSize = cam.orthographicSize;
+        camSize += -Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+
+        camSize = Mathf.Clamp(camSize,minZoom,maxZoom);
+
+        cam.orthographicSize = camSize;
+        
+        //movimento 
+
         Vector2 mousePos = cam.ScreenToViewportPoint(Input.mousePosition);
         Vector2 mouseDelta = previousMousePos - mousePos;
         previousMousePos = mousePos;
@@ -45,6 +59,8 @@ public class CameraMovement : MonoBehaviour
         if(mousePos.y < 0.05)
             PanCamera(Vector2.down);
 
+        //rotacao
+
         if(Input.GetKeyDown(KeyCode.Mouse2))
             _rotating = true;
         if(Input.GetKeyUp(KeyCode.Mouse2))
@@ -53,15 +69,14 @@ public class CameraMovement : MonoBehaviour
         if(_rotating) 
         {
             RotateCamera(mouseDelta.x);
-        }
-        
+        }              
         #endregion
     }
 
     private void FixedUpdate()
     {
         //Aplicacao da input em movimento
-        cam.transform.parent.Translate(panInput.x * panSpeed, 0, panInput.y * panSpeed);
+        cam.transform.parent.Translate(panInput.x * panSpeed * cam.orthographicSize, 0, panInput.y * panSpeed * cam.orthographicSize);
         panInput = Vector2.Lerp(Vector2.zero, panInput, panSmoothing);  //lerps pro movimento parar lentamente ao inves de de forma brusca
         cam.transform.parent.Rotate(0, rotInput * rotSpeed, 0);
         rotInput = Mathf.Lerp(0, rotInput, rotSmoothing);
