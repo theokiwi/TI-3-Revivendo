@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 584979672823031117}
   - component: {fileID: 7774889620769429831}
   - component: {fileID: 6873548547784056371}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PratoTeste
   m_TagString: Pickable
   m_Icon: {fileID: 0}

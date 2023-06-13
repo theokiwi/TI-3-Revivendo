@@ -114,7 +114,12 @@ public class GameController : Singleton<GameController>
             hitDetect = Physics.BoxCast(data.transform.position, boxCastSize/2, Vector3.up, out hit, data.transform.rotation, maxDistance, plateLayer);
             if(hitDetect == false)
             {
+                Debug.Log("Dispenser vazio.");
                 Instantiate(plates.Dequeue(), data.transform.position, data.transform.rotation);
+            }
+            else if( hitDetect == true)
+            {
+                Debug.Log("Ocupado");
             }
         }        
     }
