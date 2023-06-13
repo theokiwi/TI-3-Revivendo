@@ -8,7 +8,6 @@ public class Cozinha : MonoBehaviour
     private GameObject[] dropdowns;
     private TMP_Dropdown menu;
     private List<DishData> orders;
-    private bool inUse = false;
 
 
     // Encontra os dorpdowns do menu da cozinha
@@ -42,7 +41,6 @@ public class Cozinha : MonoBehaviour
     {
         int index = menu.value;
         DishData dish = orders[index];
-        inUse = true;
 
         GameController.Instance.StartCooking(dish);
 

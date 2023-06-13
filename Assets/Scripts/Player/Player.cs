@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         if(Time.timeScale != 0)
         {
             GetMouseClick();
-            Stamina();
+            //Stamina();
             SpeedControl();
         }
         if(Input.GetKeyDown(KeyCode.E))
