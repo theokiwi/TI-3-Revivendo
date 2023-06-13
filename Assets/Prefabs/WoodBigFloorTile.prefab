@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3309422446548845002}
   - component: {fileID: 723277885786256640}
   - component: {fileID: 8697990123268780992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WoodBigFloorTile
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

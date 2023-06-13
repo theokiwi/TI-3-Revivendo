@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Image staminaMeter;
     [SerializeField] LayerMask floor;
+    [SerializeField] LayerMask plates;
     [SerializeField] Transform holdPos;
     [SerializeField] float stamina, staminaDuration, staminaCoolDown;
     [SerializeField] float speed;
@@ -87,16 +88,22 @@ public class Player : MonoBehaviour
     // AVISO: o metodo nao chamara o metodo NavMesh caso o Time.timeScale seja igual a 0, para evitar que o player se movimente na tela de pausa
     private void GetMouseClick()
     {
-        if (Input.GetMouseButton(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit hit,Mathf.Infinity,floor) && Time.timeScale != 0)
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floor | plates) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
-                NavMesh(hit.point);
+                
+                if(hitTarget.CompareTag("Pickable"))
+                {
+
+                }
+
+                if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
+                {
+                    NavMesh(hit.point);
+                }
             }
-        }
     }
 
     // IA de navega��o do personagem controlavel
