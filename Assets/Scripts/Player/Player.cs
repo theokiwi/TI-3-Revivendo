@@ -93,7 +93,7 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floor | plates) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
-                
+
                 if(hitTarget.CompareTag("Pickable"))
                 {
 
@@ -157,5 +157,10 @@ public class Player : MonoBehaviour
             heldItem.transform.localRotation = Quaternion.identity;
             heldItem.tag = "Untagged";
             heldItem = null;
+    }
+
+    private void Highlight(GameObject target)
+    {
+        MeshRenderer render = target.GetComponent<MeshRenderer>();
     }
 }
