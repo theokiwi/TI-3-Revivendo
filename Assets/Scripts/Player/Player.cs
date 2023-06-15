@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Shader highlightShader;
     [SerializeField] Image staminaMeter;
     [SerializeField] LayerMask floor;
     [SerializeField] LayerMask plates;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool resting;
     private DishContainer heldItem;
     private GameObject hitTarget;
+    private GameObject targetObject;
     NavMeshAgent agent;
 
     private void Start()
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
-
+                    Highlight(hitTarget.gameObject)
                 }
 
                 if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
@@ -162,5 +164,6 @@ public class Player : MonoBehaviour
     private void Highlight(GameObject target)
     {
         MeshRenderer render = target.GetComponent<MeshRenderer>();
+        render.material.shader = highlightShader;
     }
 }
