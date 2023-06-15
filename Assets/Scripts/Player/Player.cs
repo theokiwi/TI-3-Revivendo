@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
-                    Highlight(hitTarget.gameObject)
+                    Highlight(hitTarget.gameObject);
                 }
 
                 if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
