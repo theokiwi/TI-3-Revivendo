@@ -26,17 +26,19 @@ public class ClientBehaviour : MonoBehaviour
         dishData =  dishList[Random.Range(0, dishList.Count)];
     }
 
-    public void Served(DishData dish)
+    public bool Served(DishData dish)
     {
         if (dish == dishData)
         {
             clientState = CLIENT_STATES.Eating;
             Invoke("FinishEating", dish.eatTime);
+            return true;
         }
         else
         {
             angryIcon.SetActive(true);
             Destroy(gameObject, 2);
+            return false;
         }
     }
     private void FinishEating()

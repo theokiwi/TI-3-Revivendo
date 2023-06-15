@@ -16,10 +16,19 @@ public class CameraMovement : MonoBehaviour
     private Vector2 panInput;   //nomes horriveis, eu sei mas nao sei do que chamar     -alu
     private float rotInput;     //eu sei que isso parece que mente sobre como funciona pro resto do codigo mas me parece adequado pra separar a input no update
                                 //das coisas no fixedupdate, algm de nao deixar o resto do codigo comunicar diretamente com propriedades. Instinto de POO talvez.   -alu
-    private bool _rotating;     //mergi a parte de input pra camera aqui, entao agora precisa tbm dessa bool e a posicao do mouse no frame anterior;
+    private bool _rotating;     //mergi a parte de input pra camera aqui, entao agora precisa tbm dessas bools e a posicao do mouse no frame anterior;
+    private bool _panning;
     private Vector2 previousMousePos = Vector2.zero;
 
     private Camera cam;  //cam.transform.parent pra ser usado em tudo menos zoom.  -alu
+
+    //Tem jeitos melhores de fazer isso mas vai ser isso por enquanto
+    //Objetos de cenario a serem escondidos dependendo da direcao da camera
+    [SerializeField] private float disableWallAngle;
+    [SerializeField] private GameObject northWall;
+    [SerializeField] private GameObject southWall;
+    [SerializeField] private GameObject eastWall;
+    [SerializeField] private GameObject westWall;
 
     private void Awake()
     {
@@ -50,14 +59,14 @@ public class CameraMovement : MonoBehaviour
         Vector2 mouseDelta = previousMousePos - mousePos;
         previousMousePos = mousePos;
 
-        if(mousePos.x > 0.95)
-            PanCamera(Vector2.right);
-        if(mousePos.y > 0.95)
-            PanCamera(Vector2.up);
-        if(mousePos.x < 0.05)
-            PanCamera(Vector2.left);
-        if(mousePos.y < 0.05)
-            PanCamera(Vector2.down);
+        if(Input.GetKeyDown(KeyCode.Mouse1))
+            _panning = true;
+        if(Input.GetKeyUp(KeyCode.Mouse1))
+            _panning = false;
+        if(_panning) 
+        {
+            PanCamera(mouseDelta);
+        }              
 
         //rotacao
 
@@ -71,6 +80,25 @@ public class CameraMovement : MonoBehaviour
             RotateCamera(mouseDelta.x);
         }              
         #endregion
+
+        //aqui que desliga as paredes
+        northWall.SetActive(
+            Vector3.Angle(Vector3.forward, cam.transform.parent.forward) < disableWallAngle?
+            true : false
+            );
+        southWall.SetActive(
+            Vector3.Angle(Vector3.back, cam.transform.parent.forward) < disableWallAngle?
+            true : false
+            );
+        
+        eastWall.SetActive(
+            Vector3.Angle(Vector3.right, cam.transform.parent.forward) < disableWallAngle?
+            true : false
+            );
+        westWall.SetActive(
+            Vector3.Angle(Vector3.left, cam.transform.parent.forward) < disableWallAngle?
+            true : false
+            );
     }
 
     private void FixedUpdate()
@@ -84,7 +112,7 @@ public class CameraMovement : MonoBehaviour
 
     public void PanCamera(Vector2 vector)
     {
-        panInput = (panInput + vector).normalized;
+        panInput = (panInput + vector);
     }
 
     public void RotateCamera(float amount)

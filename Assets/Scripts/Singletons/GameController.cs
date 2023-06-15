@@ -35,6 +35,8 @@ public class GameController : Singleton<GameController>
         numberOfOrders.text = $"{orders.Count}";
 
         Time.timeScale = 1f;
+        
+        plates = new Queue<GameObject>();
     }
 
     public void FixedUpdate()
@@ -121,7 +123,9 @@ public class GameController : Singleton<GameController>
             if(hitDetect == false)
             {
                 Debug.Log("Dispenser vazio.");
-                Instantiate(plates.Dequeue(), data.transform.position, data.transform.rotation);
+                try{
+                    Instantiate(plates.Dequeue(), data.transform.position, data.transform.rotation);
+                }catch{}
             }
             else if( hitDetect == true)
             {

@@ -20,9 +20,14 @@ public class SeatBehaviour : MonoBehaviour
         {
             if(client)
             {
-                client.Served(value.dish);
-                _servedDish = value;
-                Invoke("ClearDish", value.dish.eatTime);
+                if(client.Served(value.dish))
+                {
+                    _servedDish = value;
+                    Invoke("ClearDish", value.dish.eatTime);
+                }else
+                {
+                    Invoke("ClearDish", 2);
+                }
             }
             else
             {

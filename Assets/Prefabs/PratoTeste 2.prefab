@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c686d496165244195d32512a384a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dish: {fileID: 11400000, guid: c16dc56e444055a4dade2621f324cbd5, type: 2}
+  dish: {fileID: 11400000, guid: 80d53709ecc132f47a20c4502bdeac8b, type: 2}
 --- !u!135 &6873548547784056371
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Prato2
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  inPlateObj: {fileID: 0}
+  dishType: Prato2
+  price: 5
+  preparationTime: 7
+  eatTime: 5
+  inPlateObj: {fileID: 5346376533228889946, guid: 90ae81e92c8a44d4ca7bbc9127b0efd2, type: 3}
   interfaceIcon: {fileID: 0}

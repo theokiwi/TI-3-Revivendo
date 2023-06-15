@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         {
             PickUp(other.gameObject);
         }
-        else if (other.CompareTag("DropPoint") && heldItem != null)
+        else if (other.CompareTag("DropPoint"))
         {
             if (other.transform.childCount == 0)
             { 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
                     seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
                     GameController.Instance.GetOrder(seat.client.dishData);
                 }
-                else
+                else if(heldItem != null)
                 {
                     DropItem(seat);
                 }
@@ -178,8 +178,7 @@ public class Player : MonoBehaviour
     void DropItem(SeatBehaviour seat)
     {
             seat.ServedDish = heldItem;
-            
-            seat.client.Served(heldItem.dish);
+
             heldItem.transform.SetParent(seat.transform);
             heldItem.transform.localPosition = Vector3.zero;
             heldItem.transform.localRotation = Quaternion.identity;
