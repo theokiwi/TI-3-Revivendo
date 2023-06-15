@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
                 hitTarget = hit.transform.gameObject;
                 Debug.Log(hitTarget);
 
-                if(hitTarget.CompareTag("Pickable"))
+                if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table"))
                 {
                     Highlight(hitTarget.gameObject, highlightShader);
                     Debug.Log("Pickable hit");
@@ -195,7 +195,10 @@ public class Player : MonoBehaviour
         
         foreach(MeshRenderer data in renders)
         {
-            data.material.shader = shader;
+            foreach(Material mat in data.materials)
+            {
+                mat.shader = shader;
+            }
         }
     }
 }
