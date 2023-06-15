@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class GameController : Singleton<GameController>
 {
@@ -46,6 +47,11 @@ public class GameController : Singleton<GameController>
     {
         money += value;
         moneyText.text = $" {money} ";
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("EndGame");
     }
 
     // Adiciona pedido à lista e ordena a lista.

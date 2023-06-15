@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         if(Time.timeScale != 0)
         {
             GetMouseClick();
-            //Stamina();
+            Stamina();
             SpeedControl();
         }
         if(Input.GetKeyDown(KeyCode.E))
@@ -131,6 +131,11 @@ public class Player : MonoBehaviour
         else stamina -= Time.deltaTime / staminaDuration;
 
         staminaMeter.fillAmount = stamina;
+
+        if(stamina <= 0)
+        {
+            GameController.Instance.GameOver();
+        }
     }
 
     // Reduz a velocidade do player conforme a stamina diminui (obs: Sim Artur, eu sei que podia estar melhor)
