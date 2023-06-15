@@ -13,8 +13,11 @@ public class GameController : Singleton<GameController>
     [SerializeField] TMP_Text  moneyText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
+    [SerializeField] GameObject endScreen;
     public bool paused = true;
-    private float money;
+    public float money;
+
+    public int lostClients;
 
     [SerializeField] Transform[] dispensers;
     [SerializeField] Vector3 boxCastSize;
@@ -30,7 +33,8 @@ public class GameController : Singleton<GameController>
 
     private void Start()
     {
-        money = 0f; // Posteriormente sera substituido por playerPrefs para manter o dinheiro ao longo do jogo.
+        lostClients = 0;
+        money = 0f;
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{orders.Count}";
 
@@ -51,9 +55,15 @@ public class GameController : Singleton<GameController>
         moneyText.text = $" {money} ";
     }
 
+    public void LoseClient()
+    {
+        lostClients--;
+    }
+
     public void GameOver()
     {
-        SceneManager.LoadScene("EndGame");
+        Time.timeScale = 0.0f;
+        endScreen.SetActive(true);
     }
 
     // Adiciona pedido à lista e ordena a lista.
