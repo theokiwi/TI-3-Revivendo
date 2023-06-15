@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
                 if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready)
                 {
                     seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
-                    //coisa da cuzinha
+                    GameController.Instance.GetOrder(seat.client.dishData);
                 }
                 else
                 {
@@ -149,11 +149,12 @@ public class Player : MonoBehaviour
         heldItem.transform.rotation = Quaternion.identity;
     }
 
-    // Deixa o item carregado na posi��o recebida, apenas se há cliente no assento.
+    // Deixa o item carregado na posicao recebida, apenas se ha cliente no assento.
     void DropItem(SeatBehaviour seat)
     {
             seat.ServedDish = heldItem;
-
+            
+            seat.client.Served(heldItem.dish);
             heldItem.transform.SetParent(seat.transform);
             heldItem.transform.localPosition = Vector3.zero;
             heldItem.transform.localRotation = Quaternion.identity;
