@@ -100,6 +100,7 @@ public class Player : MonoBehaviour
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
+                    Highlight(hitTarget.gameObject, highlightShader);
                     Debug.Log("Pickable hit");
                     if(targetObject == null)
                     {
