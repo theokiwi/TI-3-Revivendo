@@ -4,10 +4,10 @@ Shader "Custom/HiglightShader"
     {
         _Color ("Color", Color) = (1, 1, 1, 1)
         _MainTex ("Texture", 2D) = "white" {}
-        _HighlightColor ("Highlight Color", Color) = (1, 1, 1, 1)
+        _HighlightColor ("Highlight Color", Color) = (0, 0, 1, 1)
         _HighlightStrength ("Highlight Strength", Range(0.0, 1.0)) = 0.0
-        _Omega ("Oscillation Frequency", Float) = 1.0
-        [Toggle] _Oscillating ("Oscillating", Float) = 0
+        _Omega ("Oscillation Frequency", Float) = 70.0
+        [Toggle] _Oscillating ("Oscillating", Float) = 1
     }
     SubShader
     {
@@ -56,7 +56,7 @@ Shader "Custom/HiglightShader"
             {
                 fixed4 col = tex2D(_MainTex, i.uv) * _Color;
                 #if _OSCILLATING_ON
-                    _HighlightStrength = 0.5 * sin(_Time * _Omega) + 0.7;  
+                    _HighlightStrength = 0.4 * sin(_Time * _Omega) + 0.7;  
                 #endif
                 col = lerp(col, _HighlightColor, _HighlightStrength);
                 return col;

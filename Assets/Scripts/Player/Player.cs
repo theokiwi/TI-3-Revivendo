@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] Shader highlightShader;
+    [SerializeField] Shader defaultShader;
     [SerializeField] Image staminaMeter;
     [SerializeField] LayerMask floor;
     [SerializeField] LayerMask plates;
@@ -14,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool resting;
     private DishContainer heldItem;
     private GameObject hitTarget;
-    private GameObject targetObject;
+    private GameObject targetObject = null;
     NavMeshAgent agent;
 
     private void Start()
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour
         if(Time.timeScale != 0)
         {
             GetMouseClick();
-            //Stamina();
+            Stamina();
             SpeedControl();
         }
         if(Input.GetKeyDown(KeyCode.E))
@@ -95,10 +96,28 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floor | plates) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
+                Debug.Log(hitTarget);
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
-                    Highlight(hitTarget.gameObject);
+                    Debug.Log("Pickable hit");
+                    if(targetObject == null)
+                    {
+                        targetObject = hitTarget.gameObject;
+                        Highlight(targetObject, highlightShader);
+                    }
+                    else if(hitTarget.gameObject == targetObject){}
+                    else
+                    {
+                        Highlight(targetObject, defaultShader);
+                        targetObject = hitTarget.gameObject;
+                        Highlight(targetObject, highlightShader);
+                    }
+                }
+                else if(targetObject != null)
+                {
+                    Highlight(targetObject, defaultShader);
+                    targetObject = null;
                 }
 
                 if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
@@ -131,6 +150,11 @@ public class Player : MonoBehaviour
         else stamina -= Time.deltaTime / staminaDuration;
 
         staminaMeter.fillAmount = stamina;
+
+        if(stamina <= 0)
+        {
+            GameController.Instance.GameOver();
+        }
     }
 
     // Reduz a velocidade do player conforme a stamina diminui (obs: Sim Artur, eu sei que podia estar melhor)
@@ -162,9 +186,16 @@ public class Player : MonoBehaviour
             heldItem = null;
     }
 
-    private void Highlight(GameObject target)
+    private void Highlight(GameObject target, Shader shader)
     {
-        MeshRenderer render = target.GetComponent<MeshRenderer>();
-        render.material.shader = highlightShader;
+        Debug.Log("highlightGoes burr");
+        MeshRenderer [] renders;
+
+        renders = target.GetComponentsInChildren<MeshRenderer>();
+        
+        foreach(MeshRenderer data in renders)
+        {
+            data.material.shader = shader;
+        }
     }
 }
