@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] Shader highlightShader;
+    [SerializeField] Shader defaultShader;
     [SerializeField] Image staminaMeter;
     [SerializeField] LayerMask floor;
     [SerializeField] LayerMask plates;
@@ -98,7 +99,21 @@ public class Player : MonoBehaviour
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
-                    Highlight(hitTarget.gameObject);
+                    if(targetObject == null)
+                    {
+                        targetObject = hitTarget.gameObject;
+                        Highlight(targetObject, highlightShader);
+                    }
+                    else if(hitTarget.gameObject == targetObject)
+                    {
+
+                    }
+                    else
+                    {
+                        Highlight(targetObject, defaultShader);
+                        targetObject = hitTarget.gameObject;
+                        Highlight(targetObject, highlightShader);
+                    }
                 }
 
                 if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
@@ -166,9 +181,18 @@ public class Player : MonoBehaviour
             heldItem = null;
     }
 
-    private void Highlight(GameObject target)
+    private void Highlight(GameObject target, Shader shader)
     {
-        MeshRenderer render = target.GetComponent<MeshRenderer>();
-        render.material.shader = highlightShader;
+        MeshRenderer render;
+        MeshRenderer [] renders;
+
+        render = target.GetComponent<MeshRenderer>();
+        renders = target.GetComponentsInChildren<MeshRenderer>();
+        
+        render.material.shader = shader;
+        foreach(MeshRenderer data in renders)
+        {
+            data.material.shader = shader;
+        }
     }
 }
