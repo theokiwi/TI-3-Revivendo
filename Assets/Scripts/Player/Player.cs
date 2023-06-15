@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] bool resting;
     private DishContainer heldItem;
     private GameObject hitTarget;
-    private GameObject targetObject;
+    private GameObject targetObject = null;
     NavMeshAgent agent;
 
     private void Start()
@@ -96,24 +96,28 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floor | plates) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
+                Debug.Log(hitTarget);
 
                 if(hitTarget.CompareTag("Pickable"))
                 {
+                    Debug.Log("Pickable hit");
                     if(targetObject == null)
                     {
                         targetObject = hitTarget.gameObject;
                         Highlight(targetObject, highlightShader);
                     }
-                    else if(hitTarget.gameObject == targetObject)
-                    {
-
-                    }
+                    else if(hitTarget.gameObject == targetObject){}
                     else
                     {
                         Highlight(targetObject, defaultShader);
                         targetObject = hitTarget.gameObject;
                         Highlight(targetObject, highlightShader);
                     }
+                }
+                else if(targetObject != null)
+                {
+                    Highlight(targetObject, defaultShader);
+                    targetObject = null;
                 }
 
                 if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
@@ -183,13 +187,11 @@ public class Player : MonoBehaviour
 
     private void Highlight(GameObject target, Shader shader)
     {
-        MeshRenderer render;
+        Debug.Log("highlightGoes burr");
         MeshRenderer [] renders;
 
-        render = target.GetComponent<MeshRenderer>();
         renders = target.GetComponentsInChildren<MeshRenderer>();
         
-        render.material.shader = shader;
         foreach(MeshRenderer data in renders)
         {
             data.material.shader = shader;
