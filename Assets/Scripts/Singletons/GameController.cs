@@ -105,6 +105,7 @@ public class GameController : Singleton<GameController>
         if(!pauseScreen.activeInHierarchy)
         {
             kitchenMenu.SetActive(PauseGame());
+            numberOfOrders.text = $"{orders.Count}";
         }
     }
 
@@ -132,9 +133,9 @@ public class GameController : Singleton<GameController>
             hitDetect = Physics.BoxCast(data.transform.position, boxCastSize/2, Vector3.up, out hit, data.transform.rotation, maxDistance, plateLayer);
             if(hitDetect == false)
             {
-                Debug.Log("Dispenser vazio.");
+                //Debug.Log("Dispenser vazio.");
                 try{
-                    Instantiate(plates.Dequeue(), data.transform.position, data.transform.rotation);
+                    Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
                 }catch{}
             }
             else if( hitDetect == true)

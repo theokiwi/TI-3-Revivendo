@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private DishContainer heldItem;
     private GameObject hitTarget;
     private GameObject targetObject = null;
+    private GameObject markedObject = null;
     NavMeshAgent agent;
 
     private void Start()
@@ -96,41 +97,50 @@ public class Player : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floor | plates) && Time.timeScale != 0)
             {
                 hitTarget = hit.transform.gameObject;
-                Debug.Log(hitTarget);
 
                 if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table"))
                 {
-                    Highlight(hitTarget.gameObject, highlightShader);
-                    Debug.Log("Pickable hit");
                     if(targetObject == null)
                     {
-                        targetObject = hitTarget.gameObject;
-                        Highlight(targetObject, highlightShader);
+                        targetObject = hitTarget;
+                        Highlight(targetObject, highlightShader, Color.blue);
                     }
-                    else if(hitTarget.gameObject == targetObject){}
-                    else
+                    else if(hitTarget != targetObject)
                     {
-                        Highlight(targetObject, defaultShader);
-                        targetObject = hitTarget.gameObject;
-                        Highlight(targetObject, highlightShader);
+                        Highlight(targetObject, defaultShader, Color.blue);
+                        targetObject = null;
                     }
                 }
                 else if(targetObject != null)
                 {
-                    Highlight(targetObject, defaultShader);
+                    Highlight(targetObject, defaultShader, Color.blue);
                     targetObject = null;
                 }
 
-                if(Input.GetMouseButtonDown(0) && hitTarget.CompareTag("Floor"))
+                if(Input.GetMouseButtonDown(0))
                 {
-                    NavMesh(hit.point);
+                    if(hitTarget.CompareTag("Floor"))
+                    {
+                        agent.destination = hit.point;
+                    }
+                    else if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table"))
+                    {
+                        Debug.Log("click");
+                        if(NavMesh.SamplePosition(hit.point, out NavMeshHit data, 4, NavMesh.AllAreas))
+                        {
+                            Debug.Log("coisou");
+                            agent.destination = data.position;
+                            markedObject = hitTarget;
+                            Highlight(markedObject, highlightShader, Color.magenta);
+                        }
+                    }
                 }
             }
     }
 
     // IA de navega��o do personagem controlavel
     // Caso o player tenha clicado em uma mesa, o target sera redirecionado para uma posicao pre-estabelicida para evitar bugs visuais
-    void NavMesh(Vector3 target)
+    /*void NavMesh(Vector3 target)
     {
         if(hitTarget.CompareTag("Table"))
         {
@@ -139,7 +149,7 @@ public class Player : MonoBehaviour
         }
 
         agent.SetDestination(target);
-    }
+    }*/
 
     // Impede que o valor de stamina extrapole os limites estabelecidos e mantem o medidor correto
     // Faz a stamina decair com o tempo e estabelece condi��o de recupera��o
@@ -186,7 +196,7 @@ public class Player : MonoBehaviour
             heldItem = null;
     }
 
-    private void Highlight(GameObject target, Shader shader)
+    private void Highlight(GameObject target, Shader shader, Color color)
     {
         Debug.Log("highlightGoes burr");
         MeshRenderer [] renders;
@@ -198,6 +208,8 @@ public class Player : MonoBehaviour
             foreach(Material mat in data.materials)
             {
                 mat.shader = shader;
+                Color col = data.material.GetColor("_HighlightColor");
+                col = color;
             }
         }
     }

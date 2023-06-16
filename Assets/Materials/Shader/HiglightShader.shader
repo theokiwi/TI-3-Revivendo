@@ -38,7 +38,7 @@ Shader "Custom/HiglightShader"
 
             sampler2D _MainTex;
             float4 _MainTex_ST;
-            float4 _HighlightColor;
+            uniform float4 _HighlightColor;
             float _HighlightStrength;
             fixed4 _Color;
             float _Omega;
