@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 16c79ec1b2b0b2e4fb69a7d02d668b9a
+guid: 47be84d2889f9564b81776dc78cde657
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BluishWood
+    second: {fileID: 2100000, guid: b3d00016937a025489e236854dc0505d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BrownWood
+    second: {fileID: 2100000, guid: b3d00016937a025489e236854dc0505d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
