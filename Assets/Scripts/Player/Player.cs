@@ -98,7 +98,7 @@ public class Player : MonoBehaviour
             {
                 hitTarget = hit.transform.gameObject;
 
-                if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table"))
+                if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table") && hitTarget != markedObject)
                 {
                     if(targetObject == null)
                     {
@@ -129,12 +129,18 @@ public class Player : MonoBehaviour
                         if(NavMesh.SamplePosition(hitTarget.transform.position, out NavMeshHit data, 4, NavMesh.AllAreas))
                         {
                             Debug.Log("coisou");
+                            transform.LookAt(hitTarget.transform.position);
                             agent.destination = data.position;
                             markedObject = hitTarget;
                             Highlight(markedObject, highlightShader, Color.magenta);
                         }
                     }
                 }
+            }
+            else if(targetObject != null)
+            {
+                Highlight(targetObject, defaultShader, Color.blue);
+                targetObject = null;
             }
     }
 
@@ -208,8 +214,7 @@ public class Player : MonoBehaviour
             foreach(Material mat in data.materials)
             {
                 mat.shader = shader;
-                Color col = data.material.GetColor("_HighlightColor");
-                col = color;
+                data.material.SetColor("_HighlightColor", color);
             }
         }
     }
