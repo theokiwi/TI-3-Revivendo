@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         resting = false;
         stamina = 5;
+        AudioManager.instance.Ruins();
     }
 
     void Update()
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Pickable") && heldItem == null)
         {
             PickUp(other.gameObject);
+            AudioManager.instance.Item();
         }
         else if (other.CompareTag("DropPoint"))
         {
@@ -70,6 +72,7 @@ public class Player : MonoBehaviour
                 else if(heldItem != null)
                 {
                     DropItem(seat);
+                    AudioManager.instance.Item();
                 }
             }
         }
