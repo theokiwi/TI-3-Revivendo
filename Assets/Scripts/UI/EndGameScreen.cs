@@ -20,6 +20,11 @@ public class EndGameScreen : MonoBehaviour
         finalTime.text = $"Tempo total: {Time.time}";
         finalScore.text = $"Pontuação final: {score}";
         rank.text = $"{FinalRank()}";
+        if(score > PlayerPrefs.GetFloat("HighScore"))
+        {
+            PlayerPrefs.SetFloat("HighScore", score);
+            PlayerPrefs.SetString("Rank", rank.text);
+        }
     }
 
     private char FinalRank()

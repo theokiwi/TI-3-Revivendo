@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClientBehaviour : MonoBehaviour
 {
     [HideInInspector] public DishData dishData;
+    [SerializeField] GameObject readyImg;
     public enum CLIENT_STATES
     {
         Ready,
@@ -25,6 +26,14 @@ public class ClientBehaviour : MonoBehaviour
         //Escolhe um pedido aleatorio
         dishData =  dishList[Random.Range(0, dishList.Count)];
         Invoke("Angrify", 25);
+    }
+
+    private void FixedUpdate()
+    {
+        if(clientState != CLIENT_STATES.Ready)
+        {
+            readyImg.SetActive(false);
+        }
     }
 
     public bool Served(DishData dish)

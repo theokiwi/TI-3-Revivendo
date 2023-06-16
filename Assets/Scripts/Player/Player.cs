@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
         {
             GetMouseClick();
             Stamina();
+            Interact();
             //SpeedControl();
         }
         if(Input.GetKeyDown(KeyCode.E))
@@ -131,8 +132,11 @@ public class Player : MonoBehaviour
                         Debug.Log("click");
                         if(NavMesh.SamplePosition(hitTarget.transform.position, out NavMeshHit data, 2, NavMesh.AllAreas))
                         {
-                            Debug.Log("coisou");
-                            transform.LookAt(hitTarget.transform.position);
+                            if(markedObject != null)
+                            {
+                                Highlight(markedObject, defaultShader, Color.white);
+                                markedObject = null;
+                            }
                             agent.destination = data.position;
                             markedObject = hitTarget;
                             targetObject = null;
@@ -146,6 +150,25 @@ public class Player : MonoBehaviour
                 Highlight(targetObject, defaultShader, Color.blue);
                 targetObject = null;
             }
+    }
+
+    private void Interact()
+    {
+        if(!agent.pathPending)
+        {
+            if(agent.remainingDistance <= agent.stoppingDistance)
+            {
+                if(!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+                {
+                    if(markedObject != null)
+                    {
+                        transform.LookAt(markedObject.transform.position);
+                        Highlight(markedObject, defaultShader, Color.white);
+                        markedObject = null;
+                    }
+                }
+            }
+        }
     }
 
     // IA de navega��o do personagem controlavel
