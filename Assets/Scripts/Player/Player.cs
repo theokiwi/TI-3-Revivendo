@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         heldItem = null;
         agent = GetComponent<NavMeshAgent>();
         resting = false;
-        stamina = 1;
+        stamina = 5;
     }
 
     void Update()
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         {
             GetMouseClick();
             Stamina();
-            SpeedControl();
+            //SpeedControl();
         }
         if(Input.GetKeyDown(KeyCode.E))
         {
