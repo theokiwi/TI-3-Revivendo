@@ -24,6 +24,7 @@ public class ClientBehaviour : MonoBehaviour
 
         //Escolhe um pedido aleatorio
         dishData =  dishList[Random.Range(0, dishList.Count)];
+        Invoke("Angrify", 25);
     }
 
     public bool Served(DishData dish)
@@ -36,8 +37,7 @@ public class ClientBehaviour : MonoBehaviour
         }
         else
         {
-            angryIcon.SetActive(true);
-            Destroy(gameObject, 2);
+            Angrify();
             return false;
         }
     }
@@ -45,5 +45,11 @@ public class ClientBehaviour : MonoBehaviour
     {
         GameController.Instance.AddMoney(dishData.price);
         Destroy(gameObject);
+    }
+    private void Angrify()
+    {
+        angryIcon.SetActive(true);
+        GameController.Instance.LoseClient();
+        Destroy(gameObject, 2);
     }
 }
