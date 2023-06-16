@@ -43,6 +43,7 @@ public class ClientBehaviour : MonoBehaviour
     }
     private void FinishEating()
     {
+        
         GameController.Instance.AddMoney(dishData.price);
         Destroy(gameObject);
     }

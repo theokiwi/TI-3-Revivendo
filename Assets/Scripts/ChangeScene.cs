@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
-    // Inicia o carregamento da cena com o nome informado
     public void LoadScene(string scene)
     {
+        AudioManager.instance.Click();
         SceneManager.LoadScene(scene);
     }
 }

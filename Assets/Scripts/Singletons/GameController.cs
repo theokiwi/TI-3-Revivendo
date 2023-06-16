@@ -72,6 +72,7 @@ public class GameController : Singleton<GameController>
         orders.Add(order);
         orders.Sort();
         numberOfOrders.text = $"{orders.Count}";
+        AudioManager.instance.PPedido();
     }
 
     // Toggle de pausar e despausar o jogo. 
@@ -136,6 +137,7 @@ public class GameController : Singleton<GameController>
                 //Debug.Log("Dispenser vazio.");
                 try{
                     Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
+                    AudioManager.instance.Fogao();
                 }catch{}
             }
             else if( hitDetect == true)
