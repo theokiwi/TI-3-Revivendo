@@ -126,13 +126,14 @@ public class Player : MonoBehaviour
                     else if(hitTarget.CompareTag("Pickable") || hitTarget.CompareTag("Table"))
                     {
                         Debug.Log("click");
-                        if(NavMesh.SamplePosition(hitTarget.transform.position, out NavMeshHit data, 4, NavMesh.AllAreas))
+                        if(NavMesh.SamplePosition(hitTarget.transform.position, out NavMeshHit data, 2, NavMesh.AllAreas))
                         {
                             Debug.Log("coisou");
                             transform.LookAt(hitTarget.transform.position);
                             agent.destination = data.position;
                             markedObject = hitTarget;
-                            Highlight(markedObject, highlightShader, Color.magenta);
+                            targetObject = null;
+                            Highlight(markedObject, highlightShader, Color.yellow);
                         }
                     }
                 }
@@ -214,7 +215,7 @@ public class Player : MonoBehaviour
             foreach(Material mat in data.materials)
             {
                 mat.shader = shader;
-                data.material.SetColor("_HighlightColor", color);
+                mat.SetColor("_HighlightColor", color);
             }
         }
     }
