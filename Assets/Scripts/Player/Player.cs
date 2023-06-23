@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.CompareTag("Pickable") && heldItem == null)
         {
             PickUp(other.gameObject);
@@ -81,13 +82,51 @@ public class Player : MonoBehaviour
         {
             resting = true;
         }
+        */
     }
 
     private void OnTriggerExit(Collider other)
     {
+        /*
         if (other.CompareTag("Bed"))
         {
             resting = false;
+        }
+        */
+    }
+
+    private void ManageSeat(SeatBehaviour seat)
+    {
+        if (!seat.client)
+        {
+            return;
+        }
+        else if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready)
+        {
+            seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
+            GameController.Instance.GetOrder(seat.client.dishData);
+        }
+        else if(heldItem != null)
+        {
+            DropItem(seat);
+            AudioManager.instance.Item();
+        }
+    }
+
+    private void Interact(GameObject target)
+    {
+        if(target.CompareTag("Pickable") && heldItem == null)
+        {
+            PickUp(target);
+            AudioManager.instance.Item();
+        }
+        else if(target.CompareTag("Table"))
+        {
+            Transform dropPoint = Helper.FindChildWithTag(target, "DropPoint");
+            if(dropPoint.childCount == 0)
+            {
+                ManageSeat(target.GetComponent<SeatBehaviour>());
+            }            
         }
     }
 
@@ -148,8 +187,8 @@ public class Player : MonoBehaviour
             else if(targetObject != null)
             {
                 Highlight(targetObject, defaultShader, Color.blue);
-                targetObject = null;
             }
+            targetObject = null;
     }
 
     private void Interact()

@@ -6,23 +6,30 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class GameController : Singleton<GameController>
 {
+    // Kitchen:
     public List<DishData> orders;
     public Queue<GameObject> plates;
     [SerializeField] TMP_Dropdown[] slots;
     [SerializeField] GameObject kitchenMenu;
+    [SerializeField] Transform[] dispensers;
+    [SerializeField] Vector3 dispenserSize;
+    [SerializeField] float maxDistance = 300.0f;
+    [SerializeField] LayerMask plateLayer;
+
+
+    // Ui:
     [SerializeField] TMP_Text  moneyText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject endScreen;
-    public bool paused = true;
-    public float money;
 
+
+    // Game Info
+    public bool paused;
+    public float timeLeft;
+    public int money;
     public int lostClients;
 
-    [SerializeField] Transform[] dispensers;
-    [SerializeField] Vector3 boxCastSize;
-    [SerializeField] float maxDistance = 300.0f;
-    [SerializeField] LayerMask plateLayer;
 
 
     private void Awake()
@@ -34,7 +41,7 @@ public class GameController : Singleton<GameController>
     private void Start()
     {
         lostClients = 0;
-        money = 0f;
+        money = 0;
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{orders.Count}";
 
@@ -131,7 +138,7 @@ public class GameController : Singleton<GameController>
             bool hitDetect;
             RaycastHit hit;
 
-            hitDetect = Physics.BoxCast(data.transform.position, boxCastSize/2, Vector3.up, out hit, data.transform.rotation, maxDistance, plateLayer);
+            hitDetect = Physics.BoxCast(data.transform.position, dispenserSize/2, Vector3.up, out hit, data.transform.rotation, maxDistance, plateLayer);
             if(hitDetect == false)
             {
                 //Debug.Log("Dispenser vazio.");
