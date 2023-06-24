@@ -11,6 +11,8 @@ TagManager:
   - Table
   - Dropdown
   - Client
+  - Floor
+  - TrashCan
   layers:
   - Default
   - TransparentFX

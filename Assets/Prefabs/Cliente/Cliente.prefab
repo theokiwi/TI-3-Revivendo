@@ -407,8 +407,12 @@ MonoBehaviour:
   clientState: 0
   angryIcon: {fileID: 2552913008517705251}
   dishList:
-  - {fileID: 11400000, guid: 1f79e49f2c4ccce42bb5b279a55f9b0d, type: 2}
-  - {fileID: 11400000, guid: 80d53709ecc132f47a20c4502bdeac8b, type: 2}
+  - {fileID: 11400000, guid: b548fad02255d9349b79708456b45955, type: 2}
+  - {fileID: 11400000, guid: 8388e2ed6eb42d64ab7c917364c57a72, type: 2}
+  - {fileID: 11400000, guid: b8aa1b1c79fb84049a02649f53f613ff, type: 2}
+  - {fileID: 11400000, guid: 9589157bf31e0b44eb6a778268f267f4, type: 2}
+  - {fileID: 11400000, guid: dbbafea263869624d88bd140ad68e012, type: 2}
+  - {fileID: 11400000, guid: 1ada26ef1e155094ea5550a753ec2fcf, type: 2}
 --- !u!1 &8365467431500561760
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,11 +49,13 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //pega item
         if (other.CompareTag("Pickable") && heldItem == null)
         {
             PickUp(other.gameObject);
             AudioManager.instance.Item();
         }
+        //coloca item em lugar de item
         else if (other.CompareTag("DropPoint"))
         {
             if (other.transform.childCount == 0)
@@ -77,6 +79,15 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        //joga item na lixeira
+        else if(other.CompareTag("TrashCan"))
+        {
+            try{
+            GameController.Instance.GetOrder(heldItem.dish);
+            }catch{}
+            Destroy(heldItem.gameObject);
+        }
+        //descansa na cama
         if (other.CompareTag("Bed"))
         {
             resting = true;
