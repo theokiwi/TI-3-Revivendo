@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c686d496165244195d32512a384a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dish: {fileID: 0}
+  dish: {fileID: 11400000, guid: b548fad02255d9349b79708456b45955, type: 2}
 --- !u!1 &7937480374343378571
 GameObject:
   m_ObjectHideFlags: 0

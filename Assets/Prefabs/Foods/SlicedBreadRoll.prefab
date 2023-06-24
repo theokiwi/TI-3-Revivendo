@@ -228,4 +228,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c686d496165244195d32512a384a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dish: {fileID: 0}
+  dish: {fileID: 11400000, guid: b8aa1b1c79fb84049a02649f53f613ff, type: 2}
