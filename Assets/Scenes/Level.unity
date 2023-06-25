@@ -3353,7 +3353,8 @@ MonoBehaviour:
   lostClients: 0
   dispensers:
   - {fileID: 1328171098}
-  boxCastSize: {x: 1, y: 1, z: 1}
+  - {fileID: 1409473547}
+  boxCastSize: {x: 0.1, y: 0.1, z: 0.1}
   maxDistance: 300
   plateLayer:
     serializedVersion: 2
