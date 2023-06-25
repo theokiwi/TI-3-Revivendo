@@ -139,6 +139,7 @@ public class GameController : Singleton<GameController>
                     Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
                     AudioManager.instance.Fogao();
                 }catch{}
+                break;
             }
             else if( hitDetect == true)
             {
