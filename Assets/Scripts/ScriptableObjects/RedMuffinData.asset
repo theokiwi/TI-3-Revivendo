@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: RedMuffinData
   m_EditorClassIdentifier: 
-  dishType: Red Muffin
+  dishType: Muffin Vermelho
   price: 2
   preparationTime: 2.5
   eatTime: 1.5
