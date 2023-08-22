@@ -4336,11 +4336,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 7
-  m_Acceleration: 9
+  m_Speed: 15
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 400
-  m_StoppingDistance: 0
+  m_StoppingDistance: 4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4362,19 +4362,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightShader: {fileID: 4800000, guid: 5ba970330ef4921488fca0bb239bb968, type: 3}
   defaultShader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  staminaMeter: {fileID: 1232205399}
   floor:
     serializedVersion: 2
     m_Bits: 64
   plates:
     serializedVersion: 2
     m_Bits: 128
-  holdPos: {fileID: 1712001003}
-  stamina: 0
-  staminaDuration: 180
-  staminaCoolDown: 30
-  speed: 7
-  resting: 0
+  markedObject: {fileID: 0}
 --- !u!54 &765984853
 Rigidbody:
   m_ObjectHideFlags: 0
