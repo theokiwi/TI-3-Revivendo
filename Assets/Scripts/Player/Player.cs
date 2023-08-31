@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Shader highlightShader, defaultShader;
     [SerializeField] LayerMask floor, plates;
-    private Transform holdPos;
+    [SerializeField] private Transform holdPos;
     private DishContainer heldItem = null;
     private GameObject targetObject = null;
     [SerializeField] private GameObject markedObject;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             Transform dropPoint = Helper.FindChildWithTag(target, "DropPoint");
             if(dropPoint.childCount == 0)
             {
-                //ManageSeat(target.GetComponent<SeatBehaviour>());
+                ManageSeat(dropPoint.GetComponent<SeatBehaviour>());
             }            
         }
     }
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
     private bool HasReachedDestination(GameObject destination)
     {
         float distance = Vector3.Distance(transform.position, destination.transform.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
         if (distance <= agent.stoppingDistance + 0.25f)
         {
             return true;   

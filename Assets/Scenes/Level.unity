@@ -1974,7 +1974,7 @@ GameObject:
   - component: {fileID: 265992804}
   m_Layer: 6
   m_Name: Tables
-  m_TagString: Table
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4368,6 +4368,7 @@ MonoBehaviour:
   plates:
     serializedVersion: 2
     m_Bits: 128
+  holdPos: {fileID: 1712001003}
   markedObject: {fileID: 0}
 --- !u!54 &765984853
 Rigidbody:
