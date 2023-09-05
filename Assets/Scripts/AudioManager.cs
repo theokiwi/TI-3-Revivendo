@@ -21,6 +21,10 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+    private void Start()
+    {
+        Shop();
+    }
     public void Click()
     {
         click.Play();

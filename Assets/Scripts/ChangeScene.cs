@@ -11,4 +11,8 @@ public class ChangeScene : MonoBehaviour
         AudioManager.instance.Click();
         SceneManager.LoadScene(scene);
     }
+    public void ChangeAudio(string audio)
+    {
+        AudioManager.instance.SendMessage(audio);
+    }
 }
