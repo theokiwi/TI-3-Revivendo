@@ -24,7 +24,6 @@ public class GameController : Singleton<GameController>
     [SerializeField] float maxDistance = 300.0f;
     [SerializeField] LayerMask plateLayer;
 
-
     private void Awake()
     {
         //singleton pattern transferido pra Singleton<T>
@@ -33,14 +32,31 @@ public class GameController : Singleton<GameController>
 
     private void Start()
     {
-        lostClients = 0;
+        //inicialização movida para o método StartGame()
+        StartGame();
+    }
+
+    //reinicia todos os valores para o início de um novo jogo / carrega os valores de um save
+    private void StartGame() 
+    {
         money = 0f;
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{orders.Count}";
 
         Time.timeScale = 1f;
-        
+
+        SanitationController.Instance.ResetValues();
+
+        StartDay();
+    }
+
+    //reinicia todos os valores referentes a performance no dia
+    private void StartDay() 
+    {
+        lostClients = 0;
+
         plates = new Queue<GameObject>();
+        SanitationController.Instance.DayChange();
     }
 
     public void FixedUpdate()
