@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            GameController.Instance.PauseMenu();
+            GameController.Instance.PauseToggle();
         }
     }
 

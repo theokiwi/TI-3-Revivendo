@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Cozinha : MonoBehaviour
+public class Cozinha : UIScreen
 {
-    private GameObject[] dropdowns;
-    private TMP_Dropdown menu;
-    private List<DishData> orders;
+    private List<UIElement> dropdowns;
 
 
     // Encontra os dorpdowns do menu da cozinha
-    private void OnEnable()
+    protected override void OnPopup()
     {
-        dropdowns = GameObject.FindGameObjectsWithTag("Dropdown");
-        menu = gameObject.GetComponent<TMP_Dropdown>();
+        foreach (var element in elements)
+        {
+            if (element.CompareTag("Dropdowns"))
+                dropdowns.Add(element);
+        }
 
         RefreshList();
     }
@@ -22,33 +23,19 @@ public class Cozinha : MonoBehaviour
     // Mantem a lista ordenada e atualizada enquanto o player interage com o menu da cozinha.
     public void RefreshList()
     {
-        orders = GameController.Instance.orders;
-        List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
-
-        options.Clear();
-        menu.ClearOptions();
-
-        foreach(DishData data in orders)
+        foreach (UIElement dropdown in dropdowns)
         {
-            options.Add( new TMP_Dropdown.OptionData(data.dishType, data.interfaceIcon));
+            dropdown.UpdateUI();
         }
-
-        menu.AddOptions(options);
     }
 
     // Locka o prato escolhido e inicia o preparo.
-    public void ConfirmOrder()
+    public static void ConfirmOrder(int index)
     {
-        int index = menu.value;
-        DishData dish = orders[index];
+        DishData dish = GameController.Instance.orders[index];
 
         GameController.Instance.StartCooking(dish);
 
-        orders.RemoveAt(index);
-        foreach(GameObject data in dropdowns)
-        {
-            Cozinha cozinha = data.GetComponent<Cozinha>();
-            cozinha.RefreshList();
-        }
+        GameController.Instance.orders.RemoveAt(index);
     }
 }

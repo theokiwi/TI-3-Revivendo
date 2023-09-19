@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 8613771828271130418}
   - component: {fileID: 8613771828271130413}
   - component: {fileID: 8613771828271130412}
+  - component: {fileID: 3059973558776014500}
   m_Layer: 5
   m_Name: Botao confirma (1)
   m_TagString: Untagged
@@ -272,9 +273,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8613771828952580838}
+      - m_Target: {fileID: 3059973558776014500}
         m_TargetAssemblyTypeName: Cozinha, Assembly-CSharp
-        m_MethodName: ConfirmOrder
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,6 +285,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3059973558776014500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613771828271130414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05aae736897034bb265c9a8fa90f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constantUpdate: 0
 --- !u!1 &8613771828351491539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,6 +1199,7 @@ GameObject:
   - component: {fileID: 8613771828950077847}
   - component: {fileID: 8613771828950077845}
   - component: {fileID: 8613771828950077844}
+  - component: {fileID: 3830459381563708091}
   m_Layer: 5
   m_Name: Menu da cozinha
   m_TagString: Untagged
@@ -1254,6 +1269,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3830459381563708091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613771828950077846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 421b44bc3f27b154ab38fa3ec9871e35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elements:
+  - {fileID: 6109779833697893990}
+  - {fileID: 8971850393769062418}
 --- !u!1 &8613771828952580829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1296,7 @@ GameObject:
   - component: {fileID: 8613771828952580833}
   - component: {fileID: 8613771828952580832}
   - component: {fileID: 8613771828952580835}
-  - component: {fileID: 8613771828952580838}
+  - component: {fileID: 6109779833697893990}
   m_Layer: 5
   m_Name: Slot dropdown(1)
   m_TagString: Untagged
@@ -1393,9 +1423,21 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6109779833697893990}
+        m_TargetAssemblyTypeName: KitchenDropdown, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
---- !u!114 &8613771828952580838
+--- !u!114 &6109779833697893990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1404,9 +1446,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8613771828952580829}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 421b44bc3f27b154ab38fa3ec9871e35, type: 3}
+  m_Script: {fileID: 11500000, guid: a3a80cac487f5a14b92d0b6729656d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _constantUpdate: 0
+  button: {fileID: 3059973558776014500}
 --- !u!1 &8613771828986653054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,6 +1750,7 @@ GameObject:
   - component: {fileID: 8613771829054911123}
   - component: {fileID: 8613771829054911122}
   - component: {fileID: 8613771829054911117}
+  - component: {fileID: 3213082215684050171}
   m_Layer: 5
   m_Name: Botao confirma (2)
   m_TagString: Untagged
@@ -1816,7 +1861,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8613771829214462571}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Cozinha, Assembly-CSharp
         m_MethodName: ConfirmOrder
         m_Mode: 1
@@ -1828,6 +1873,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3213082215684050171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613771829054911119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05aae736897034bb265c9a8fa90f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _constantUpdate: 0
 --- !u!1 &8613771829093544239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,7 +2236,7 @@ GameObject:
   - component: {fileID: 8613771829214462570}
   - component: {fileID: 8613771829214462565}
   - component: {fileID: 8613771829214462564}
-  - component: {fileID: 8613771829214462571}
+  - component: {fileID: 8971850393769062418}
   m_Layer: 5
   m_Name: Slot dropdown(2)
   m_TagString: Untagged
@@ -2305,9 +2363,21 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8971850393769062418}
+        m_TargetAssemblyTypeName: KitchenDropdown, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
---- !u!114 &8613771829214462571
+--- !u!114 &8971850393769062418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2316,9 +2386,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8613771829214462566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 421b44bc3f27b154ab38fa3ec9871e35, type: 3}
+  m_Script: {fileID: 11500000, guid: a3a80cac487f5a14b92d0b6729656d97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _constantUpdate: 0
+  button: {fileID: 3213082215684050171}
 --- !u!1 &8613771829263607306
 GameObject:
   m_ObjectHideFlags: 0

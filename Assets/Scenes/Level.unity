@@ -3348,7 +3348,6 @@ MonoBehaviour:
   numberOfOrders: {fileID: 1255510367}
   pauseScreen: {fileID: 1081450613}
   endScreen: {fileID: 346706920}
-  paused: 0
   money: 0
   lostClients: 0
   dispensers:
@@ -8659,7 +8658,9 @@ PrefabInstance:
       propertyPath: m_text
       value: Cozinhar
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2128137538164165796, guid: 1d746963be45b39469bf418f2c4106cd, type: 3}
+    - {fileID: 4547812661224292045, guid: 1d746963be45b39469bf418f2c4106cd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1d746963be45b39469bf418f2c4106cd, type: 3}
 --- !u!224 &1442954722 stripped
 RectTransform:

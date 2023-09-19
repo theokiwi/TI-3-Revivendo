@@ -8,13 +8,17 @@ public class GameController : Singleton<GameController>
 {
     public List<DishData> orders;
     public Queue<GameObject> plates;
+
     [SerializeField] TMP_Dropdown[] slots;
     [SerializeField] GameObject kitchenMenu;
     [SerializeField] TMP_Text  moneyText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject endScreen;
-    public bool paused = true;
+
+    private bool _paused = true;
+    public bool _IsPaused { get => _paused; }
+
     public float money;
 
     public int lostClients;
@@ -64,13 +68,19 @@ public class GameController : Singleton<GameController>
         ServePlate();
     }
 
-    // Adiciona valor inputado ao dinheiro do jogador, e atualiza o contador na tela.
+    //calcula a pontuacao (TODO: refazer quando tiver um sistema de satisfacao pros clientes)
+    public float CalculateScore()
+    {
+        return money - (lostClients * 10);
+    }
+
+    //Adiciona valor inputado ao dinheiro do jogador, e atualiza o contador na tela.
     public void AddMoney (int value)
     {
         money += value;
         moneyText.text = $" {money} ";
     }
-
+    //Adiciona 1 a contagem de clientes perdidos (TODO: trocar isso por um sistema de satisfacao pro cliente) 
     public void LoseClient()
     {
         lostClients--;
@@ -78,11 +88,11 @@ public class GameController : Singleton<GameController>
 
     public void GameOver()
     {
-        Time.timeScale = 0.0f;
-        endScreen.SetActive(true);
+        PauseGame(true);
+        UIManager.Instance.EnablePopup(UIManager.ScreenEnum.EndGameScreen);
     }
 
-    // Adiciona pedido à lista e ordena a lista.
+    //Adiciona pedido à lista e ordena a lista.
     public void GetOrder(DishData order)
     {
         orders.Add(order);
@@ -91,39 +101,34 @@ public class GameController : Singleton<GameController>
         AudioManager.instance.PPedido();
     }
 
-    // Toggle de pausar e despausar o jogo. 
-    public bool PauseGame()
+    //Toggle de pausar e despausar o jogo. 
+    public bool PauseToggle()
     {
-        paused = !paused;
+        _paused = !_paused;
+        PauseGame(_paused);
+        return _paused;
+    }
 
-        if(paused)
+    //Pausa ou despausa só se não tiver.
+    public void PauseGame(bool _yesNo)
+    {
+        _paused = _yesNo;
+
+        if(_paused)
         {
             Time.timeScale = 0.0f;
+            UIManager.Instance.EnablePopup(UIManager.ScreenEnum.PauseMenu);
         }
         else
         {
             Time.timeScale = 1.0f;
-        }
-        return paused;
-    }
-
-    // Impede conflitos entre o menu de pausa e o da cozinha.
-    public void PauseMenu()
-    {
-        if(!kitchenMenu.activeInHierarchy)
-        {
-            pauseScreen.SetActive(PauseGame());
+            UIManager.Instance.DisablePopup(UIManager.ScreenEnum.PauseMenu);
         }
     }
 
-    // Impede conflitos entre o menu de pausa e o da cozinha.
     public void OpenKitchen()
     {
-        if(!pauseScreen.activeInHierarchy)
-        {
-            kitchenMenu.SetActive(PauseGame());
-            numberOfOrders.text = $"{orders.Count}";
-        }
+        UIManager.Instance.EnablePopup(UIManager.ScreenEnum.KitchenMenu);
     }
 
     // Começa a co-rotina de cozinhar o prato.
