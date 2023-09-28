@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
+  m_Name: GreenMuffinData
+  m_EditorClassIdentifier: 
+  dishType: Muffin Verde
+  price: 2
+  preparationTime: 1.5
+  eatTime: 2.5
+  inPlateObj: {fileID: 5595869923005312661, guid: 93dd827e9a365b1429823f79a2cf6feb, type: 3}
+  interfaceIcon: {fileID: 0}

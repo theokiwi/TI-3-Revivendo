@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
+  m_Name: MacaronsData
+  m_EditorClassIdentifier: 
+  dishType: Macarons
+  price: 5
+  preparationTime: 3
+  eatTime: 1.5
+  inPlateObj: {fileID: 2864141949334352903, guid: 8cfde4096826f624b927e826635ffb76, type: 3}
+  interfaceIcon: {fileID: 0}
