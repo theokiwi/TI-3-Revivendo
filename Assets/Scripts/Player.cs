@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
         }
         else if(heldItem != null)
         {
-            DropItem(seat);
+            //DropItem(seat);
             AudioManager.instance.Item();
         }
     }
@@ -157,16 +157,16 @@ public class Player : MonoBehaviour
     }
 
     // Deixa o item carregado na posicao recebida, apenas se ha cliente no assento.
-    void DropItem(SeatBehaviour seat)
-    {
-            seat.ServedDish = heldItem;
-
-            heldItem.transform.SetParent(seat.transform);
-            heldItem.transform.localPosition = Vector3.zero;
-            heldItem.transform.localRotation = Quaternion.identity;
-            heldItem.tag = "Untagged";
-            heldItem = null;
-    }
+    //void DropItem(SeatBehaviour seat)
+    //{
+    //        seat.ServedDish = heldItem;
+//
+    //        heldItem.transform.SetParent(seat.transform);
+    //        heldItem.transform.localPosition = Vector3.zero;
+    //        heldItem.transform.localRotation = Quaternion.identity;
+    //        heldItem.tag = "Untagged";
+    //        heldItem = null;
+    //}
 
     // Faz o highlight de objetos
     private void Highlight(GameObject target, Shader shader, Color color)

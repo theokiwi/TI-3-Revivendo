@@ -15,10 +15,7 @@ public class GameController : Singleton<GameController>
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject endScreen;
-
-    private bool _paused = true;
-    public bool _IsPaused { get => _paused; }
-
+    public bool paused;
     public float money;
 
     public int lostClients;
@@ -48,17 +45,7 @@ public class GameController : Singleton<GameController>
         numberOfOrders.text = $"{orders.Count}";
 
         Time.timeScale = 1f;
-
-        SanitationController.Instance.ResetValues();
-
-        StartDay();
-    }
-
-    //reinicia todos os valores referentes a performance no dia
-    private void StartDay() 
-    {
-        lostClients = 0;
-
+        paused = false;
         plates = new Queue<GameObject>();
         SanitationController.Instance.DayChange();
     }
@@ -98,11 +85,11 @@ public class GameController : Singleton<GameController>
         orders.Add(order);
         orders.Sort();
         numberOfOrders.text = $"{orders.Count}";
-        AudioManager.instance.PPedido();
+        //AudioManager.instance.PPedido();
     }
 
-    //Toggle de pausar e despausar o jogo. 
-    public bool PauseToggle()
+    // Toggle de pausar e despausar o jogo. 
+    public void PauseGame()
     {
         _paused = !_paused;
         PauseGame(_paused);
@@ -126,9 +113,25 @@ public class GameController : Singleton<GameController>
         }
     }
 
+    // Impede conflitos entre o menu de pausa e o da cozinha.
+    public void PauseMenu()
+    {
+        if(!kitchenMenu.activeInHierarchy)
+        {
+            PauseGame();
+            pauseScreen.SetActive(paused);
+        }
+    }
+
+    // Impede conflitos entre o menu de pausa e o da cozinha.
     public void OpenKitchen()
     {
-        UIManager.Instance.EnablePopup(UIManager.ScreenEnum.KitchenMenu);
+        if(!pauseScreen.activeInHierarchy)
+        {
+            PauseGame();
+            kitchenMenu.SetActive(paused);
+            numberOfOrders.text = $"{orders.Count}";
+        }
     }
 
     // Começa a co-rotina de cozinhar o prato.

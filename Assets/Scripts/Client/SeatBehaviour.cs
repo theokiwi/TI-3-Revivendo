@@ -9,8 +9,8 @@ public class SeatBehaviour : MonoBehaviour
     //posição pra ir o cliente
     public Transform seat;
     public ClientBehaviour client;
-    private DishContainer _servedDish;
-    public DishContainer ServedDish
+    private Dish _servedDish;
+    public Dish ServedDish
     {
         get
         {
