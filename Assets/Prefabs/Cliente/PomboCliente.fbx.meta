@@ -1,8 +1,23 @@
 fileFormatVersion: 2
 guid: 8c6a32d2870636d448ea6e5f049ce2ec
 ModelImporter:
-  serializedVersion: 21300
-  internalIDToNameTable: []
+  serializedVersion: 21202
+  internalIDToNameTable:
+  - first:
+      74: 5297050669623574059
+    second: Armature|Eat
+  - first:
+      74: -8903901632051216501
+    second: Armature|Waiting
+  - first:
+      74: 3919985861630439109
+    second: Armature|Waiting.001
+  - first:
+      74: -4832513005233437826
+    second: Armature|Waiting2
+  - first:
+      74: 8349542763059015795
+    second: Armature|Walk
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -99,7 +114,6 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

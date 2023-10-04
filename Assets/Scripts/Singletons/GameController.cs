@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class GameController : Singleton<GameController>
 {
-    public List<DishData> orders;
+    public Queue<DishData> orders;
     public Queue<GameObject> plates;
 
     [SerializeField] TMP_Dropdown[] slots;
@@ -95,10 +95,9 @@ public class GameController : Singleton<GameController>
     //Adiciona pedido à lista e ordena a lista.
     public void GetOrder(DishData order)
     {
-        orders.Add(order);
-        orders.Sort();
+        orders.Enqueue(order);
         numberOfOrders.text = $"{orders.Count}";
-        AudioManager.instance.PPedido();
+        //AudioManager.instance.PPedido();
     }
 
     //Toggle de pausar e despausar o jogo. 

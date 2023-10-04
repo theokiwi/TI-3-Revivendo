@@ -1,7 +1,6 @@
 using UnityEngine;
 
 
-[RequireComponent(typeof(Rigidbody))]
 public class Dish : AbstractInteractable
 {
     public DishData dish;

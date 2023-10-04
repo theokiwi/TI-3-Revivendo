@@ -78,6 +78,9 @@ public class PlayerRefac : Singleton<PlayerRefac>
             if(Input.GetMouseButtonDown(0)){
                 OnClick(hitInfo);
             }
+            if(Input.GetMouseButtonDown(1)){
+                rightClick.Action();
+            }
         }
         else if(HLObject != null){
             Highlight(HLObject, default_shader, Color.blue);
@@ -103,7 +106,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
                 agent.destination = hit.point;
                 return;
             }
-            if(NavMesh.SamplePosition(hit.transform.position, out NavMeshHit data, 2, NavMesh.AllAreas)){
+            if(NavMesh.SamplePosition(hit.transform.position, out NavMeshHit data, 3f, NavMesh.AllAreas)){
                 if(targetObject != null){
                     Highlight(targetObject, default_shader, Color.blue);
                 }
