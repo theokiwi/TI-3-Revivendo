@@ -4,6 +4,7 @@ using UnityEngine;
 public class Dish : AbstractInteractable
 {
     public DishData dish;
+    [SerializeField] private GameObject dirt;
 
     public override void Interact(){
         PickUp();
@@ -12,6 +13,10 @@ public class Dish : AbstractInteractable
     }
 
     public void OnCollisionEnter(Collision other){
-        
+        if(other.collider.CompareTag("Floor")){
+            GameController.Instance.GetOrder(dish);
+            Instantiate(dirt, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+        }
     }
 }

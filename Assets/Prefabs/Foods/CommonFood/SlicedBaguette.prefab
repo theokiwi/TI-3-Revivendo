@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 0}
+  dirt: {fileID: 7823989908868377725, guid: a29927c143eba9b4d9d602302eedca15, type: 3}
 --- !u!1 &7937480374343378571
 GameObject:
   m_ObjectHideFlags: 0

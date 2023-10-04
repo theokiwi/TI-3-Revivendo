@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: b548fad02255d9349b79708456b45955, type: 2}
+  dirt: {fileID: 7823989908868377725, guid: a29927c143eba9b4d9d602302eedca15, type: 3}
