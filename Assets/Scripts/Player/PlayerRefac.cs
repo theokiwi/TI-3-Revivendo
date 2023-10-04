@@ -95,6 +95,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
                 }
                 Highlight(hit.gameObject, HL_shader, Color.blue);
                 HLObject = hit.gameObject;
+                Debug.Log(HLObject);
             }
             else if(HLObject != null){
                 Highlight(HLObject, default_shader, Color.blue);

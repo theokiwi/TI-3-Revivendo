@@ -45,7 +45,7 @@ public class GameController : Singleton<GameController>
     {
         money = 0f;
         moneyText.text = $" {money},00 ";
-        numberOfOrders.text = $"{orders.Count}";
+        numberOfOrders.text = $"{0}";
 
         Time.timeScale = 1f;
 
