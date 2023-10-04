@@ -30,10 +30,10 @@ public class Player : MonoBehaviour
                 markedObject = null;
             }
         }
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            GameController.Instance.OpenKitchen();
-        }
+        //if(Input.GetKeyDown(KeyCode.E))
+        //{
+        //    GameController.Instance.OpenKitchen();
+        //}
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             GameController.Instance.PauseToggle();

@@ -14,7 +14,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
 
     private void Start(){
         agent = GetComponent<NavMeshAgent>();
-        E_action += GameController.Instance.OpenKitchen;
+        //E_action += GameController.Instance.OpenKitchen;
         //ESC_action += GameController.Instance.PauseMenu;
         default_shader = Shader.Find("Standard");
     }

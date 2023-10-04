@@ -1,16 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using TMPro;
 public class GameController : Singleton<GameController>
 {
     public Queue<DishData> orders;
     public Queue<GameObject> plates;
-
-    [SerializeField] TMP_Dropdown[] slots;
-    [SerializeField] GameObject kitchenMenu;
     [SerializeField] TMP_Text  moneyText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject pauseScreen;
@@ -123,11 +118,6 @@ public class GameController : Singleton<GameController>
             Time.timeScale = 1.0f;
             UIManager.Instance.DisablePopup(UIManager.ScreenEnum.PauseMenu);
         }
-    }
-
-    public void OpenKitchen()
-    {
-        UIManager.Instance.EnablePopup(UIManager.ScreenEnum.KitchenMenu);
     }
 
     // Começa a co-rotina de cozinhar o prato.
