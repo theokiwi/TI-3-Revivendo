@@ -46,9 +46,9 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        else if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready)
+        else if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.READY)
         {
-            seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
+            //seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
             GameController.Instance.GetOrder(seat.client.dishData);
         }
         else if(heldItem != null)

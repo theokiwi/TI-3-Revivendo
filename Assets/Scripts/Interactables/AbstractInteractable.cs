@@ -4,6 +4,10 @@ public abstract class AbstractInteractable : MonoBehaviour
 {
     public abstract void Interact();
     protected virtual void PickUp(){
+        if(GetComponent<Rigidbody>() != null){
+            GetComponent<Rigidbody>().useGravity = false;
+        }
+
         if(PlayerRefac.Instance.heldObject != null){
             Transform dropPos = transform;
             GameObject drop = PlayerRefac.Instance.heldObject.gameObject;

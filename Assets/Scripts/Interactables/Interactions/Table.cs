@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Table : AbstractInteractable
 {
-    public Transform dropPoint;
+    private Transform dropPoint;
+    private bool occupied;
 
     private void Start(){
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
@@ -14,18 +15,24 @@ public class Table : AbstractInteractable
         }
     }
 
+    private void Serve(Transform plate, SeatBehaviour seat){
+        seat.ServedDish = plate.GetComponent<Dish>();
+        plate.SetParent(dropPoint);
+        plate.localPosition = Vector3.zero;
+        plate.localRotation = Quaternion.identity;
+    }
     private void ManageSeat(SeatBehaviour seat){
-     if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready){
-         seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
-         GameController.Instance.GetOrder(seat.client.dishData);
-        }
-    if(PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
+        //if(seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready){
+        //     seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
+        //     GameController.Instance.GetOrder(seat.client.dishData);
+        //}
+        if(PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
             Debug.Log(seat.name);
-            seat.ServedDish = PlayerRefac.Instance.heldObject.GetComponent<Dish>();
-            PlayerRefac.Instance.heldObject.transform.SetParent(dropPoint);
-            PlayerRefac.Instance.heldObject.transform.localPosition = Vector3.zero;
-            PlayerRefac.Instance.heldObject.transform.localRotation = Quaternion.identity;
+            Serve(PlayerRefac.Instance.heldObject.transform, seat);
             PlayerRefac.Instance.heldObject = null;
+        }
+        else if(!occupied){
+            Transform client = Helper.FindChildWithTag(gameObject, "Client");           
         }
     }
 }

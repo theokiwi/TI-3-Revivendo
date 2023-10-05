@@ -11,6 +11,7 @@ public class Throw : IAction
         Vector3 throwDir = hitInfo.point - PlayerRefac.Instance.transform.position;
         throwObj.transform.SetParent(null);
         rb.AddForce(throwDir.normalized * PlayerRefac.Instance.throwForce, ForceMode.Impulse);
+        PlayerRefac.Instance.heldObject = null;
         PlayerRefac.Instance.rightClick = null;
     }
 }

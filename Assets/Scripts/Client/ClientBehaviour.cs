@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class ClientBehaviour : MonoBehaviour
 {
-    [HideInInspector] public DishData dishData;
-    [SerializeField] GameObject readyImg;
+    public CLIENT_STATES clientState;
     public enum CLIENT_STATES
     {
-        Ready,
-        Waiting,
-        Eating
+        READY,
+        WAITING,
+        EATING
     }
-
-    public CLIENT_STATES clientState;
-
-    [SerializeField] private GameObject angryIcon;
-
+    [HideInInspector] public DishData dishData;
     [SerializeField] private List<DishData> dishList; //lista dos pedidos que esse cliente pode pedir
+    [SerializeField] GameObject readyImg;
+
 
     private void Start() 
     {
-        clientState = CLIENT_STATES.Ready;
+        clientState = CLIENT_STATES.READY;
 
         //Escolhe um pedido aleatorio
         dishData =  dishList[Random.Range(0, dishList.Count)];
-        Invoke("Angrify", 25);
     }
 
     private void FixedUpdate()
     {
-        if(clientState != CLIENT_STATES.Ready)
+        if(clientState != CLIENT_STATES.READY)
         {
             readyImg.SetActive(false);
         }
@@ -40,13 +36,13 @@ public class ClientBehaviour : MonoBehaviour
     {
         if (dish == dishData)
         {
-            clientState = CLIENT_STATES.Eating;
+            clientState = CLIENT_STATES.EATING;
             Invoke("FinishEating", dish.eatTime);
             return true;
         }
         else
         {
-            Angrify();
+            Anger();
             return false;
         }
     }
@@ -56,10 +52,7 @@ public class ClientBehaviour : MonoBehaviour
         GameController.Instance.AddMoney(dishData.price);
         Destroy(gameObject);
     }
-    private void Angrify()
+    private void Anger()
     {
-        angryIcon.SetActive(true);
-        GameController.Instance.LoseClient();
-        Destroy(gameObject, 2);
     }
 }

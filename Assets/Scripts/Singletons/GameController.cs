@@ -55,6 +55,7 @@ public class GameController : Singleton<GameController>
         lostClients = 0;
 
         plates = new Queue<GameObject>();
+        orders = new Queue<DishData>();
         SanitationController.Instance.DayChange();
     }
 
@@ -90,8 +91,10 @@ public class GameController : Singleton<GameController>
     //Adiciona pedido à lista e ordena a lista.
     public void GetOrder(DishData order)
     {
+        Debug.Log(order);
         orders.Enqueue(order);
         numberOfOrders.text = $"{orders.Count}";
+        Debug.Log(orders);
         //AudioManager.instance.PPedido();
     }
 

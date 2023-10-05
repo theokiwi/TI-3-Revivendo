@@ -10,6 +10,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
     public static Action E_action, ESC_action;
     public IAction rightClick;
     private NavMeshAgent agent;
+    private float maxSpeed, minSpeed;
 
 
     private void Start(){
@@ -31,6 +32,18 @@ public class PlayerRefac : Singleton<PlayerRefac>
         }
         if(Input.GetKeyDown(KeyCode.Escape)){
             ESC_action.Invoke();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other){
+        if(other.CompareTag("Dirt")){
+            SlowDown(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other){
+        if(other.CompareTag("Dirt")){
+            SlowDown(false);
         }
     }
 
@@ -57,7 +70,11 @@ public class PlayerRefac : Singleton<PlayerRefac>
         }
         return false;
     }
-    
+
+    private void SlowDown(bool slowed){
+        if(slowed) agent.speed = minSpeed;
+        else agent.speed = maxSpeed;
+    }
 
     #endregion
 

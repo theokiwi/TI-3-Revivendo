@@ -14,6 +14,7 @@ public class Dish : AbstractInteractable
 
     public void OnCollisionEnter(Collision other){
         if(other.collider.CompareTag("Floor")){
+            Debug.Log(dish);
             GameController.Instance.GetOrder(dish);
             Instantiate(dirt, transform.position, transform.rotation);
             Destroy(this.gameObject);

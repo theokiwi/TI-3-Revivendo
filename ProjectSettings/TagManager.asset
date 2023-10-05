@@ -13,6 +13,7 @@ TagManager:
   - Client
   - Floor
   - TrashCan
+  - Dish
   layers:
   - Default
   - TransparentFX
