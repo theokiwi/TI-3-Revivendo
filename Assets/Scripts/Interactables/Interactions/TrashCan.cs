@@ -6,6 +6,7 @@ public class TrashCan : AbstractInteractable
         if(PlayerRefac.Instance.heldObject != null){
             if(PlayerRefac.Instance.heldObject.CompareTag("Dish")) GameController.Instance.GetOrder(PlayerRefac.Instance.heldObject.GetComponent<Dish>().dish);
             Destroy(PlayerRefac.Instance.heldObject.gameObject);
+            PlayerRefac.Instance.heldObject = null;
         }
     }
 }

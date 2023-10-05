@@ -15,11 +15,11 @@ public class Table : AbstractInteractable
     }
 
     private void ManageSeat(SeatBehaviour seat){
-    //    if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready){
-    //        seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
-    //        GameController.Instance.GetOrder(seat.client.dishData);
-    //    }
-         if(PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
+     if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready){
+         seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
+         GameController.Instance.GetOrder(seat.client.dishData);
+        }
+    if(PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
             Debug.Log(seat.name);
             seat.ServedDish = PlayerRefac.Instance.heldObject.GetComponent<Dish>();
             PlayerRefac.Instance.heldObject.transform.SetParent(dropPoint);
