@@ -19,5 +19,9 @@ public class Dish : AbstractInteractable
             Instantiate(dirt, transform.position, transform.rotation);
             Destroy(this.gameObject);
         }
+        else if(other.collider.CompareTag("Table")){
+            Table table = other.collider.GetComponent<Table>();
+            table.Serve(transform);
+        }
     }
 }

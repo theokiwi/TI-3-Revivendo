@@ -18,6 +18,8 @@ public class PlayerRefac : Singleton<PlayerRefac>
         //E_action += GameController.Instance.OpenKitchen;
         //ESC_action += GameController.Instance.PauseMenu;
         default_shader = Shader.Find("Standard");
+        maxSpeed = agent.speed;
+        minSpeed = maxSpeed/3;
     }
 
     private void Update(){
