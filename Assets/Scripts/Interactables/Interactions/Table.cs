@@ -34,7 +34,7 @@ public class Table : AbstractInteractable
             PlayerRefac.Instance.heldObject = null;
         }
         else if(occupied){
-            Transform client = Helper.FindChildWithTag(gameObject, "Client");           
+            Transform client = Helper.FindChildWithTag(gameObject, "Client");        
         }
     }
 }

@@ -4,9 +4,7 @@ public abstract class AbstractInteractable : MonoBehaviour
 {
     public abstract void Interact();
     protected virtual void PickUp(){
-        if(GetComponent<Rigidbody>() != null){
-            GetComponent<Rigidbody>().useGravity = false;
-        }
+        GetComponent<Rigidbody>().useGravity = false;
 
         if(PlayerRefac.Instance.heldObject != null){
             Transform dropPos = transform;
@@ -22,5 +20,6 @@ public abstract class AbstractInteractable : MonoBehaviour
         transform.position = parent.position;
         transform.rotation = Quaternion.identity;
         PlayerRefac.Instance.heldObject = gameObject;
+        PlayerRefac.Instance.rightClick = new Throw();
     } 
 }

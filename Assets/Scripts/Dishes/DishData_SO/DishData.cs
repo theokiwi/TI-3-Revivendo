@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new DishData", menuName = "Scriptable Objects/Dish Data")] //deixa criar arquivo aprertando botão direito na janela projeto
+[CreateAssetMenu(fileName = "new DishData", menuName = "Scriptable Objects/DishData")] //deixa criar arquivo aprertando botão direito na janela projeto
 public class DishData : ScriptableObject
 {
     public string dishType;
