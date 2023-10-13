@@ -16,7 +16,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
     private void Start(){
         agent = GetComponent<NavMeshAgent>();
         //E_action += GameController.Instance.OpenKitchen;
-        //ESC_action += GameController.Instance.PauseMenu;
+        ESC_action += GameController.Instance.PauseToggle;
         default_shader = Shader.Find("Standard");
         maxSpeed = agent.speed;
         minSpeed = maxSpeed/3;

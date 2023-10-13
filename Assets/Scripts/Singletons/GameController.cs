@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+
 public class GameController : Singleton<GameController>
 {
     public Queue<DishData> orders;
@@ -99,11 +101,10 @@ public class GameController : Singleton<GameController>
     }
 
     //Toggle de pausar e despausar o jogo. 
-    public bool PauseToggle()
+    public void PauseToggle()
     {
         _paused = !_paused;
         PauseGame(_paused);
-        return _paused;
     }
 
     //Pausa ou despausa só se não tiver.
