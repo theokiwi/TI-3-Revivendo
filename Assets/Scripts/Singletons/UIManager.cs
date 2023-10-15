@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UIManager : Singleton<UIManager>
 {
-    //array de telas ativas
-    private UIScreen[] activeScreens;
+    //lista de telas ativas
+    private List<UIScreen> activeScreens = new List<UIScreen>();
 
     //referencias de telas importantes
     [SerializeField] private UIScreen endGameScreen;
@@ -25,7 +25,7 @@ public class UIManager : Singleton<UIManager>
     }
 
     //update pra todo frame
-    public Action UIUpdate;
+    public Action UIUpdate = () => { };
 
     private void Update()
     {

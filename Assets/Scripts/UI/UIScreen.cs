@@ -19,7 +19,7 @@ public abstract class UIScreen : MonoBehaviour
      * -2: Abre por cima de UIScreens prioridade 0 a -2. Não abre se tiverem telas de prioridade >3!
      * ... etc
      */
-    protected int priorityLevel;
+    [SerializeField] protected int priorityLevel;
     public int PriorityLevel { get{ return priorityLevel; } }
     
     //habilita os elementos pertencentes e insere as atualizacoes constantes necessarias.
@@ -42,6 +42,15 @@ public abstract class UIScreen : MonoBehaviour
     public void Hide()
     {
         OnHide();
+        foreach (UIElement element in elements)
+        {
+            if (element._constantUpdate)
+            {
+                UIManager.Instance.UIUpdate -= element.UpdateUI;
+            }
+            element.gameObject.SetActive(false);
+        }
+
     }
     //metodo abstrato pra inserir funcionalidade extra pro desabilitar da tela
     protected virtual void OnHide() { }

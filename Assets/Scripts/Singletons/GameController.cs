@@ -10,7 +10,6 @@ public class GameController : Singleton<GameController>
     public Queue<GameObject> plates;
     [SerializeField] TMP_Text  moneyText;
     [SerializeField] TMP_Text numberOfOrders;
-    [SerializeField] GameObject pauseScreen;
     [SerializeField] GameObject endScreen;
 
     private bool _paused = true;
@@ -44,7 +43,7 @@ public class GameController : Singleton<GameController>
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{0}";
 
-        Time.timeScale = 1f;
+        PauseGame(false);
 
         SanitationController.Instance.ResetValues();
 

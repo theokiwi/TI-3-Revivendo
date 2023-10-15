@@ -8,12 +8,13 @@ public class ButtonFunction : UIElement
     public override void UpdateUI()
     {
         //nada eu acho
+        Debug.Log("butão update?");
     }
+
+    public Action ButtonAction;
 
     public void DoAction()
     {
         ButtonAction();
     }
-
-    public Action ButtonAction;
 }
