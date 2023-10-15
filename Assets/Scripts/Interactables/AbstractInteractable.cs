@@ -4,7 +4,10 @@ public abstract class AbstractInteractable : MonoBehaviour
 {
     public abstract void Interact();
     protected virtual void PickUp(){
-        GetComponent<Rigidbody>().useGravity = false;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+
 
         if(PlayerRefac.Instance.heldObject != null){
             Transform dropPos = transform;

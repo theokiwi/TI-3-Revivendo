@@ -7,7 +7,8 @@ public class Throw : IAction
     public void Action(){
         GameObject throwObj = PlayerRefac.Instance.heldObject.gameObject;
         RaycastHit hitInfo = PlayerRefac.Instance.hitInfo;
-        Rigidbody rb = throwObj.AddComponent<Rigidbody>();
+        Rigidbody rb = throwObj.GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.None;
         Vector3 throwDir = hitInfo.point - PlayerRefac.Instance.transform.position;
         throwObj.transform.SetParent(null);
         rb.useGravity = true;

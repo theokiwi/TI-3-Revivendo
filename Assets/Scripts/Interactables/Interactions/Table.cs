@@ -8,6 +8,7 @@ public class Table : AbstractInteractable
 
     private void Start(){
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
+        occupied = false;
     }
     public override void Interact(){
         if(dropPoint.childCount == 0)
@@ -24,17 +25,22 @@ public class Table : AbstractInteractable
         plate.localRotation = Quaternion.identity;
     }
     private void ManageSeat(){
-        //if(seat.client.clientState == ClientBehaviour.CLIENT_STATES.Ready){
-        //     seat.client.clientState = ClientBehaviour.CLIENT_STATES.Waiting;
-        //     GameController.Instance.GetOrder(seat.client.dishData);
-        //}
-        if(PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
+        if (seat.client.clientState == ClientBehaviour.CLIENT_STATES.READY)
+        {
+            seat.client.clientState = ClientBehaviour.CLIENT_STATES.WAITING;
+            GameController.Instance.GetOrder(seat.client.dishData);
+        }
+
+        if (!PlayerRefac.Instance.heldObject)
+            return;
+
+        if (PlayerRefac.Instance.heldObject.GetComponent<Dish>() != null){
             Debug.Log(seat.name);
             Serve(PlayerRefac.Instance.heldObject.transform);
             PlayerRefac.Instance.heldObject = null;
         }
-        else if(occupied){
-            Transform client = Helper.FindChildWithTag(gameObject, "Client");        
-        }
+        //else if(occupied){
+        //    Transform client = Helper.FindChildWithTag(gameObject, "Client");        
+        //}
     }
 }

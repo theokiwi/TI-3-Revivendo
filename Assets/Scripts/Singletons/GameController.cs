@@ -158,6 +158,6 @@ public class GameController : Singleton<GameController>
             {
                 Debug.Log("Ocupado");
             }
-        }        
+        }
     }
 }
