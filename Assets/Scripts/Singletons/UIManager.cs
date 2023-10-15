@@ -42,7 +42,7 @@ public class UIManager : Singleton<UIManager>
         //nivel de prioridade vira o nivel de prioridade da tela nova se for maior que a atual
         activePriorityLevel = screen.PriorityLevel;
 
-        //cada tela com nivel de prioridade menor que o atual é fechada.
+        //cada tela com nivel de prioridade menor que o atual ï¿½ fechada.
         foreach(UIScreen activeScreen in activeScreens)
         {
             if(activePriorityLevel > Math.Abs(activeScreen.PriorityLevel))
@@ -77,7 +77,7 @@ public class UIManager : Singleton<UIManager>
     //desabilita a tela
     public void DisablePopup(UIScreen screen)
     {
-
+        screen.Hide();
     }
 
     //recebe um valor do enum e manda a referencia pro disable normal.
