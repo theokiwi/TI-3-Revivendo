@@ -27,7 +27,7 @@ public class GameController : Singleton<GameController>
     private void Awake()
     {
         //singleton pattern transferido pra Singleton<T>
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
