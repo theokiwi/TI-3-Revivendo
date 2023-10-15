@@ -127,6 +127,7 @@ public class GameController : Singleton<GameController>
     public void StartCooking(DishData dish)
     {
         StartCoroutine(Cook(dish));
+        numberOfOrders.text = $"{orders.Count}";
     }
     
     // Faz uma contagem e, após, adiciona o objeto do prato cozinhado à fila de pratos a serem servidos.
