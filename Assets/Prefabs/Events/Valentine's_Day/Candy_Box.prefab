@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2623673850608190336
 Transform:
@@ -50,7 +50,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2178316992101520100
 Transform:
@@ -93,7 +93,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5525357330861604965
 Transform:
@@ -175,7 +175,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6949615414025432893
 Transform:
@@ -217,7 +217,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &56806114099337924
 Transform:
@@ -314,9 +314,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -388,9 +396,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -466,6 +482,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &7876701230505628180 stripped
@@ -536,9 +560,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -557,6 +589,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -613,6 +649,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -684,9 +724,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -762,6 +810,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &8574213160185056983 stripped
@@ -836,6 +892,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &8078440374217054701 stripped
@@ -853,6 +917,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -909,6 +977,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -980,9 +1052,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -1001,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1057,6 +1141,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -1128,9 +1216,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -1149,6 +1245,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1205,6 +1305,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -1276,9 +1380,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -1354,6 +1466,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &6024400804016466003 stripped
@@ -1428,6 +1548,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &3539778540600762791 stripped
@@ -1445,6 +1573,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1502,6 +1634,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
 --- !u!4 &9176049644466307963 stripped
@@ -1519,6 +1655,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1576,6 +1716,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
 --- !u!4 &8830660370214480451 stripped
@@ -1593,6 +1737,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1649,6 +1797,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -1724,6 +1876,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &255798787790273104 stripped
@@ -1794,9 +1954,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3433268023425149533, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
       propertyPath: m_Name
       value: Bonbon_Spiral (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587522308157106352, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94c7dfa60071673478d93e3b6de198d3, type: 3}
@@ -1815,6 +1983,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -1871,6 +2043,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -1946,6 +2122,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonbon (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
 --- !u!4 &1056929004140336707 stripped
@@ -1963,6 +2147,10 @@ PrefabInstance:
     - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_Name
       value: Bonbon_Star
+      objectReference: {fileID: 0}
+    - target: {fileID: 844316007701853629, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_RootOrder
@@ -2019,6 +2207,10 @@ PrefabInstance:
     - target: {fileID: 2673222425561443381, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636923324789270503, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 803c02f2ab7415a4ea8672a9c3bb2255, type: 3}
@@ -2093,6 +2285,14 @@ PrefabInstance:
     - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
       propertyPath: m_Name
       value: Bonbon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7910948824316372531, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209020073191341773, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 534fc0470196a7646af74a0a4bf7cbff, type: 3}
