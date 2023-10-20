@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2513563930984610030
+--- !u!1 &2689850157124431527
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3002258003792634452}
-  - component: {fileID: 2163401459132870129}
-  - component: {fileID: 4170620656376731963}
+  - component: {fileID: 3323538722382574621}
+  - component: {fileID: 1851066646342499256}
+  - component: {fileID: 4491417070155698034}
   m_Layer: 0
-  m_Name: BonBon
+  m_Name: Chocolate_Tablet_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3002258003792634452
+--- !u!4 &3323538722382574621
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
+  m_GameObject: {fileID: 2689850157124431527}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5566962501365940899}
+  m_Father: {fileID: 8373828057010290321}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2163401459132870129
+--- !u!33 &1851066646342499256
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
-  m_Mesh: {fileID: -275659702465374547, guid: cd65f80b77cbbae44bcf0a244c9ae6f4, type: 3}
---- !u!23 &4170620656376731963
+  m_GameObject: {fileID: 2689850157124431527}
+  m_Mesh: {fileID: 5109430127433771711, guid: 7088db3091848844eabc34c2527ed903, type: 3}
+--- !u!23 &4491417070155698034
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
+  m_GameObject: {fileID: 2689850157124431527}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -62,6 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d06ddee942852f046a22a4c427c34f1a, type: 2}
+  - {fileID: 2100000, guid: 343aa94cbd30b8745b1f2365890650ab, type: 2}
   - {fileID: 2100000, guid: d06ddee942852f046a22a4c427c34f1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -84,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2836935048009517642
+--- !u!1 &3057511853821606389
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,41 +93,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5566962501365940899}
-  - component: {fileID: 3626068701666187935}
+  - component: {fileID: 8373828057010290321}
+  - component: {fileID: 382026529663213783}
   m_Layer: 0
-  m_Name: Bonbon
+  m_Name: Chocolate_Tablet_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5566962501365940899
+--- !u!4 &8373828057010290321
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2836935048009517642}
+  m_GameObject: {fileID: 3057511853821606389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3002258003792634452}
+  - {fileID: 3323538722382574621}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3626068701666187935
+--- !u!65 &382026529663213783
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2836935048009517642}
+  m_GameObject: {fileID: 3057511853821606389}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27120832, y: 0.20054413, z: 0.2702972}
-  m_Center: {x: -0.007946268, y: 0.100641854, z: -0.0032636672}
+  m_Size: {x: 0.24806194, y: 0.030957103, z: 0.6209484}
+  m_Center: {x: -0.00042889267, y: 0.013782214, z: -0.0014464557}

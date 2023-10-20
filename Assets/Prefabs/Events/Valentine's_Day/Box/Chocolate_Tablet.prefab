@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2513563930984610030
+--- !u!1 &5878258553702793270
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3002258003792634452}
-  - component: {fileID: 2163401459132870129}
-  - component: {fileID: 4170620656376731963}
+  - component: {fileID: 6546005895550802572}
+  - component: {fileID: 7888000026300126505}
+  - component: {fileID: 5373701945023586787}
   m_Layer: 0
-  m_Name: BonBon
+  m_Name: Chocolate_Tablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3002258003792634452
+--- !u!4 &6546005895550802572
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
+  m_GameObject: {fileID: 5878258553702793270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5566962501365940899}
+  m_Father: {fileID: 903208121191176865}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2163401459132870129
+--- !u!33 &7888000026300126505
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
-  m_Mesh: {fileID: -275659702465374547, guid: cd65f80b77cbbae44bcf0a244c9ae6f4, type: 3}
---- !u!23 &4170620656376731963
+  m_GameObject: {fileID: 5878258553702793270}
+  m_Mesh: {fileID: 2839540992672188004, guid: de5496f43836d1844b94187dc92eeb5e, type: 3}
+--- !u!23 &5373701945023586787
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2513563930984610030}
+  m_GameObject: {fileID: 5878258553702793270}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2836935048009517642
+--- !u!1 &6029297489964780941
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,41 +92,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5566962501365940899}
-  - component: {fileID: 3626068701666187935}
+  - component: {fileID: 903208121191176865}
+  - component: {fileID: 339149461056728733}
   m_Layer: 0
-  m_Name: Bonbon
+  m_Name: Chocolate_Tablet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5566962501365940899
+--- !u!4 &903208121191176865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2836935048009517642}
+  m_GameObject: {fileID: 6029297489964780941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3002258003792634452}
+  - {fileID: 6546005895550802572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3626068701666187935
+--- !u!65 &339149461056728733
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2836935048009517642}
+  m_GameObject: {fileID: 6029297489964780941}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.27120832, y: 0.20054413, z: 0.2702972}
-  m_Center: {x: -0.007946268, y: 0.100641854, z: -0.0032636672}
+  m_Size: {x: 0.20722881, y: 0.024077434, z: 0.6612851}
+  m_Center: {x: 0.000045910478, y: 0.010342378, z: 0.0005234778}
