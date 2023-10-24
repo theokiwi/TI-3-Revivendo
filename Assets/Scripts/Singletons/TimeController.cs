@@ -6,78 +6,62 @@ using UnityEngine.AI;
 
 public class TimeController : Singleton<TimeController>
 {
-    public enum Days : int { Segunda, Terca, Quarta, Quinta, Sexta };
-    public enum Seasons : int {Carnival, Easter, Valentines,FestaJulina, Halloween, Christmas};
+    public enum Days : int {Dia1, Dia2, Dia3 };
     public int contadorDias {get; private set;} //botei o get público pro resto do código poder saber que dia é  -alu
     private float timer = 0.00f;
     public float minutes {get; private set;}    //botei o get público pro resto do código poder saber que horas são  -alu
     private float seconds;
-    private int endHour = 5; //cinco minutos
-    public float timeMultiplier = 1.00f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 1
+    private int endHour = 2; //dois minutos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    public float timeMultiplier = 1f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 2
     public Days currentDay {get; private set;}  //botei o get público pro resto do código poder saber que dia é  -alu
-    public Seasons currentSeason;
+    public int dayCount;
     public int seasonsPassed;
     public void Start()
     {
-        currentDay = Days.Segunda;
-        currentSeason = Seasons.Carnival;
+        currentDay = Days.Dia1;
     }
 
     public void FixedUpdate()
     { 
-        if (seconds == 0)
+        if (timer >= 60)
         {
-            minutes += 1;
-            //Debug.Log("Mais um minuto " + minutes); Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+            timer = 0;
+            minutes++;
+            //UnityEngine.Debug.Log("Mais um minuto " + minutes); // Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
         }
         
         if (minutes == endHour)
         {
-            currentDay += 1;
-            contadorDias += 1; 
-            if(contadorDias > 6){
-                ChangeWeek();
+            minutes = 0;
+            currentDay++;
+            if((int)currentDay > 2){
+                currentDay = 0;
             }
-            //Debug.Log("Novo dia" + currentDay); Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+            contadorDias++; 
+            UnityEngine.Debug.Log(contadorDias);
+            if(contadorDias == 3){
+                contadorDias = 0;
+                ChangeWeek(); //informa que acabou a semana
+            }
+            UnityEngine.Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
             timer = 0; //reseta o dia que � equivalente a passar pro proximo dia. 
         }
 
-        timer += Time.deltaTime * timeMultiplier;
-        seconds = Mathf.Round(timer % 60);
-        //Debug.Log(seconds); Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+        timer += Time.fixedDeltaTime * timeMultiplier;
+        //UnityEngine.Debug.Log(timer); //Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
     }
 
-    public void ChangeWeek(){
-        if (seasonsPassed > 5){
+    public void ChangeWeek(){ 
+        UnityEngine.Debug.Log("ChangedWeek");
+        if (seasonsPassed > 5){ //serve pra contar em qual estação a gente está
             seasonsPassed = 0;
         }
         seasonsPassed++; 
         contadorDias = 0;
-        ChangeSeason();
+        Events.Instance.ChangeSeason(seasonsPassed);
     }
 
-    public void ChangeSeason(){
-        switch(seasonsPassed){
-            case 0:
-                currentSeason = Seasons.Carnival;
-                break;
-            case 1:
-                currentSeason = Seasons.Easter;
-                break;
-            case 2:
-                currentSeason = Seasons.Valentines;
-                break;
-            case 3:
-                currentSeason = Seasons.FestaJulina;
-                break;
-            case 4:
-                currentSeason = Seasons.Halloween;
-                break;
-            case 5:
-                currentSeason = Seasons.Christmas;
-                break;
-        }
-    }
+    
 
     //public void CheckEventos()
     //{
