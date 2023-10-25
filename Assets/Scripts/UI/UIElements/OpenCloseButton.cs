@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class OpenCloseButton : UIElement
 {
     private Button buttonComponent;
-    public UIScreen Screen;
+    public UIScreen screen;
 
     private void Start() 
     {
@@ -20,10 +20,10 @@ public class OpenCloseButton : UIElement
 
     private void Click()
     {
-        if(Screen._isEnabled)
-            Screen.Hide();
+        if(screen._isEnabled)
+            screen.Hide();
             else
-            Screen.Popup();
+            screen.Popup();
     }
 
 }

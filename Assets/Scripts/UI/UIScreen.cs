@@ -31,7 +31,7 @@ public abstract class UIScreen : MonoBehaviour
     private static Action<int> OtherOpened = (int level) =>{};
     //roda sempre que uma tela e desativada e reseta o valor de prioridade. Cada tela aberta quando ouve isso ajeita os valores de prioridade de acordo com a sua.
     private static Action<int> OtherClosed = (int level) =>{ highestPriority = 0; lowestPriority = 0;};
-    public bool _isEnabled;
+    [HideInInspector] public bool _isEnabled;
     
     private void Start() {
         Hide();
@@ -49,7 +49,6 @@ public abstract class UIScreen : MonoBehaviour
             OtherOpened(priorityLevel);
         }
 
-        OnPopup();
         foreach (UIElement element in elements) 
         {
             if (element._constantUpdate)
@@ -60,6 +59,7 @@ public abstract class UIScreen : MonoBehaviour
         }
         OtherOpened += OnOtherPopup;
         OtherClosed += OnOtherHide;
+        OnPopup();
         _isEnabled = true;
     }
     //metodo abstrato pra inserir funcionalidade extra pro popup da tela
