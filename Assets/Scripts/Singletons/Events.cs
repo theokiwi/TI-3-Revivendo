@@ -14,43 +14,43 @@ public class Events : Singleton<Events>
     currentSeason = Seasons.Standart;
    }
    public void ChangeSeason(int seasonsPassed){
-    switch (seasonsPassed){
-        case 0:
+    switch (currentSeason){
+        case Seasons.Standart:
         currentSeason = Seasons.Standart;
         currentScenario.SetActive(false);
         currentScenario = scenarios[0];
         currentScenario.SetActive(true);
         Debug.Log("Changed 0");
             break;
-        case 1:
+        case Seasons.Carnival:
         currentSeason = Seasons.Carnival;
         currentScenario.SetActive(false);
         currentScenario = scenarios[1];
         currentScenario.SetActive(true);
         Debug.Log("Changed 1");
             break;
-        case 2:
+        case Seasons.Easter:
         currentSeason = Seasons.Easter;
         currentScenario.SetActive(false);
         currentScenario = scenarios[2];
         currentScenario.SetActive(true);
         Debug.Log("Changed 2");
             break;
-        case 3:
+        case Seasons.Valentines:
         currentSeason = Seasons.Valentines;
         currentScenario.SetActive(false);
         currentScenario = scenarios[3];
         currentScenario.SetActive(true);
         Debug.Log("Changed 3");
             break;
-        case 4:
+        case Seasons.FestaJulina:
         currentSeason = Seasons.FestaJulina;
         currentScenario.SetActive(false);
         currentScenario = scenarios[4];
         currentScenario.SetActive(true);
         Debug.Log("Changed 4");
             break;
-        case 5:
+        case Seasons.Halloween:
         currentSeason = Seasons.Halloween;
         currentScenario.SetActive(false);
         currentScenario = scenarios[4];
@@ -58,7 +58,7 @@ public class Events : Singleton<Events>
         Debug.Log("Changed 5");
         
             break;
-        case 6:
+        case Seasons.Christmas:
         currentSeason = Seasons.Christmas;
         currentScenario.SetActive(false);
         currentScenario = scenarios[5];
