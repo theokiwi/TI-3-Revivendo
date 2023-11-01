@@ -8,8 +8,9 @@ using TMPro;
 [RequireComponent(typeof(TMP_Dropdown))]
 public class UpgradeDropdown : UIElement
 {
-    private TMP_Dropdown dropdown;
-    [HideInInspector] public UpgradeObject upgradeObject;
+    public TMP_Dropdown dropdown;
+    [HideInInspector] public UpgradeObject upgrades;
+    [HideInInspector] public IUpgradeable upgradeableObject;
     private void Start() 
     {
         dropdown = gameObject.GetComponent<TMP_Dropdown>();
@@ -23,11 +24,12 @@ public class UpgradeDropdown : UIElement
 
         dropdown.ClearOptions();
         List<TMP_Dropdown.OptionData> optionList = new List<TMP_Dropdown.OptionData>();
-        for(int i = 0; i < upgradeObject.upgrades.Length; i++)
+        for(int i = 0; i < upgrades.upgrades.Length; i++)
         {
-            optionList.Add(new TMP_Dropdown.OptionData(upgradeObject.upgrades[i].label));
-            optionList[i].text = upgradeObject.upgrades[i].label + (upgradeObject.upgrades[i]._isUnlocked ? "":$"[{upgradeObject.upgrades[i].cost}]");
+            optionList.Add(new TMP_Dropdown.OptionData(upgrades.upgrades[i].label));
+            optionList[i].text = upgrades.upgrades[i].label + (upgrades.upgrades[i]._isUnlocked ? "":$"[{upgrades.upgrades[i].cost}]");
         }
         dropdown.AddOptions(optionList);
+        dropdown.onValueChanged.AddListener(upgradeableObject.ChangeUpgrade);
     }
 }

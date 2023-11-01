@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IUpgradeable
 {
-    public int ChangeUpgrade(int value);
+    public void ChangeUpgrade(int value);
 }
