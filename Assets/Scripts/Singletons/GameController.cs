@@ -6,6 +6,7 @@ using System;
 
 public class GameController : Singleton<GameController>
 {
+    public MenuSO menuData;
     public Queue<DishData> orders;
     public Queue<GameObject> plates;
     [SerializeField] TMP_Text  moneyText;
@@ -16,6 +17,7 @@ public class GameController : Singleton<GameController>
     public bool _IsPaused { get => _paused; }
 
     public float money;
+    public int points;
 
     public int lostClients;
 
@@ -40,6 +42,7 @@ public class GameController : Singleton<GameController>
     private void StartGame() 
     {
         money = 0f;
+        points = 0;
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{0}";
 
@@ -69,6 +72,17 @@ public class GameController : Singleton<GameController>
     public float CalculateScore()
     {
         return money - (lostClients * 10);
+    }
+
+    public void SuccessfullDelivery(DishData plate, int numClients){
+        int multiplier = 1;
+        if (numClients == 2) multiplier = 3;
+        AddMoney(plate.price * multiplier);
+    }
+
+    public void FailledDelivery(int numClients){
+        lostClients += numClients;
+        points -= 100 * numClients;
     }
 
     //Adiciona valor inputado ao dinheiro do jogador, e atualiza o contador na tela.

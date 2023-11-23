@@ -19,7 +19,7 @@ public class Dish : AbstractInteractable
         }
         else if(other.collider.CompareTag("Table")){
             Table table = other.collider.GetComponent<Table>();
-            table.Serve(transform);
+            //table.Serve(transform);
         }
     }
 }

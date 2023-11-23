@@ -9,4 +9,16 @@ public class TrashCan : AbstractInteractable
             PlayerRefac.Instance.heldObject = null;
         }
     }
+
+    private void OnCollisionEnter(Collision other){
+        if(other.transform.CompareTag("Dirt")){
+            Destroy(other.gameObject);
+            Debug.Log("Destroyed Dirt");
+        }
+        if(other.transform.CompareTag("Dish")){
+            GameController.Instance.GetOrder(other.transform.GetComponent<Dish>().dish);
+            Destroy(other.gameObject);
+            Debug.Log("Destroyed Dish");
+        }
+    }
 }

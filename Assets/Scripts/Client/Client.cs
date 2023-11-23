@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,23 +6,37 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Client : AbstractInteractable
 {
-    [SerializeField]private ClientSO data;
     public enum STATES{
-        READY,
+        ORDER,
         WAITING,
         EATING
     }
-    private STATES state;
-    private DishData ordered;
+    [SerializeField] private STATES state;
+    [SerializeField] public DishData order;
+    [SerializeField] private GameObject bubble;
 
-    public override void Interact(){
-        PickUp();
+
+    private void Start(){
+        state = STATES.ORDER;
+        order = ChooseOrder(GameController.Instance.menuData.menu);
     }
 
-    private void OnCollisionEnter(Collision other){
-        if(other.collider.CompareTag("Table")){
-            
+    public DishData ChooseOrder(List<DishData> menu){
+        Debug.Log("choosing order");
+        int rng = UnityEngine.Random.Range(0, menu.Count);
+        DishData order = menu[rng];
+        Debug.Log(order);
+        return order;
+    }
+
+    public override void Interact(){
+        if(state == STATES.ORDER){
+            PickUp();
         }
+    }
+
+    public void Exit(){
+        
     }
 
 }

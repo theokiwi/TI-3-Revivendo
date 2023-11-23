@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 2268137930642418831}
   - component: {fileID: 2268137930642418826}
   - component: {fileID: 6107391308458779544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player (new)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,14 +630,14 @@ MonoBehaviour:
   holdPos: {fileID: 2268137929444746039}
   heldObject: {fileID: 0}
   interaction: {fileID: 0}
-  throwForce: 5
+  throwForce: 30
   HL_shader: {fileID: 4800000, guid: 5ba970330ef4921488fca0bb239bb968, type: 3}
   default_shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   HL_color: {r: 0, g: 0, b: 1, a: 1}
   target_color: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   interactLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!1 &2268137930754385738
 GameObject:
   m_ObjectHideFlags: 0

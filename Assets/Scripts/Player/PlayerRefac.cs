@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,9 +12,12 @@ public class PlayerRefac : Singleton<PlayerRefac>
     public IAction rightClick;
     private NavMeshAgent agent;
     private float maxSpeed, minSpeed;
+    [SerializeField] float  slowCD, slowTime;
+    private bool slow;
 
 
     private void Start(){
+        slow = false;
         agent = GetComponent<NavMeshAgent>();
         //E_action += GameController.Instance.OpenKitchen;
         ESC_action += GameController.Instance.PauseToggle;
@@ -39,13 +43,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
 
     private void OnTriggerEnter(Collider other){
         if(other.CompareTag("Dirt")){
-            SlowDown(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other){
-        if(other.CompareTag("Dirt")){
-            SlowDown(false);
+            SlowDown(slowCD);
         }
     }
 
@@ -73,9 +71,32 @@ public class PlayerRefac : Singleton<PlayerRefac>
         return false;
     }
 
-    private void SlowDown(bool slowed){
-        if(slowed) agent.speed = minSpeed;
-        else agent.speed = maxSpeed;
+    private void SlowDown(float cd){
+        StartCoroutine(Slowed(cd));
+    }
+
+    private bool CountDown(float value){
+        value -= Time.deltaTime;
+        if(value <= 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    private IEnumerator Slowed(float cd){
+        slowTime = cd;
+        if(slow){
+            yield break;
+        }
+        else{
+            slow = true;
+            agent.speed = minSpeed;
+            yield return new WaitUntil(() => CountDown(slowTime));
+            agent.speed = maxSpeed;
+            slow = false;
+        }
+        yield break;
     }
 
     #endregion
@@ -114,7 +135,6 @@ public class PlayerRefac : Singleton<PlayerRefac>
                 }
                 Highlight(hit.gameObject, HL_shader, Color.blue);
                 HLObject = hit.gameObject;
-                Debug.Log(HLObject);
             }
             else if(HLObject != null){
                 Highlight(HLObject, default_shader, Color.blue);
