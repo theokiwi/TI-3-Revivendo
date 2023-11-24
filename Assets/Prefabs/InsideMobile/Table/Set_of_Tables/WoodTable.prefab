@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+  clientSeated: {fileID: 0}
   seatPos: {fileID: 0}
 --- !u!1 &4072748728790002913
 GameObject:
@@ -190,6 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   occupied: 0
+  clientSeated: {fileID: 0}
   seatPos: {fileID: 0}
 --- !u!1 &8576457483566357014
 GameObject:

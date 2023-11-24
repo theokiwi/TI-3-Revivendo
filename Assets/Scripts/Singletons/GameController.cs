@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Linq;
 
 public class GameController : Singleton<GameController>
 {
@@ -21,16 +22,10 @@ public class GameController : Singleton<GameController>
 
     public int lostClients;
 
-    [SerializeField] Transform[] dispensers;
+    [SerializeField] Dispenser[] dispensers;
     [SerializeField] Vector3 boxCastSize;
     [SerializeField] float maxDistance = 300.0f;
     [SerializeField] LayerMask plateLayer;
-
-    private void Awake()
-    {
-        //singleton pattern transferido pra Singleton<T>
-        //DontDestroyOnLoad(gameObject);
-    }
 
     private void Start()
     {
@@ -152,26 +147,14 @@ public class GameController : Singleton<GameController>
     }
 
     // Instancia o proximo prato na posição do dispenser.
-    public void ServePlate()
-    {
-        foreach(Transform data in dispensers)
-        {
-            bool hitDetect;
-            RaycastHit hit;
-
-            hitDetect = Physics.BoxCast(data.transform.position, boxCastSize/2, Vector3.up, out hit, data.transform.rotation, maxDistance, plateLayer);
-            if(hitDetect == false)
-            {
-                //Debug.Log("Dispenser vazio.");
-                try{
-                    Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
-                    AudioManager.instance.Fogao();
-                }catch{}
-                break;
+    public void ServePlate(){
+        foreach(Dispenser data in dispensers){   
+            if(!data.IsOccupied() && plates.Any<GameObject>()){
+                Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
+                AudioManager.instance.Fogao();
             }
-            else if( hitDetect == true)
-            {
-                Debug.Log("Ocupado");
+            else if (!data.IsOccupied()){
+                Debug.Log("Dispenser esta ocupado");
             }
         }
     }

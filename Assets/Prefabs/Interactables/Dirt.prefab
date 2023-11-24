@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 718924699313803855}
   - component: {fileID: 3323328310322816645}
   - component: {fileID: 6116309123916438724}
-  - component: {fileID: 3047517184773046788}
   - component: {fileID: 8214651060272237605}
+  - component: {fileID: 6866632923835828711}
   m_Layer: 6
   m_Name: Dirt
   m_TagString: Dirt
@@ -103,19 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f8a0bea54eaa348b734fd7d5fe83fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &3047517184773046788
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3827541871914501968}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.0058496
-  m_Center: {x: 0.01715359, y: 0.08612251, z: 0.04074666}
 --- !u!54 &8214651060272237605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,3 +119,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &6866632923835828711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3827541871914501968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0116992, y: 0.47154367, z: 1.9494646}
+  m_Center: {x: 0.01715359, y: 0.08612251, z: 0.04074666}

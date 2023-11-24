@@ -4,7 +4,7 @@ using UnityEngine;
 public class ClientSpawn : MonoBehaviour
 {
     [SerializeField] private int remainingClients;
-    [SerializeField] private GameObject client;
+    [SerializeField] public GameObject client;
     [SerializeField] private int interval;
     [SerializeField] private float timeLeft;
     [SerializeField] private ITimer timer;
@@ -12,23 +12,35 @@ public class ClientSpawn : MonoBehaviour
 
 
     private void Start(){
-        timeLeft = 1;
+        timeLeft = 0;
         timer = new Timer_CountDown();
     }
 
     private void FixedUpdate(){
-        if(!BoxCast()){
-            if(timer.Count(timeLeft, interval)){
+        if(!IsOccupied()){
+            if(timer.Count(timeLeft -= Time.fixedDeltaTime)){
                 SpawnClient();
-                timeLeft = 1;
+                timeLeft = interval;
+                Debug.Log("New Client");
             }
         }
+        else Debug.Log("is occupied");
     }
 
-    private bool BoxCast(){
-        Collider[] inArea = Physics.OverlapBox(transform.position, Vector3.one/2, transform.rotation, layerMask);
-        Debug.Log(inArea.Count());
-        return inArea.Count() > 0;
+    private void OnDrawGizmos() {
+        if (IsOccupied()) Gizmos.color = Color.red;
+        else Gizmos.color = Color.cyan; 
+        Vector3 boxSize = new Vector3 (2, 2, 2);
+        Gizmos.DrawWireCube(transform.position + Vector3.up, boxSize);    
+    }
+
+    private bool IsOccupied(){
+        Vector3 boxSize = new Vector3(2, 2, 2);
+        Collider [] inArea = Physics.OverlapBox (transform.position + Vector3.up, boxSize/2, transform.rotation, layerMask);
+        foreach(Collider data in inArea){
+            if(data.CompareTag("Client")) return true;
+        }
+        return false;
     }
 
     private void SpawnClient(){

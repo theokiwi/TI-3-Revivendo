@@ -40,7 +40,7 @@ public class ProgressBar : MonoBehaviour
     private void FixedUpdate(){
         switch(state){
             case _States.COUNTING:
-                if (timer.Count(progress, duration)) state = _States.COMPLETED;
+                
             break;
             case _States.STATIC:
             

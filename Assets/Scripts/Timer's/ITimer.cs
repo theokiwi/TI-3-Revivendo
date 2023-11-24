@@ -1,4 +1,4 @@
 public interface ITimer
 {
-    public bool Count(float value, float duration);
+    public bool Count(float value);
 }

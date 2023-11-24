@@ -3,16 +3,16 @@ using UnityEngine;
 public class Table : AbstractInteractable
 {
     private enum STATES{
+        EMPTY,
         READY,
         ORDERED,
         IN_USE,
         FAILED
     }
-    private STATES state;
-    private bool inUse;
+    [SerializeField] private STATES state;
     private Transform dropPoint;
-    [SerializeField] Seat[] seats;
-    DishData tableOrder;
+    [SerializeField] private Seat[] seats;
+    [SerializeField] DishData tableOrder;
 
 
     private void Start(){
@@ -26,9 +26,14 @@ public class Table : AbstractInteractable
     {
         AbstractInteractable holding = PlayerRefac.Instance.heldObject.GetComponent<AbstractInteractable>();
         switch(state){
+            case STATES.EMPTY:
+                if (holding.GetType() == typeof(Client)){
+                    SeatClient(holding.GetComponent<Client>());
+                    state = STATES.READY;
+                }
+            break;
             case STATES.READY:
-                if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
-                else if (holding != null) holding.ToPosition(dropPoint);
+                if (holding != null) holding.ToPosition(dropPoint);
                 else if (tableOrder != null) Order(tableOrder);
                 break;
             case STATES.ORDERED:
@@ -73,10 +78,8 @@ public class Table : AbstractInteractable
 
     private void SeatClient(Client client){
         if(TableOccupants() < 2){
-            if(TableOccupants() == 0){
-                tableOrder = ChooseOrder(client);
-            }
-            else if(client.order != tableOrder){
+            if(client.order != tableOrder){
+                Debug.Log("O pedido deste cliente difere do pedido da mesa!");
                 //Tocar sound effect de erro
                 return;
             }
@@ -87,6 +90,7 @@ public class Table : AbstractInteractable
 
             seats[TableOccupants()].occupied = true;
         }
+        else Debug.Log("Esta mesa ja esta cheia");
     }
 
     private DishData ChooseOrder(Client client){
