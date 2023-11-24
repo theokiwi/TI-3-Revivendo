@@ -18,7 +18,7 @@ public class ClientSpawn : MonoBehaviour
 
     private void FixedUpdate(){
         if(!IsOccupied()){
-            if(timer.Count(timeLeft -= Time.fixedDeltaTime)){
+            if(timer.Count(ref timeLeft, interval)){
                 SpawnClient();
                 timeLeft = interval;
                 Debug.Log("New Client");

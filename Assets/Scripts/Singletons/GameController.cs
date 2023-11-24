@@ -23,9 +23,7 @@ public class GameController : Singleton<GameController>
     public int lostClients;
 
     [SerializeField] Dispenser[] dispensers;
-    [SerializeField] Vector3 boxCastSize;
-    [SerializeField] float maxDistance = 300.0f;
-    [SerializeField] LayerMask plateLayer;
+
 
     private void Start()
     {

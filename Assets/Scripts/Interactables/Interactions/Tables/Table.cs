@@ -29,6 +29,7 @@ public class Table : AbstractInteractable
             case STATES.EMPTY:
                 if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
+                    tableOrder = ChooseOrder(holding.GetComponent<Client>());
                     state = STATES.READY;
                 }
             break;

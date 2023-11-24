@@ -1,64 +1,55 @@
 using UnityEngine.UI;
 using UnityEngine;
-using System;
 
-public class ProgressBar : MonoBehaviour
+public abstract class ProgressBar : MonoBehaviour
 {
     #region properties
 
-    //can only be a float value between 0.0 and 1.0, hardcoded
-    [SerializeField] private float progress{
-        get { return progress;}
-        set {
-            if (value > 1){
-                throw new InvalidOperationException("Progress must be a float value between 0 and 1");
-            }
-            if (value < 0){
-                throw new InvalidOperationException("Progress must be a float value between 0 and 1");
-            }
-            progress = value;
-        }
-    } 
-    [SerializeField] private float duration;
-    [SerializeField] private Image fillImage;
-    [SerializeField] Material mat;
-    [SerializeField] ITimer timer;
-    [SerializeField] _States state;
-
+    [SerializeField] protected float progress;
+    [SerializeField] protected float duration;
+    [SerializeField] protected Image fillImage;
+    [SerializeField] protected Material mat;
+    [SerializeField] protected _States state;
+    protected ITimer timer;
     public enum _States{STATIC, COUNTING, COMPLETED}
+
 
     #endregion
 
     #region methods
 
-    private void Start(){
+    protected virtual void Start(){
         fillImage = GetComponent<Image>();
-        mat = CloneMaterial(fillImage);
         fillImage.fillAmount = 1;
+        mat = CloneMaterial(fillImage);
     }
 
-    private void FixedUpdate(){
+    protected virtual void FixedUpdate(){
         switch(state){
             case _States.COUNTING:
-                
+                OnCounting();
             break;
             case _States.STATIC:
-            
+                OnStatic();
             break;
             case _States.COMPLETED:
-                
+                OnCompletion();
             break;
         }
     }
 
-    private void ChangeAlpha(Material mat, float value){
+    protected virtual void ChangeAlpha(Material mat, float value){
         mat.SetFloat("_Alpha", value);
     }
 
-    private Material CloneMaterial(Image img){
+    protected virtual Material CloneMaterial(Image img){
         img.material = new Material(img.material);
         return img.material;
     }
+
+    protected abstract void OnCounting();
+    protected abstract void OnStatic();
+    protected abstract void OnCompletion();
 
     #endregion
 

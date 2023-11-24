@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +5,9 @@ using UnityEngine;
 public class Client : AbstractInteractable
 {
     public enum STATES{
-        ORDER,
         WAITING,
+        ORDER,
+        ORDERED,    
         EATING
     }
     [SerializeField] private STATES state;
@@ -17,7 +16,7 @@ public class Client : AbstractInteractable
 
 
     private void Start(){
-        state = STATES.ORDER;
+        state = STATES.WAITING;
         order = ChooseOrder(GameController.Instance.menuData.menu);
     }
 
@@ -30,7 +29,7 @@ public class Client : AbstractInteractable
     }
 
     public override void Interact(){
-        if(state == STATES.ORDER){
+        if(state == STATES.WAITING){
             PickUp();
         }
     }
