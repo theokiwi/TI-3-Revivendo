@@ -35,7 +35,7 @@ public class Client : AbstractInteractable
     }
 
     public void Exit(){
-        
+        Destroy(gameObject);
     }
 
 }

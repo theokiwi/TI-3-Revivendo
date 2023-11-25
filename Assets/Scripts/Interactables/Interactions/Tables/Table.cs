@@ -6,105 +6,106 @@ public class Table : AbstractInteractable
         EMPTY,
         READY,
         ORDERED,
-        IN_USE,
-        FAILED
+        IN_USE
     }
+    [SerializeField] private int occupants;
     [SerializeField] private STATES state;
-    private Transform dropPoint;
     [SerializeField] private Seat[] seats;
-    [SerializeField] DishData tableOrder;
+    [SerializeField] private DishData tableOrder;
+    private Transform dropPoint;
+    private bool isDirty;
+    private ProgressBar tableBubble;
 
 
     private void Start(){
+        occupants = 0;
         state = STATES.READY;
         seats = GetComponentsInChildren<Seat>();
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
     }
     
+    private void OnCollisionEnter(Collision other){
+        if(other.transform.CompareTag("Client")){
+            SeatClient(other.transform.GetComponent<Client>());
+        }
+    }
 
     public override void Interact()
     {
-        AbstractInteractable holding = PlayerRefac.Instance.heldObject.GetComponent<AbstractInteractable>();
+        AbstractInteractable holding;
+        try {holding = PlayerRefac.Instance.heldObject.GetComponent<AbstractInteractable>();}
+        catch {holding = null;}
+
         switch(state){
             case STATES.EMPTY:
-                if (holding.GetType() == typeof(Client)){
+                if(isDirty){
+                    //Mini-game de limpar mesa
+                }
+                else if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
                     tableOrder = ChooseOrder(holding.GetComponent<Client>());
                     state = STATES.READY;
                 }
             break;
             case STATES.READY:
-                if (holding != null) holding.ToPosition(dropPoint);
-                else if (tableOrder != null) Order(tableOrder);
+                if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
+                else if (tableOrder != null){ 
+                    Order(tableOrder);
+                    state = STATES.ORDERED;
+                }
                 break;
             case STATES.ORDERED:
                 if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
-                if(holding.GetType() == typeof(Dish)){
-                    if(holding.GetComponent<Dish>().dish == tableOrder) ServeDish(holding);
-                    else OnFailure();
+                else if(holding.GetType() == typeof(Dish)){
+                    state = STATES.IN_USE;
+                    ServeDish(holding, tableOrder);
                 }
                 break;
             case STATES.IN_USE:
-                OnSucces(holding);
+                //Has no function so far
             break;
         }
-    }
-
-    private void OnSucces(AbstractInteractable plate){
-        GameController.Instance.SuccessfullDelivery(tableOrder, TableOccupants());
-        Destroy(plate);
-    }
-
-    private void OnFailure(){
-        GameController.Instance.FailledDelivery(TableOccupants());
-        foreach(Seat data in seats){
-            data.clientSeated.Exit();
-        }
-    }
-
-    private int TableOccupants(){
-        int seated = 0;
-        foreach (Seat data in seats){
-            if (data.occupied) seated++;
-        }
-        return seated;
     }
 
     private void EmptySeats(){
         foreach(Seat data in seats){
             data.occupied = false;
+            data.clientSeated.Exit();
             data.clientSeated = null;
         }
+        state = STATES.EMPTY;
+        occupants = 0;
+        if(Random.Range(0, 10) < 2.5) isDirty = true;
     }
 
     private void SeatClient(Client client){
-        if(TableOccupants() < 2){
+        if(occupants < 2){
             if(client.order != tableOrder){
                 Debug.Log("O pedido deste cliente difere do pedido da mesa!");
                 //Tocar sound effect de erro
-                return;
             }
-            client.ToPosition(seats[TableOccupants()].seatPos);
+            else{
+                client.ToPosition(seats[occupants].seatPos);
+                seats[occupants].clientSeated = client;
+                seats[occupants].occupied = true;
+                occupants++;
 
-            Vector3 lookPos = new Vector3(transform.position.x, client.transform.position.y, transform.position.z);
-            client.transform.LookAt(lookPos);
-
-            seats[TableOccupants()].occupied = true;
+                Vector3 lookPos = new Vector3(transform.position.x, client.transform.position.y, transform.position.z);
+                client.transform.LookAt(lookPos);
+            }
         }
         else Debug.Log("Esta mesa ja esta cheia");
     }
 
-    private DishData ChooseOrder(Client client){
-        return client.order;
-    }
+    private DishData ChooseOrder(Client client) {return client.order;}
 
-    private void Order(DishData order){
-        GameController.Instance.GetOrder(order);
-        state = STATES.ORDERED;
-    }
+    private void Order(DishData order) {GameController.Instance.GetOrder(order);}
     
-    private void ServeDish(AbstractInteractable plate){
+    private void ServeDish(AbstractInteractable plate, DishData ordered){
         plate.ToPosition(dropPoint);
-        state = STATES.IN_USE;
+        DishData served = plate.GetComponent<Dish>().dish;
+        if(served == ordered) GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
+        else GameController.Instance.FailledDelivery(occupants);
+        EmptySeats();
     }
 }
