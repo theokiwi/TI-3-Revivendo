@@ -68,12 +68,14 @@ public class GameController : Singleton<GameController>
     }
 
     public void SuccessfullDelivery(DishData plate, int numClients){
+        Debug.Log("Success!");
         int multiplier = 1;
         if (numClients == 2) multiplier = 3;
         AddMoney(plate.price * multiplier);
     }
 
     public void FailledDelivery(int numClients){
+        Debug.Log("Failure");
         lostClients += numClients;
         points -= 100 * numClients;
     }
@@ -149,7 +151,6 @@ public class GameController : Singleton<GameController>
         foreach(Dispenser data in dispensers){   
             if(!data.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
-                AudioManager.instance.Fogao();
             }
             else if (data.IsOccupied()){
                 Debug.Log("Dispenser esta ocupado");

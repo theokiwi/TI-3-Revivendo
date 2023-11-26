@@ -11,7 +11,7 @@ public class Table : AbstractInteractable
     }
     [SerializeField] private int occupants;
     [SerializeField] private STATES state;
-    [SerializeField] private Seat[] seats;
+    [SerializeField] private Seat[] seats = new Seat[2];
     [SerializeField] private DishData tableOrder;
     private Transform dropPoint;
     private bool isDirty;
@@ -45,6 +45,7 @@ public class Table : AbstractInteractable
                 if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
                     state = STATES.READY;
+                    return;
                 }
             break;
             case STATES.READY:
@@ -53,6 +54,7 @@ public class Table : AbstractInteractable
                     Order(tableOrder);
                     state = STATES.ORDERED;
                     Debug.Log("Ordered");
+                    return;
                     }
                 }
                 else if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
@@ -60,7 +62,6 @@ public class Table : AbstractInteractable
             case STATES.ORDERED:
                 if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 else if(holding.GetType() == typeof(Dish)){
-                    state = STATES.IN_USE;
                     ServeDish(holding, tableOrder);
                 }
                 break;
@@ -72,9 +73,10 @@ public class Table : AbstractInteractable
 
     private void EmptySeats(){
         foreach(Seat data in seats){
-            data.occupied = false;
-            data.clientSeated.Exit();
-            data.clientSeated = null;
+            if(data.occupied){
+                data.occupied = false;
+                data.clientSeated.Exit();
+            }
         }
         state = STATES.EMPTY;
         occupants = 0;
@@ -112,6 +114,7 @@ public class Table : AbstractInteractable
         DishData served = plate.GetComponent<Dish>().dish;
         if(served == ordered) GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
         else GameController.Instance.FailledDelivery(occupants);
+        Destroy(plate.gameObject);
         EmptySeats();
     }
 }

@@ -14,9 +14,11 @@ public class PlayerRefac : Singleton<PlayerRefac>
     private float maxSpeed, minSpeed;
     [SerializeField] float  slowCD, slowTime;
     private bool slow;
+    private bool intercating;
 
 
     private void Start(){
+        intercating = false;
         slow = false;
         agent = GetComponent<NavMeshAgent>();
         //E_action += GameController.Instance.OpenKitchen;
@@ -57,10 +59,16 @@ public class PlayerRefac : Singleton<PlayerRefac>
 
 
     private void Interact(AbstractInteractable i){
-        i.Interact();
-        Highlight(targetObject, default_shader, Color.blue);
-        targetObject = null;
-        interaction = null;
+        if(!intercating){
+            intercating = true;
+
+            i.Interact();
+            interaction = null;
+            Highlight(targetObject, default_shader, Color.blue);
+            targetObject = null;
+            
+            intercating = false;
+        }
     }
 
     private bool HasReachedDestination(Transform destination){

@@ -24,7 +24,6 @@ public class ClientSpawn : MonoBehaviour
                 Debug.Log("New Client");
             }
         }
-        else Debug.Log("is occupied");
     }
 
     private void OnDrawGizmos() {
