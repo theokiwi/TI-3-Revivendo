@@ -147,11 +147,11 @@ public class GameController : Singleton<GameController>
     // Instancia o proximo prato na posição do dispenser.
     public void ServePlate(){
         foreach(Dispenser data in dispensers){   
-            if(!data.IsOccupied() && plates.Any<GameObject>()){
+            if(!data.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
                 AudioManager.instance.Fogao();
             }
-            else if (!data.IsOccupied()){
+            else if (data.IsOccupied()){
                 Debug.Log("Dispenser esta ocupado");
             }
         }

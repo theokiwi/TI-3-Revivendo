@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Table : AbstractInteractable
@@ -38,21 +39,23 @@ public class Table : AbstractInteractable
 
         switch(state){
             case STATES.EMPTY:
-                if(isDirty){
-                    //Mini-game de limpar mesa
-                }
-                else if (holding.GetType() == typeof(Client)){
+                //if(isDirty){
+                //    //Mini-game de limpar mesa
+                //}
+                if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
-                    tableOrder = ChooseOrder(holding.GetComponent<Client>());
                     state = STATES.READY;
                 }
             break;
             case STATES.READY:
-                if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
-                else if (tableOrder != null){ 
+                if(holding == null){
+                    if (tableOrder != null){ 
                     Order(tableOrder);
                     state = STATES.ORDERED;
+                    Debug.Log("Ordered");
+                    }
                 }
+                else if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 break;
             case STATES.ORDERED:
                 if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
@@ -75,24 +78,27 @@ public class Table : AbstractInteractable
         }
         state = STATES.EMPTY;
         occupants = 0;
-        if(Random.Range(0, 10) < 2.5) isDirty = true;
+        if(UnityEngine.Random.Range(0, 10) < 2.5) isDirty = true;
     }
 
     private void SeatClient(Client client){
         if(occupants < 2){
-            if(client.order != tableOrder){
+            if(occupants == 0){
+                tableOrder = ChooseOrder(client);
+                state = STATES.READY;
+            }
+            else if(client.order != tableOrder){
                 Debug.Log("O pedido deste cliente difere do pedido da mesa!");
+                return;
                 //Tocar sound effect de erro
             }
-            else{
-                client.ToPosition(seats[occupants].seatPos);
-                seats[occupants].clientSeated = client;
-                seats[occupants].occupied = true;
-                occupants++;
+            client.ToPosition(seats[occupants].seatPos);
+            seats[occupants].clientSeated = client;
+            seats[occupants].occupied = true;
+            occupants++;
 
-                Vector3 lookPos = new Vector3(transform.position.x, client.transform.position.y, transform.position.z);
-                client.transform.LookAt(lookPos);
-            }
+            Vector3 lookPos = new Vector3(transform.position.x, client.transform.position.y, transform.position.z);
+            client.transform.LookAt(lookPos);
         }
         else Debug.Log("Esta mesa ja esta cheia");
     }
