@@ -12,14 +12,11 @@ public class TrashCan : AbstractInteractable
 
     private void OnCollisionEnter(Collision other){
         if(other.transform.CompareTag("Dirt")){
-            Destroy(other.gameObject);
-            Debug.Log("Destroyed Dirt");
             GameController.Instance.AddPoints(50);
         }
         if(other.transform.CompareTag("Dish")){
             GameController.Instance.GetOrder(other.transform.GetComponent<Dish>().dish);
-            Destroy(other.gameObject);
-            Debug.Log("Destroyed Dish");
         }
+        Destroy(other.gameObject);
     }
 }

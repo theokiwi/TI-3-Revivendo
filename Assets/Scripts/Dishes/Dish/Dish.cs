@@ -15,7 +15,7 @@ public class Dish : AbstractInteractable
             Debug.Log(dish);
             GameController.Instance.GetOrder(dish);
             Instantiate(dirt, transform.position, transform.rotation);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else if(other.collider.CompareTag("Table")){
             Table table = other.collider.GetComponent<Table>();

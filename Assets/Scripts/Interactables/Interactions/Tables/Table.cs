@@ -113,7 +113,7 @@ public class Table : AbstractInteractable
         plate.ToPosition(dropPoint);
         DishData served = plate.GetComponent<Dish>().dish;
         if(served == ordered) GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
-        else GameController.Instance.FailledDelivery(occupants);
+        else GameController.Instance.FailledDelivery(occupants, ordered);
         Destroy(plate.gameObject);
         EmptySeats();
     }

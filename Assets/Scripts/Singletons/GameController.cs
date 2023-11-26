@@ -77,8 +77,9 @@ public class GameController : Singleton<GameController>
         AddPoints (100 * multiplier);
     }
 
-    public void FailledDelivery(int numClients){
+    public void FailledDelivery(int numClients, DishData dish){
         Debug.Log("Failure");
+        GameController.Instance.GetOrder(dish);
         lostClients += numClients;
         AddPoints(- 250);
     }
@@ -160,9 +161,6 @@ public class GameController : Singleton<GameController>
         foreach(Dispenser data in dispensers){   
             if(!data.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
-            }
-            else if (data.IsOccupied()){
-                Debug.Log("Dispenser esta ocupado");
             }
         }
     }
