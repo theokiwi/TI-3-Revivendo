@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
+using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class TimeController : Singleton<TimeController>
 {
@@ -16,6 +14,10 @@ public class TimeController : Singleton<TimeController>
     public Days currentDay {get; private set;}  //botei o get público pro resto do código poder saber que dia é  -alu
     public int dayCount;
     public int seasonsPassed;
+    public TMP_Text dayCounter;
+    public TMP_Text timerText;
+
+
     public void Start()
     {
         currentDay = Days.Dia1;
@@ -23,6 +25,7 @@ public class TimeController : Singleton<TimeController>
 
     public void FixedUpdate()
     { 
+
         if (timer >= 60)
         {
             timer = 0;
@@ -49,6 +52,12 @@ public class TimeController : Singleton<TimeController>
 
         timer += Time.fixedDeltaTime * timeMultiplier;
         //UnityEngine.Debug.Log(timer); //Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+    }
+
+    private void UpdateUI(){
+        int timeLeft = Mathf.RoundToInt((60 * endHour) - (timer + minutes * 60));
+        timerText.text = $"time left : {timeLeft}";
+        dayCounter.text = $"Day : {currentDay}";
     }
 
     public void ChangeWeek(){ 

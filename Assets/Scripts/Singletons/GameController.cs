@@ -11,13 +11,14 @@ public class GameController : Singleton<GameController>
     public Queue<DishData> orders;
     public Queue<GameObject> plates;
     [SerializeField] TMP_Text  moneyText;
+    [SerializeField] TMP_Text pointsText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject endScreen;
 
     private bool _paused = true;
     public bool _IsPaused { get => _paused; }
 
-    public float money;
+    public int money;
     public int points;
 
     public int lostClients;
@@ -34,7 +35,7 @@ public class GameController : Singleton<GameController>
     //reinicia todos os valores para o início de um novo jogo / carrega os valores de um save
     private void StartGame() 
     {
-        money = 0f;
+        money = 0;
         points = 0;
         moneyText.text = $" {money},00 ";
         numberOfOrders.text = $"{0}";
@@ -64,7 +65,8 @@ public class GameController : Singleton<GameController>
     //calcula a pontuacao (TODO: refazer quando tiver um sistema de satisfacao pros clientes)
     public float CalculateScore()
     {
-        return money - (lostClients * 10);
+        int finalScore = points + (2 * money);
+        return finalScore;
     }
 
     public void SuccessfullDelivery(DishData plate, int numClients){
@@ -72,12 +74,13 @@ public class GameController : Singleton<GameController>
         int multiplier = 1;
         if (numClients == 2) multiplier = 3;
         AddMoney(plate.price * multiplier);
+        AddPoints (100 * multiplier);
     }
 
     public void FailledDelivery(int numClients){
         Debug.Log("Failure");
         lostClients += numClients;
-        points -= 100 * numClients;
+        AddPoints(- 250);
     }
 
     //Adiciona valor inputado ao dinheiro do jogador, e atualiza o contador na tela.
@@ -86,6 +89,12 @@ public class GameController : Singleton<GameController>
         money += value;
         moneyText.text = $" {money} ";
     }
+
+    public void AddPoints(int points){
+        this.points += points;
+        pointsText.text = $"score: {this.points}";
+    }
+
     //Adiciona 1 a contagem de clientes perdidos (TODO: trocar isso por um sistema de satisfacao pro cliente) 
     public void LoseClient()
     {

@@ -14,6 +14,7 @@ public class TrashCan : AbstractInteractable
         if(other.transform.CompareTag("Dirt")){
             Destroy(other.gameObject);
             Debug.Log("Destroyed Dirt");
+            GameController.Instance.AddPoints(50);
         }
         if(other.transform.CompareTag("Dish")){
             GameController.Instance.GetOrder(other.transform.GetComponent<Dish>().dish);
