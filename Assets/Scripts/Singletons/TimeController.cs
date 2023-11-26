@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeController : Singleton<TimeController>
 {
@@ -25,6 +26,7 @@ public class TimeController : Singleton<TimeController>
 
     public void FixedUpdate()
     { 
+        UpdateUI();
 
         if (timer >= 60)
         {

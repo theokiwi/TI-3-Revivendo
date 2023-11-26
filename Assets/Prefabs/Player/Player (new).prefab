@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2268137929481118652}
   - component: {fileID: 2268137929481118655}
   - component: {fileID: 2268137929481118654}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -627,10 +627,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308c563a84dbfb24fa13b233bf3d1910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowCD: 0
+  slowTime: 0
   holdPos: {fileID: 2268137929444746039}
   heldObject: {fileID: 0}
   interaction: {fileID: 0}
-  throwForce: 30
+  throwForce: 20
   HL_shader: {fileID: 4800000, guid: 5ba970330ef4921488fca0bb239bb968, type: 3}
   default_shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   HL_color: {r: 0, g: 0, b: 1, a: 1}
@@ -732,7 +734,7 @@ GameObject:
   - component: {fileID: 2268137931170962775}
   - component: {fileID: 2268137931170962770}
   - component: {fileID: 2268137931170962769}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -816,7 +818,7 @@ GameObject:
   - component: {fileID: 2268137931180917399}
   - component: {fileID: 2268137931180917398}
   - component: {fileID: 2268137931180917397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Modelo Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
