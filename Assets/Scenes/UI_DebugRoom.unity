@@ -536,14 +536,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 187788a1e6a22a84dbbfb31a63551427, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillClockwise: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1861241911
@@ -633,6 +633,7 @@ GameObject:
   - component: {fileID: 1932975217}
   - component: {fileID: 1932975219}
   - component: {fileID: 1932975218}
+  - component: {fileID: 1932975220}
   m_Layer: 5
   m_Name: BackroundIcon
   m_TagString: Untagged
@@ -700,3 +701,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932975216}
   m_CullTransparentMesh: 1
+--- !u!114 &1932975220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932975216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac6f9e1e25cc24c9646f4114651f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progress: 1
+  duration: 5
+  fillImage: {fileID: 1861241910}
+  mat: {fileID: 0}
+  state: 0

@@ -19,7 +19,6 @@ public abstract class ProgressBar : MonoBehaviour
     #region methods
 
     protected virtual void Start(){
-        fillImage = GetComponent<Image>();
         fillImage.fillAmount = 1;
         mat = CloneMaterial(fillImage);
     }
@@ -38,8 +37,12 @@ public abstract class ProgressBar : MonoBehaviour
         }
     }
 
-    protected virtual void ChangeAlpha(Material mat, float value){
+    protected virtual void ChangeAlpha(float value){
         mat.SetFloat("_Alpha", value);
+    }
+
+    protected virtual void ChangeFill(float value){
+        fillImage.fillAmount = value;
     }
 
     protected virtual Material CloneMaterial(Image img){

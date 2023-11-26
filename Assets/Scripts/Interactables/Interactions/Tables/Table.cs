@@ -105,7 +105,10 @@ public class Table : AbstractInteractable
         else Debug.Log("Esta mesa ja esta cheia");
     }
 
-    private DishData ChooseOrder(Client client) {return client.order;}
+    private DishData ChooseOrder(Client client) {
+        tableBubble.gameObject.SetActive(true);
+        return client.order;
+    }
 
     private void Order(DishData order) {GameController.Instance.GetOrder(order);}
     

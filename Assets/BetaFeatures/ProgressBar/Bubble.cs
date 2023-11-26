@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class Bubble : ProgressBar
 {
@@ -11,6 +12,8 @@ public class Bubble : ProgressBar
 
     protected override void OnCounting(){
         timer.Count (ref progress, duration);
+        ChangeAlpha(progress);
+        ChangeFill(progress);
     }
 
     protected override void OnStatic(){
@@ -18,6 +21,7 @@ public class Bubble : ProgressBar
     }
 
     protected override void OnCompletion(){
+        Debug.Log("Completed");
         Complete.Invoke();
     }
 
