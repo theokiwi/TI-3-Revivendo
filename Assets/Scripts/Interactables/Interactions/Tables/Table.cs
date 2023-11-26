@@ -15,14 +15,15 @@ public class Table : AbstractInteractable
     [SerializeField] private DishData tableOrder;
     private Transform dropPoint;
     private bool isDirty;
-    private ProgressBar tableBubble;
+    [SerializeField] private Bubble tableBubble;
 
 
     private void Start(){
         occupants = 0;
-        state = STATES.READY;
+        state = STATES.EMPTY;
         seats = GetComponentsInChildren<Seat>();
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
+        tableBubble.Hide();
     }
     
     private void OnCollisionEnter(Collision other){
@@ -60,9 +61,14 @@ public class Table : AbstractInteractable
                 else if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 break;
             case STATES.ORDERED:
+                if(tableBubble.sleepy){
+                    tableBubble.Refresh(15, tableOrder.interfaceIcon);
+                    tableBubble.Wake();
+                }
                 if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 else if(holding.GetType() == typeof(Dish)){
                     ServeDish(holding, tableOrder);
+                    tableBubble.Sleep();
                 }
                 break;
             case STATES.IN_USE:

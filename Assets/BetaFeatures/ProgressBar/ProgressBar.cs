@@ -33,6 +33,7 @@ public abstract class ProgressBar : MonoBehaviour
             break;
             case _States.COMPLETED:
                 OnCompletion();
+                state = _States.STATIC;
             break;
         }
     }
