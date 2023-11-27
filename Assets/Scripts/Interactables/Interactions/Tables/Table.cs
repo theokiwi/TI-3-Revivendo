@@ -23,7 +23,7 @@ public class Table : AbstractInteractable
         state = STATES.EMPTY;
         seats = GetComponentsInChildren<Seat>();
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
-        tableBubble.Hide();
+        //tableBubble.Hide();
     }
     
     private void OnCollisionEnter(Collision other){
@@ -43,6 +43,7 @@ public class Table : AbstractInteractable
                 if(isDirty){
                     MiniGamesManager.instance.StartMiniGame("Table", gameObject.GetComponent<Table>());
                 }
+                else if(PlayerRefac.Instance.heldObject == null){}
                 else if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
                     state = STATES.READY;
@@ -61,14 +62,15 @@ public class Table : AbstractInteractable
                 else if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 break;
             case STATES.ORDERED:
-                if(tableBubble.sleepy){
+                /*if(tableBubble.sleepy){
                     tableBubble.Refresh(15, tableOrder.interfaceIcon);
                     tableBubble.Wake();
-                }
-                if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
+                }*/
+                if(PlayerRefac.Instance.heldObject == null) { }
+                else if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 else if(holding.GetType() == typeof(Dish)){
                     ServeDish(holding, tableOrder);
-                    tableBubble.Sleep();
+                    //tableBubble.Sleep();
                 }
                 break;
             case STATES.IN_USE:
@@ -101,6 +103,7 @@ public class Table : AbstractInteractable
                 //Tocar sound effect de erro
             }
             client.ToPosition(seats[occupants].seatPos);
+            client.GetComponent<Collider>().enabled = false;
             seats[occupants].clientSeated = client;
             seats[occupants].occupied = true;
             occupants++;
@@ -112,7 +115,7 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        tableBubble.gameObject.SetActive(true);
+        //tableBubble.gameObject.SetActive(true);
         return client.order;
     }
 

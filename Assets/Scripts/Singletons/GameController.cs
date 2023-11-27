@@ -65,7 +65,7 @@ public class GameController : Singleton<GameController>
     //calcula a pontuacao (TODO: refazer quando tiver um sistema de satisfacao pros clientes)
     public float CalculateScore()
     {
-        int finalScore = points + (2 * money);
+        int finalScore = points + (2 * money) + (2 * TimeController.Instance.timeLeft);
         return finalScore;
     }
 
@@ -79,9 +79,9 @@ public class GameController : Singleton<GameController>
 
     public void FailledDelivery(int numClients, DishData dish){
         Debug.Log("Failure");
-        GameController.Instance.GetOrder(dish);
+        //GameController.Instance.GetOrder(dish);
         lostClients += numClients;
-        AddPoints(- 250);
+        AddPoints(- 125);
     }
 
     //Adiciona valor inputado ao dinheiro do jogador, e atualiza o contador na tela.
@@ -104,8 +104,10 @@ public class GameController : Singleton<GameController>
 
     public void GameOver()
     {
-        PauseGame(true);
-        UIManager.Instance.EnablePopup(UIManager.ScreenEnum.EndGameScreen);
+        Time.timeScale = 0;
+        TimeController.Instance.timeMultiplier = 0;
+        End.Instance.EndUpdate();
+        endScreen.gameObject.SetActive(true);
     }
 
     //Adiciona pedido à lista e ordena a lista.

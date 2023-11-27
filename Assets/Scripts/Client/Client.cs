@@ -35,7 +35,11 @@ public class Client : AbstractInteractable
     }
 
     public void Exit(){
-        Destroy(gameObject);
+        Destroy(gameObject);       
+    }
+    private void OnDestroy()
+    {
+        ClientSpawn.instance.clientsBeingServed--;
     }
 
 }

@@ -9,8 +9,13 @@ public class ClientSpawn : MonoBehaviour
     [SerializeField] private float timeLeft;
     [SerializeField] private ITimer timer;
     [SerializeField] private LayerMask layerMask;
+    public static ClientSpawn instance;
     public int clientsBeingServed = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start(){
         timeLeft = 0;
         timer = new Timer_CountDown();
@@ -20,9 +25,13 @@ public class ClientSpawn : MonoBehaviour
         if(!IsOccupied()){
             if(timer.Count(ref timeLeft, interval)){
                 SpawnClient();
-                timeLeft = interval;
+                timeLeft = 1;
                 Debug.Log("New Client");
             }
+        }
+        if(clientsBeingServed <= 0 && remainingClients <= 0)
+        {
+            TimeController.Instance.EndDay();
         }
     }
 
@@ -44,6 +53,7 @@ public class ClientSpawn : MonoBehaviour
 
     private void SpawnClient(){
         if(remainingClients > 0){
+            clientsBeingServed++;
             Instantiate(client,transform.position,transform.rotation);
             remainingClients--;
         }

@@ -17,6 +17,7 @@ public class TimeController : Singleton<TimeController>
     public int seasonsPassed;
     public TMP_Text dayCounter;
     public TMP_Text timerText;
+    public int timeLeft;
 
 
     public void Start()
@@ -37,27 +38,34 @@ public class TimeController : Singleton<TimeController>
         
         if (minutes == endHour)
         {
-            minutes = 0;
-            currentDay++;
-            if((int)currentDay > 2){
-                currentDay = 0;
-            }
-            contadorDias++; 
-            UnityEngine.Debug.Log(contadorDias);
-            if(contadorDias == 3){
-                contadorDias = 0;
-                ChangeWeek(); //informa que acabou a semana
-            }
-            UnityEngine.Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
-            timer = 0; //reseta o dia que � equivalente a passar pro proximo dia. 
+            EndDay();
         }
 
         timer += Time.fixedDeltaTime * timeMultiplier;
         //UnityEngine.Debug.Log(timer); //Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
     }
+    public void EndDay()
+    {
+        GameController.Instance.GameOver();
+        minutes = 0;
+        currentDay++;
+        if ((int)currentDay > 2)
+        {
+            currentDay = 0;
+        }
+        contadorDias++;
+        UnityEngine.Debug.Log(contadorDias);
+        if (contadorDias == 3)
+        {
+            contadorDias = 0;
+            ChangeWeek(); //informa que acabou a semana
+        }
+        UnityEngine.Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+        timer = 0; //reseta o dia que � equivalente a passar pro proximo dia. 
+    }
 
     private void UpdateUI(){
-        int timeLeft = Mathf.RoundToInt((60 * endHour) - (timer + minutes * 60));
+        timeLeft = Mathf.RoundToInt((60 * endHour) - (timer + minutes * 60));
         timerText.text = $"time left : {timeLeft}";
         dayCounter.text = $"Day : {currentDay}";
     }
