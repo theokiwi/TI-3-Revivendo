@@ -16,7 +16,7 @@ public class GameController : Singleton<GameController>
     [SerializeField] GameObject endScreen;
 
     private bool _paused = true;
-    public bool _IsPaused { get => _paused; }
+    public bool _IsPaused;
 
     public int money;
     public int points;

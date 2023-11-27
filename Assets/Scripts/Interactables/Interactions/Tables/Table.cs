@@ -14,7 +14,7 @@ public class Table : AbstractInteractable
     [SerializeField] private Seat[] seats = new Seat[2];
     [SerializeField] private DishData tableOrder;
     private Transform dropPoint;
-    private bool isDirty;
+    public bool isDirty;
     [SerializeField] private Bubble tableBubble;
 
 
@@ -40,10 +40,10 @@ public class Table : AbstractInteractable
 
         switch(state){
             case STATES.EMPTY:
-                //if(isDirty){
-                //    //Mini-game de limpar mesa
-                //}
-                if (holding.GetType() == typeof(Client)){
+                if(isDirty){
+                    MiniGamesManager.instance.StartMiniGame("Table", gameObject.GetComponent<Table>());
+                }
+                else if (holding.GetType() == typeof(Client)){
                     SeatClient(holding.GetComponent<Client>());
                     state = STATES.READY;
                     return;

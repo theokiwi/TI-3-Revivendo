@@ -9,7 +9,7 @@ public class ClientSpawn : MonoBehaviour
     [SerializeField] private float timeLeft;
     [SerializeField] private ITimer timer;
     [SerializeField] private LayerMask layerMask;
-
+    public int clientsBeingServed = 0;
 
     private void Start(){
         timeLeft = 0;

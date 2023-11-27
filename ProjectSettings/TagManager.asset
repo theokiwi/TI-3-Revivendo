@@ -15,6 +15,11 @@ TagManager:
   - TrashCan
   - Dish
   - Dirt
+  - Candy
+  - Canvas
+  - Pano
+  - Chao
+  - Fogueira
   layers:
   - Default
   - TransparentFX

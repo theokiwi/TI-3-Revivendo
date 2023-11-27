@@ -14,6 +14,7 @@ public class Events : Singleton<Events>
     currentSeason = Seasons.Standart;
    }
    public void ChangeSeason(int seasonsPassed){
+        Debug.Log(gameObject);
     switch (currentSeason){
         case Seasons.Standart:
         currentSeason = Seasons.Standart;

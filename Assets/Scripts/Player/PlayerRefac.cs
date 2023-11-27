@@ -29,7 +29,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
     }
 
     private void Update(){
-        if(Time.timeScale != 0){
+        if(!GameController.Instance._IsPaused){
             CastRay();
             if(targetObject != null && HasReachedDestination(targetObject.transform)){
                 Interact(interaction);
