@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb90839baf2a1d409c9c50e06a4d406
+guid: f8451759867b49c4299a355463a44d05
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Confetti_Laranja
+      name: Liquido_base_00
     second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Liquido_detalhe_00
+    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Vidro_Copo
+    second: {fileID: 2100000, guid: 343aa94cbd30b8745b1f2365890650ab, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

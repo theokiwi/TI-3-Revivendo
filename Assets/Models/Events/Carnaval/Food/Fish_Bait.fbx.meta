@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 249eecfe40210fd4a8d681ea0d85b6f4
+guid: aa95c578952c1d14fa888e4e5bbfc04e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Liquido_base_00
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Molho
+    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Petiscos
+    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Vidro_Garrafa
-    second: {fileID: 2100000, guid: b8bf987521b4ad8489de9f66feb2e5ba, type: 2}
+      name: Prato_Recipiente
+    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

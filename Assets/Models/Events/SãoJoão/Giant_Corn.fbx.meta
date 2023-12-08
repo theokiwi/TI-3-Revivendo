@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9eb90839baf2a1d409c9c50e06a4d406
+guid: c6db1778dad5a4249843bcefd2fcebfc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Confetti_Laranja
-    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+      name: Milho_base
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Milho_detalhe
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Milho_folha
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,7 +71,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -81,7 +91,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

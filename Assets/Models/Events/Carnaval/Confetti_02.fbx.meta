@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Confetti_Amarelo
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+    second: {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

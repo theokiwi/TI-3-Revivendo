@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aa95c578952c1d14fa888e4e5bbfc04e
+guid: 4ff58eb8f94dcbe43a11cc73d07c4165
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,38 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Molho
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Bandeirola_base_00
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Petiscos
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Bandeirola_base_01
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Prato_Recipiente
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Bandeirola_base_02
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandeirola_base_03
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandeirola_base_04
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bandeirola_base_05
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Corda_base
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -110,7 +130,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6991215119672232790
+--- !u!1 &5764646632023486917
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,46 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7660088262707843564}
-  - component: {fileID: 6764901583229034057}
-  - component: {fileID: 8792492585664440963}
+  - component: {fileID: 6578619125631363967}
+  - component: {fileID: 7846441153239327962}
+  - component: {fileID: 5404565714395123728}
   m_Layer: 0
-  m_Name: Bottle_Beer
+  m_Name: Pennant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7660088262707843564
+--- !u!4 &6578619125631363967
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6991215119672232790}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_GameObject: {fileID: 5764646632023486917}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4251019685909640665}
+  m_Father: {fileID: 6425506107447508467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6764901583229034057
+--- !u!33 &7846441153239327962
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6991215119672232790}
-  m_Mesh: {fileID: -6303275910337406647, guid: 249eecfe40210fd4a8d681ea0d85b6f4, type: 3}
---- !u!23 &8792492585664440963
+  m_GameObject: {fileID: 5764646632023486917}
+  m_Mesh: {fileID: 2919452497551279638, guid: 4ff58eb8f94dcbe43a11cc73d07c4165, type: 3}
+--- !u!23 &5404565714395123728
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6991215119672232790}
+  m_GameObject: {fileID: 5764646632023486917}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -61,9 +61,13 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b8bf987521b4ad8489de9f66feb2e5ba, type: 2}
-  - {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
-  - {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
+  - {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -85,7 +89,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &8091186762091900534
+--- !u!1 &7903177063881545399
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,41 +97,27 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4251019685909640665}
-  - component: {fileID: 1943707986229123626}
+  - component: {fileID: 6425506107447508467}
   m_Layer: 0
-  m_Name: Bottle_Beer
+  m_Name: Pennant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4251019685909640665
+--- !u!4 &6425506107447508467
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8091186762091900534}
+  m_GameObject: {fileID: 7903177063881545399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7660088262707843564}
+  - {fileID: 6578619125631363967}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1943707986229123626
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8091186762091900534}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.34128675, y: 1.2652535, z: 0.3678122}
-  m_Center: {x: 0.0066313297, y: 0.62422395, z: 0.0022104234}

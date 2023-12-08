@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f8451759867b49c4299a355463a44d05
+guid: 773b78b1f22dcc547abe00075bbb346a
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Liquido_base_00
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+      name: Chapeu_base
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Liquido_detalhe_00
-    second: {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Vidro_Copo
-    second: {fileID: 2100000, guid: 343aa94cbd30b8745b1f2365890650ab, type: 2}
+      name: Chapeu_detalhe
+    second: {fileID: 2100000, guid: 1831697a9b4222f41b6a5375727fb6bd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -71,7 +66,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
-    optimizeBones: 1
+    optimizeBones: 0
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -91,7 +86,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []
