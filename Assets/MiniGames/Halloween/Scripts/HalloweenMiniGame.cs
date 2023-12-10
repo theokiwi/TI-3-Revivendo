@@ -40,8 +40,8 @@ public class HalloweenMiniGame : MonoBehaviour
     }
     public void SpawnCandy()
     {
-        Vector2 v = new Vector2(Random.RandomRange(-300f, 420f), 40);
-        GameObject c = Instantiate(candys[Random.RandomRange(0, candys.Length)]);
+        Vector2 v = new Vector2(Random.Range(-300f, 420f), 40);
+        GameObject c = Instantiate(candys[Random.Range(0, candys.Length)]);
         c.transform.SetParent(spawner.transform);
         c.transform.localPosition = v;
     }

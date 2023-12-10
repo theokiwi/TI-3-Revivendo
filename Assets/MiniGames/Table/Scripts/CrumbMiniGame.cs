@@ -16,7 +16,7 @@ public class CrumbMiniGame : MonoBehaviour
         instance = this;
         for(int i = 0; i < 20; i++)
         {
-            Vector3 pos = new Vector3(Random.RandomRange(-128f,128f),Random.RandomRange(-128f,128f),0);
+            Vector3 pos = new Vector3(Random.Range(-128f,128f),Random.Range(-128f,128f),0);
             GameObject img = Instantiate(crumb);
             img.transform.SetParent(canvas.transform);
             img.transform.localPosition = pos;

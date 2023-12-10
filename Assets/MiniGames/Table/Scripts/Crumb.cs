@@ -8,7 +8,7 @@ public class Crumb : MonoBehaviour
     private void Awake()
     {
         Image img = GetComponent<Image>();
-        img.sprite = sprites[Random.RandomRange(0,2)];
+        img.sprite = sprites[Random.Range(0,2)];
         rb = GetComponent<Rigidbody2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -10,7 +10,7 @@ public class GameController : Singleton<GameController>
     public MenuSO menuData;
     public Queue<DishData> orders;
     public Queue<GameObject> plates;
-    [SerializeField] TMP_Text  moneyText;
+    [SerializeField] TMP_Text[]  moneyText;
     [SerializeField] TMP_Text pointsText;
     [SerializeField] TMP_Text numberOfOrders;
     [SerializeField] GameObject endScreen;
@@ -37,7 +37,7 @@ public class GameController : Singleton<GameController>
     {
         money = 0;
         points = 0;
-        moneyText.text = $" {money},00 ";
+        UpdateMoney();
         numberOfOrders.text = $"{0}";
 
         PauseGame(false);
@@ -88,7 +88,17 @@ public class GameController : Singleton<GameController>
     public void AddMoney (int value)
     {
         money += value;
-        moneyText.text = $" {money} ";
+        UpdateMoney();
+    }
+    //reduz valor do dinheiro, e atualiza o contador na tela. Retorna false se nao tiver dinheiro suficiente
+    public bool RemoveMoney (int value)
+    {
+        if(money < value)
+            return false;
+
+        money -= value;
+        UpdateMoney();
+        return true;
     }
 
     public void AddPoints(int points){
@@ -164,6 +174,13 @@ public class GameController : Singleton<GameController>
             if(!data.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
             }
+        }
+    }
+    public void UpdateMoney()
+    {
+        foreach(TMP_Text text in moneyText)
+        {
+            text.text = $" {money},00 ";
         }
     }
 }
