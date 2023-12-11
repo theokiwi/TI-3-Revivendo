@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +11,17 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] [Range(0, 1)] private float panSmoothing;    //quantidade de "follow through" do movimento
     [SerializeField] [Range(0, 1)] private float rotSmoothing;    //quantidade de "follow through" da rotacao
     [SerializeField] private float minZoom;     
-    [SerializeField] private float maxZoom;     
+    [SerializeField] private float maxZoom;
+    public Vector2 boundSize;    //tamanho da janela em que a camera pode se mexer
 
     //Guardam a input pra acontecer no proximo frame de fisica
     private Vector2 panInput;   //nomes horriveis, eu sei mas nao sei do que chamar     -alu
     private float rotInput;     //eu sei que isso parece que mente sobre como funciona pro resto do codigo mas me parece adequado pra separar a input no update
                                 //das coisas no fixedupdate, algm de nao deixar o resto do codigo comunicar diretamente com propriedades. Instinto de POO talvez.   -alu
     private bool _rotating;     //mergi a parte de input pra camera aqui, entao agora precisa tbm dessas bools e a posicao do mouse no frame anterior;
-    private bool _panning;
+    //private bool _panning;    //em desuso por que ta usando corner nudge pra mexer
     private Vector2 previousMousePos = Vector2.zero;
+
 
     private Camera cam;  //cam.transform.parent pra ser usado em tudo menos zoom.  -alu
 
@@ -52,21 +55,41 @@ public class CameraMovement : MonoBehaviour
         camSize = Mathf.Clamp(camSize,minZoom,maxZoom);
 
         cam.orthographicSize = camSize;
-        
-        //movimento 
+
+        //movimento
 
         Vector2 mousePos = cam.ScreenToViewportPoint(Input.mousePosition);
         Vector2 mouseDelta = previousMousePos - mousePos;
         previousMousePos = mousePos;
 
-        if(Input.GetKeyDown(KeyCode.Mouse1))
-            _panning = true;
-        if(Input.GetKeyUp(KeyCode.Mouse1))
-            _panning = false;
-        if(_panning) 
+        //camera por pan (em desuso)
+        // if(Input.GetKeyDown(KeyCode.Mouse1))
+        //     _panning = true;
+        // if(Input.GetKeyUp(KeyCode.Mouse1))
+        //     _panning = false;
+        // if(_panning)
+        // {
+        //     PanCamera(mouseDelta);
+        // }
+
+        //camera por corner nudge
+        Vector2 panVec = Vector2.zero;
+        if(mousePos.x < 0.05f)
         {
-            PanCamera(mouseDelta);
-        }              
+            panVec += Vector2.left;
+        }
+        else if(mousePos.x > 0.95f)
+        {
+            panVec += Vector2.right;
+        }
+        if(mousePos.y < 0.05f)
+        {
+            panVec += Vector2.down;
+        }else if (mousePos.y > 0.95f)
+        {
+            panVec += Vector2.up;
+        }
+        PanCamera(panVec);
 
         //rotacao
 
@@ -106,6 +129,15 @@ public class CameraMovement : MonoBehaviour
         //Aplicacao da input em movimento
         cam.transform.parent.Translate(panInput.x * panSpeed * cam.orthographicSize, 0, panInput.y * panSpeed * cam.orthographicSize);
         panInput = Vector2.Lerp(Vector2.zero, panInput, panSmoothing);  //lerps pro movimento parar lentamente ao inves de de forma brusca
+        //clamp nos limites de camera
+        cam.transform.parent.transform.position = new Vector3
+        (
+            Mathf.Clamp(cam.transform.parent.transform.position.x, -boundSize.x, boundSize.x),
+            0,
+            Mathf.Clamp(cam.transform.parent.transform.position.z, -boundSize.y, boundSize.y)
+        );
+
+        //Aplicacao da input em rotacao
         cam.transform.parent.Rotate(0, rotInput * rotSpeed, 0);
         rotInput = Mathf.Lerp(0, rotInput, rotSmoothing);
     }
