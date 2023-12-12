@@ -143,9 +143,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 939fbc46441759a46aba4f3624bf5603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupants: 0
+  state: 0
   seats:
   - {fileID: 4703902459919892121}
   - {fileID: 5124833927051383013}
+  tableOrder: {fileID: 0}
+  isDirty: 0
+  tableBubble: {fileID: 0}
+  tableDirt: {fileID: 2581701714934204889, guid: 394eba884bbd0694eadc83585f69bbd5, type: 3}
 --- !u!1 &5455554556568264597
 GameObject:
   m_ObjectHideFlags: 0

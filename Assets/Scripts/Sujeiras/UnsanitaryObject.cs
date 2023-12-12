@@ -11,7 +11,10 @@ public abstract class UnsanitaryObject : MonoBehaviour
     public void Start()
     {
         SanitationController.Instance.AddUnsanitaryObject(this);
+        OnStart();
     }
+    
+    public virtual void OnStart(){}
 
     //o que acontece quando o objeto � limpo (por padr�o s� se remove da lista e se destr�i)
     public virtual void Clean()
