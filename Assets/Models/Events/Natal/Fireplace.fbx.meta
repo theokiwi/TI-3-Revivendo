@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 68dcd4f93b07c7644b873223ea6a00d6
+guid: c080f9defcc3b3d43997f26815d1b384
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,32 +8,32 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_base_00
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_base_01
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_base_02
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_detalhe
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_madeira
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lareira_metal
-    second: {fileID: 2100000, guid: 3926c9b826840f64d923ef16a8787f84, type: 2}
+    second: {fileID: 2100000, guid: 4e441b19085f80e4592669a7004de97c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
