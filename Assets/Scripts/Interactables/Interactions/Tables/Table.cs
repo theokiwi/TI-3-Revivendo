@@ -16,6 +16,7 @@ public class Table : AbstractInteractable
     private Transform dropPoint;
     public bool isDirty;
     [SerializeField] private Bubble tableBubble;
+    [SerializeField] private UnsanitaryObject tableDirt;
     [SerializeField] private Image hasOrderImage;
 
 
@@ -44,6 +45,7 @@ public class Table : AbstractInteractable
             case STATES.EMPTY:
                 if(isDirty){
                     MiniGamesManager.instance.StartMiniGame("Table", gameObject.GetComponent<Table>());
+                    GetComponentInChildren<UnsanitaryObject>().Clean();
                 }
                 else if(PlayerRefac.Instance.heldObject == null){}
                 else if (holding.GetType() == typeof(Client)){
@@ -87,6 +89,11 @@ public class Table : AbstractInteractable
                 data.occupied = false;
                 data.clientSeated.Exit();
             }
+        }
+        if(UnityEngine.Random.Range(0, 10) < 3) 
+        {  
+            isDirty = true; 
+            Instantiate(tableDirt,transform); 
         }
         state = STATES.EMPTY;
         occupants = 0;
