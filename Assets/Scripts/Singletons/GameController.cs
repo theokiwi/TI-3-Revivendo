@@ -77,9 +77,8 @@ public class GameController : Singleton<GameController>
         AddPoints (100 * multiplier);
     }
 
-    public void FailledDelivery(int numClients, DishData dish){
+    public void FailledDelivery(int numClients){
         Debug.Log("Failure");
-        //GameController.Instance.GetOrder(dish);
         lostClients += numClients;
         AddPoints(- 125);
     }

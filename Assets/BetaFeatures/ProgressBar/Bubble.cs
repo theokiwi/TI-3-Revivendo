@@ -4,10 +4,9 @@ using UnityEngine.UI;
 
 public class Bubble : ProgressBar
 {
-    public static Action Complete;
+    public Action Complete;
     public bool sleepy;
     public GameObject bubble;
-    [SerializeField] private Sprite sprite;
     [SerializeField] private Image displayedImage;
 
     protected override void Start(){
@@ -24,8 +23,8 @@ public class Bubble : ProgressBar
         state = _States.COUNTING;
     }
 
-    public void Sleep(){
-        sleepy = true;
+    public void Sleep(bool toggle){
+        sleepy = toggle;
         state = _States.STATIC;
     }
 
@@ -36,9 +35,9 @@ public class Bubble : ProgressBar
         this.duration = duration;
     }
 
-    public void Hide(){
-        Sleep();
-        bubble.SetActive(false);
+    public void Hide(bool show){
+        Sleep(show);
+        bubble.SetActive(!show);
     }
 
     protected override void OnCounting(){
