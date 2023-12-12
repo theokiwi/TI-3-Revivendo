@@ -36,6 +36,6 @@ public class SanitationController : Singleton<SanitationController>
     //mudanca de valores entre um dia e outro
     public void DayChange()
     {
-
+        
     }
 }

@@ -13,7 +13,7 @@ public abstract class UnsanitaryObject : MonoBehaviour
         SanitationController.Instance.AddUnsanitaryObject(this);
     }
 
-    //o que acontece quando o objeto é limpo (por padrão só se remove da lista e se destrói)
+    //o que acontece quando o objeto ï¿½ limpo (por padrï¿½o sï¿½ se remove da lista e se destrï¿½i)
     public virtual void Clean()
     {
         SanitationController.Instance.RemoveUnsanitaryObject(this);
