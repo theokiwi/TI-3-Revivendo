@@ -6908,10 +6908,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3993218296101472256, guid: 9ca03fdf0521f754c975f4b0104d80db, type: 3}
-      propertyPath: isDirty
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4072748728790002913, guid: 9ca03fdf0521f754c975f4b0104d80db, type: 3}
       propertyPath: m_Name
       value: WoodTable (4)

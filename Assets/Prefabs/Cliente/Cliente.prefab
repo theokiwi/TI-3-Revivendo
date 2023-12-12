@@ -218,6 +218,7 @@ MonoBehaviour:
   state: 0
   order: {fileID: 0}
   bubble: {fileID: 0}
+  waitTime: 15
 --- !u!65 &5504543524652712103
 BoxCollider:
   m_ObjectHideFlags: 0

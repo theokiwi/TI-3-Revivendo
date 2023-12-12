@@ -17,7 +17,7 @@ public class Table : AbstractInteractable
     public bool isDirty;
     [SerializeField] private Bubble tableBubble;
     [SerializeField] private UnsanitaryObject tableDirt;
-    [SerializeField] private Image hasOrderImage;
+    [SerializeField] private Sprite hasOrderImage;
 
 
     private void Start(){
@@ -124,8 +124,8 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        tableBubble.Refresh(client.waitTime * 2, hasOrderImage.sprite);
         tableBubble.Wake();
+        tableBubble.Refresh(client.waitTime * 2, hasOrderImage);
         return client.order;
     }
 
