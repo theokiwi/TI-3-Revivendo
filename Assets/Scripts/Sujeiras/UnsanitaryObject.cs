@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //todos os "objetos sujos" herdarao dessa classe
-public abstract class UnsanitaryObject : MonoBehaviour
+public class UnsanitaryObject : MonoBehaviour
 {
     //intensidade do impacto desse objeto no saneamento
     public float dirtiness;
