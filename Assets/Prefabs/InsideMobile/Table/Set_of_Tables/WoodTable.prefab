@@ -152,6 +152,7 @@ MonoBehaviour:
   tableOrder: {fileID: 0}
   isDirty: 0
   tableBubble: {fileID: 2223844892723932392}
+  tableDirt: {fileID: 2581701714934204889, guid: 394eba884bbd0694eadc83585f69bbd5, type: 3}
   hasOrderImage: {fileID: 0}
 --- !u!1 &5455554556568264597
 GameObject:
