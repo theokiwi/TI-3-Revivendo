@@ -124,8 +124,8 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        tableBubble.Wake();
         tableBubble.Refresh(client.waitTime * 2, hasOrderImage);
+        tableBubble.Wake();
         return client.order;
     }
 

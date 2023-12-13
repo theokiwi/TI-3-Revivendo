@@ -13,11 +13,14 @@ public class SanitationController : Singleton<SanitationController>
     public float SatisfactionModifier{ get{ return sanitationValue * satisfactionMultiplier; }}
 
     //lista de objetos sujos
-    private List<UnsanitaryObject> unsanitaryObjects;
+    private List<UnsanitaryObject> unsanitaryObjects = new List<UnsanitaryObject>();
 
     //adiciona e remove elementos
+
+
     public void AddUnsanitaryObject(UnsanitaryObject unsanitaryObject) 
     {
+        Debug.Log(unsanitaryObject.name);
         unsanitaryObjects.Add(unsanitaryObject);
         sanitationValue -= unsanitaryObject.dirtiness;
     }
