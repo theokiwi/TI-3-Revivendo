@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Name:
   m_EditorClassIdentifier:
   m_Children:
-  - {fileID: 13}
   - {fileID: 7}
   - {fileID: 2}
   - {fileID: 8}
@@ -168,7 +167,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1465
+    x: 0
     y: 0
     width: 1206
     height: 30
