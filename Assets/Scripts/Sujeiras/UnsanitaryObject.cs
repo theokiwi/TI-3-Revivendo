@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //todos os "objetos sujos" herdarao dessa classe
-public abstract class UnsanitaryObject : MonoBehaviour
+public class UnsanitaryObject : MonoBehaviour
 {
     //intensidade do impacto desse objeto no saneamento
     public float dirtiness;
@@ -11,9 +11,12 @@ public abstract class UnsanitaryObject : MonoBehaviour
     public void Start()
     {
         SanitationController.Instance.AddUnsanitaryObject(this);
+        OnStart();
     }
+    
+    public virtual void OnStart(){}
 
-    //o que acontece quando o objeto é limpo (por padrão só se remove da lista e se destrói)
+    //o que acontece quando o objeto ï¿½ limpo (por padrï¿½o sï¿½ se remove da lista e se destrï¿½i)
     public virtual void Clean()
     {
         SanitationController.Instance.RemoveUnsanitaryObject(this);

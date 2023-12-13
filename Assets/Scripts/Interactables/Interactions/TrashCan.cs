@@ -12,7 +12,7 @@ public class TrashCan : AbstractInteractable
 
     private void OnCollisionEnter(Collision other){
         if(other.transform.CompareTag("Dirt")){
-            GameController.Instance.AddPoints(50);
+            other.gameObject.GetComponent<UnsanitaryObject>().Clean();
         }
         if(other.transform.CompareTag("Dish")){
             GameController.Instance.GetOrder(other.transform.GetComponent<Dish>().dish);

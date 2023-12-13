@@ -127,7 +127,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
                 OnClick(hitInfo);
             }
             if(Input.GetMouseButtonDown(1)){
-                rightClick.Action();
+                if(rightClick != null) rightClick.Action();
             }
         }
         else if(HLObject != null){

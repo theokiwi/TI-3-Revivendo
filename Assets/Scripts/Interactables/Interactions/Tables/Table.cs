@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Table : AbstractInteractable
 {
@@ -16,6 +16,8 @@ public class Table : AbstractInteractable
     private Transform dropPoint;
     public bool isDirty;
     [SerializeField] private Bubble tableBubble;
+    [SerializeField] private UnsanitaryObject tableDirt;
+    [SerializeField] private Sprite hasOrderImage;
 
 
     private void Start(){
@@ -23,7 +25,8 @@ public class Table : AbstractInteractable
         state = STATES.EMPTY;
         seats = GetComponentsInChildren<Seat>();
         dropPoint = Helper.FindChildWithTag(gameObject, "DropPoint");
-        //tableBubble.Hide();
+        tableBubble.Hide(true);
+        tableBubble.Complete += Failed;
     }
     
     private void OnCollisionEnter(Collision other){
@@ -42,6 +45,7 @@ public class Table : AbstractInteractable
             case STATES.EMPTY:
                 if(isDirty){
                     MiniGamesManager.instance.StartMiniGame("Table", gameObject.GetComponent<Table>());
+                    GetComponentInChildren<UnsanitaryObject>().Clean();
                 }
                 else if(PlayerRefac.Instance.heldObject == null){}
                 else if (holding.GetType() == typeof(Client)){
@@ -86,6 +90,11 @@ public class Table : AbstractInteractable
                 data.clientSeated.Exit();
             }
         }
+        if(UnityEngine.Random.Range(0, 10) < 3) 
+        {  
+            isDirty = true; 
+            Instantiate(tableDirt,transform); 
+        }
         state = STATES.EMPTY;
         occupants = 0;
         if(UnityEngine.Random.Range(0, 10) < 2.5) isDirty = true;
@@ -115,18 +124,30 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        //tableBubble.gameObject.SetActive(true);
+        tableBubble.Wake();
+        tableBubble.Refresh(client.waitTime * 2, hasOrderImage);
         return client.order;
     }
 
-    private void Order(DishData order) {GameController.Instance.GetOrder(order);}
+    private void Order(DishData order) {
+        GameController.Instance.GetOrder(order);
+        tableBubble.Refresh(tableOrder.waitTime, tableOrder.interfaceIcon);
+    }
     
     private void ServeDish(AbstractInteractable plate, DishData ordered){
         plate.ToPosition(dropPoint);
         DishData served = plate.GetComponent<Dish>().dish;
         if(served == ordered) GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
-        else GameController.Instance.FailledDelivery(occupants, ordered);
-        Destroy(plate.gameObject);
+        else{
+            Failed();
+            Destroy(plate.gameObject);
+        }
+    }
+
+    private void Failed(){
+        Debug.Log("Failed delivery");
+        GameController.Instance.FailledDelivery(occupants);
         EmptySeats();
+        tableBubble.Hide(true);
     }
 }

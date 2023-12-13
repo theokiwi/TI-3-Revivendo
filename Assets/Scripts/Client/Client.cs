@@ -13,6 +13,7 @@ public class Client : AbstractInteractable
     [SerializeField] private STATES state;
     [SerializeField] public DishData order;
     [SerializeField] private GameObject bubble;
+    public float waitTime;
 
 
     private void Start(){

@@ -11,6 +11,14 @@ public class UpgradeManager : Singleton<UpgradeManager>
     [SerializeField] private int maxCozinhaUpgrades;
     public int[] cozinhaPrecos;
 
+    private void Start() 
+    {
+        foreach(Table table in mesas)
+        {
+            table.gameObject.SetActive(false);
+        }
+    }
+
     public void UpgradeMesa()
     {
         if(mesaUpgrades >= mesas.Length) return;
