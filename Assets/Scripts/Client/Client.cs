@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Client : AbstractInteractable
 {
+    //public Animator animator;
     public enum STATES{
         WAITING,
         ORDER,
@@ -19,6 +20,7 @@ public class Client : AbstractInteractable
     private void Start(){
         state = STATES.WAITING;
         order = ChooseOrder(GameController.Instance.menuData.menu);
+        //animator = GetComponent<Animator>();
     }
 
     public DishData ChooseOrder(List<DishData> menu){
@@ -31,6 +33,7 @@ public class Client : AbstractInteractable
 
     public override void Interact(){
         if(state == STATES.WAITING){
+            //animator.SetBool("Waiting_On", true);
             PickUp();
         }
     }
