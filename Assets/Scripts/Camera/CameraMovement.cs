@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float minZoom;     
     [SerializeField] private float maxZoom;
     public Vector2 boundSize;    //tamanho da janela em que a camera pode se mexer
-
+    public bool moving = true;
     //Guardam a input pra acontecer no proximo frame de fisica
     private Vector2 panInput;   //nomes horriveis, eu sei mas nao sei do que chamar     -alu
     private float rotInput;     //eu sei que isso parece que mente sobre como funciona pro resto do codigo mas me parece adequado pra separar a input no update
@@ -73,24 +73,27 @@ public class CameraMovement : MonoBehaviour
         // }
 
         //camera por corner nudge
-        Vector2 panVec = Vector2.zero;
-        if(mousePos.x < 0.05f)
+        if (moving)
         {
-            panVec += Vector2.left;
+            Vector2 panVec = Vector2.zero;
+            if (mousePos.x < 0.05f)
+            {
+                panVec += Vector2.left;
+            }
+            else if (mousePos.x > 0.95f)
+            {
+                panVec += Vector2.right;
+            }
+            if (mousePos.y < 0.05f)
+            {
+                panVec += Vector2.down;
+            }
+            else if (mousePos.y > 0.95f)
+            {
+                panVec += Vector2.up;
+            }
+            PanCamera(panVec);
         }
-        else if(mousePos.x > 0.95f)
-        {
-            panVec += Vector2.right;
-        }
-        if(mousePos.y < 0.05f)
-        {
-            panVec += Vector2.down;
-        }else if (mousePos.y > 0.95f)
-        {
-            panVec += Vector2.up;
-        }
-        PanCamera(panVec);
-
         //rotacao
 
         if(Input.GetKeyDown(KeyCode.Mouse2))

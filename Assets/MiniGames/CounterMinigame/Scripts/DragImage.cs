@@ -6,13 +6,14 @@ using UnityEngine.EventSystems;
 public class DragImage : MonoBehaviour, IEndDragHandler ,IDragHandler
 {
     bool drag = true;
-    [SerializeField] Transform drop;
+    [SerializeField] Vector3 drop;
+
     public void OnEndDrag(PointerEventData eventData)
     {
-        if((transform.position - drop.transform.position).normalized.magnitude < 4f)
+        if((transform.position - drop).normalized.magnitude < 4f)
         {
             drag = false;
-            transform.position = drop.position;
+            transform.localPosition = drop;
             CounterMinigame.instance.Task();
         }
     }

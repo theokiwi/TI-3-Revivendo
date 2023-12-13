@@ -31,11 +31,12 @@ public class JumpBonfire : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Fogueira"))
         {
-            BonfireMiniGame.Instance.EndMinigame();
+            BonfireMiniGame.Instance.EndMinigame(0);
         }
         else
         {
             BonfireMiniGame.Instance.BonfireJumped();
+            Destroy(collision.gameObject);
         }
     }
 }

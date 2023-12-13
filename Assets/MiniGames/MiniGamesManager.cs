@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class MiniGamesManager : MonoBehaviour
 {
-    [SerializeField] GameObject counterminigame,tableminigame;
+    [SerializeField] GameObject counterminigame,tableminigame,halloweenminigame,bonfireminigame;
     public static MiniGamesManager instance;
+    private Camera camera;
 
     private void Awake()
     {
         instance = this;
+        camera = Camera.main;
     }
     public void StartMiniGame(string name,Table table = null)
     {
+        camera.GetComponent<CameraMovement>().moving = false;
         GameController.Instance._IsPaused = true;
         if(name == "Table")
         {
@@ -27,6 +30,7 @@ public class MiniGamesManager : MonoBehaviour
     }
     public void ExitMiniGame()
     {
+        camera.GetComponent<CameraMovement>().moving = true;
         GameController.Instance._IsPaused = false;
     }
 }
