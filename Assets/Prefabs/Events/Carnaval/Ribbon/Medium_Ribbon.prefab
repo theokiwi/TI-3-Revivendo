@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1419234805485039753
+--- !u!1 &8463209385361758558
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3664220597168062221}
-  - component: {fileID: 2484852251332673803}
+  - component: {fileID: 9095174152340177892}
+  - component: {fileID: 5302802886814731329}
+  - component: {fileID: 7958881337791936651}
   m_Layer: 0
   m_Name: Medium_Ribbon
   m_TagString: Untagged
@@ -17,83 +18,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3664220597168062221
+--- !u!4 &9095174152340177892
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419234805485039753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3706084316719049897}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2484852251332673803
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419234805485039753}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.1608606, y: 3.1909733, z: 0.15251032}
-  m_Center: {x: -0.00015274063, y: -1.5837591, z: 0.001147002}
---- !u!1 &4045772470985111059
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3706084316719049897}
-  - component: {fileID: 342682150369256204}
-  - component: {fileID: 2532576395590145990}
-  m_Layer: 0
-  m_Name: Medium_Ribbon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3706084316719049897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4045772470985111059}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 8463209385361758558}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.674, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3664220597168062221}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &342682150369256204
+--- !u!33 &5302802886814731329
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4045772470985111059}
+  m_GameObject: {fileID: 8463209385361758558}
   m_Mesh: {fileID: 8900495282700118344, guid: 1e9d1edb9e98c284d820abaa72d197d2, type: 3}
---- !u!23 &2532576395590145990
+--- !u!23 &7958881337791936651
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4045772470985111059}
+  m_GameObject: {fileID: 8463209385361758558}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -107,9 +61,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
-  - {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
-  - {fileID: 2100000, guid: e4ef5341ca0df484bb9af9f8ba149211, type: 2}
+  - {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+  - {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
+  - {fileID: 2100000, guid: 4cd7aa97918264243b4c69c868c47126, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
