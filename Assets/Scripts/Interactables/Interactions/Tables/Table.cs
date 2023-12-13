@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,15 +67,10 @@ public class Table : AbstractInteractable
                 else if (holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 break;
             case STATES.ORDERED:
-                /*if(tableBubble.sleepy){
-                    tableBubble.Refresh(15, tableOrder.interfaceIcon);
-                    tableBubble.Wake();
-                }*/
                 if(PlayerRefac.Instance.heldObject == null) { }
                 else if(holding.GetType() == typeof(Client)) SeatClient(holding.GetComponent<Client>());
                 else if(holding.GetType() == typeof(Dish)){
                     ServeDish(holding, tableOrder);
-                    //tableBubble.Sleep();
                 }
                 break;
             case STATES.IN_USE:
@@ -132,22 +128,35 @@ public class Table : AbstractInteractable
     private void Order(DishData order) {
         GameController.Instance.GetOrder(order);
         tableBubble.Refresh(tableOrder.waitTime, tableOrder.interfaceIcon);
+        tableBubble.Wake();
+        Debug.Log("ordered");
     }
     
     private void ServeDish(AbstractInteractable plate, DishData ordered){
+        tableBubble.Hide(true);
         plate.ToPosition(dropPoint);
         DishData served = plate.GetComponent<Dish>().dish;
-        if(served == ordered) GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
+        if(served == ordered){
+            StartCoroutine(Eating(plate,ordered));
+        }
         else{
             Failed();
             Destroy(plate.gameObject);
+            EmptySeats();
         }
     }
 
     private void Failed(){
         Debug.Log("Failed delivery");
         GameController.Instance.FailledDelivery(occupants);
+        isDirty = true;
+    }
+
+    private IEnumerator Eating(AbstractInteractable Plate, DishData ordered){
+        state = STATES.IN_USE;
+        yield return new WaitForSeconds(ordered.eatTime);
+        GameController.Instance.SuccessfullDelivery(tableOrder, occupants);
+        Destroy(Plate.gameObject);
         EmptySeats();
-        tableBubble.Hide(true);
     }
 }

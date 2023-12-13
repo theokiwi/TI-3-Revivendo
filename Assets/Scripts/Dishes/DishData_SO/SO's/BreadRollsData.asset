@@ -15,6 +15,7 @@ MonoBehaviour:
   dishType: "P\xE3ezinhos"
   price: 3
   preparationTime: 3
+  waitTime: 10
   eatTime: 3
   inPlateObj: {fileID: 7649655171256345682, guid: dceadc27be4a2ce409508c3f08a98751, type: 3}
   interfaceIcon: {fileID: 0}

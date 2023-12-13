@@ -15,6 +15,7 @@ MonoBehaviour:
   dishType: Fatia de Baguette
   price: 3
   preparationTime: 2
+  waitTime: 10
   eatTime: 4
   inPlateObj: {fileID: 7759222839475339182, guid: 610104749a2743f4b81a18194dad7639, type: 3}
   interfaceIcon: {fileID: 0}

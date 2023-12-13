@@ -15,6 +15,7 @@ MonoBehaviour:
   dishType: Muffin Vermelho
   price: 2
   preparationTime: 2.5
+  waitTime: 10
   eatTime: 1.5
   inPlateObj: {fileID: 5997990283394439990, guid: 6d8826ebe6f19e947a6181491c7cd42f, type: 3}
   interfaceIcon: {fileID: 0}

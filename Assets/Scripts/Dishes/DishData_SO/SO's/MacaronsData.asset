@@ -15,6 +15,7 @@ MonoBehaviour:
   dishType: Macarons
   price: 5
   preparationTime: 3
+  waitTime: 10
   eatTime: 1.5
   inPlateObj: {fileID: 2864141949334352903, guid: 8cfde4096826f624b927e826635ffb76, type: 3}
   interfaceIcon: {fileID: 0}
