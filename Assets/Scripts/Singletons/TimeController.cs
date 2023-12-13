@@ -11,7 +11,7 @@ public class TimeController : Singleton<TimeController>
     public float minutes {get; private set;}    //botei o get público pro resto do código poder saber que horas são  -alu
     private float seconds;
     private int endHour = 2; //dois minutos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
-    public float timeMultiplier = 1f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 2
+    public float timeMultiplier = 20f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 2
     public Days currentDay {get; private set;}  //botei o get público pro resto do código poder saber que dia é  -alu
     public int dayCount;
     public int seasonsPassed;
