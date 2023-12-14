@@ -89,11 +89,10 @@ public class Table : AbstractInteractable
         if(UnityEngine.Random.Range(0, 10) < 3) 
         {  
             isDirty = true; 
-            Instantiate(tableDirt,transform); 
+            Instantiate(tableDirt,transform);
         }
         state = STATES.EMPTY;
         occupants = 0;
-        if(Random.Range(0, 10) < 2.5) isDirty = true;
     }
 
     private void SeatClient(Client client){
@@ -139,6 +138,10 @@ public class Table : AbstractInteractable
         DishData served = plate.GetComponent<Dish>().dish;
         if(served == ordered){
             StartCoroutine(Eating(plate,ordered));
+            foreach(Seat seat in seats)
+            {
+                if(seat.clientSeated != null) seat.clientSeated.Eat();
+            }
         }
         else{
             Failed();

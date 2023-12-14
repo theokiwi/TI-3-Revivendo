@@ -12,11 +12,12 @@ public class Client : AbstractInteractable
     [SerializeField] private STATES state;
     [SerializeField] public DishData order;
     [SerializeField] private Bubble bubble;
+    [SerializeField] private Animator animator;
     public float waitTime;
 
 
     private void Start(){
-        Debug.Log("hiiii");
+        //Debug.Log("hiiii");
         state = STATES.WAITING;
         order = ChooseOrder(GameController.Instance.menuData.menu);
         bubble.Refresh(waitTime, order.interfaceIcon);
@@ -34,7 +35,7 @@ public class Client : AbstractInteractable
 
     public override void Interact(){
         if(state == STATES.WAITING){
-            //animator.SetBool("Waiting_On", true);
+            animator.SetBool("Waiting_On", true);
             PickUp();
         }
     }
@@ -44,8 +45,13 @@ public class Client : AbstractInteractable
         bubble.Hide(true);
     }
 
+    public void Eat()
+    {
+        animator.SetBool("Eat_on", true);
+    }
+
     public void Exit(){
-        Destroy(gameObject);       
+        Destroy(gameObject);
     }
 
     public void OnFailure(){

@@ -44,6 +44,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1086495673379560308}
+  - component: {fileID: 1562494962904706879}
   m_Layer: 0
   m_Name: PomboCliente
   m_TagString: Untagged
@@ -69,6 +70,27 @@ Transform:
   m_Father: {fileID: 8365467431485157806}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1562494962904706879
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315202094036009422}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 87d23ceeeaef06c44933367dcdabd1f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &514503616144753336
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,6 +1565,7 @@ MonoBehaviour:
   state: 0
   order: {fileID: 0}
   bubble: {fileID: 8780521413866733000}
+  animator: {fileID: 1562494962904706879}
   waitTime: 15
 --- !u!65 &5504543524652712103
 BoxCollider:
