@@ -7,20 +7,21 @@ public class Client : AbstractInteractable
     //public Animator animator;
     public enum STATES{
         WAITING,
-        ORDER,
-        ORDERED,    
-        EATING
+        SIT
     }
     [SerializeField] private STATES state;
     [SerializeField] public DishData order;
-    [SerializeField] private GameObject bubble;
+    [SerializeField] private Bubble bubble;
     public float waitTime;
 
 
     private void Start(){
+        Debug.Log("hiiii");
         state = STATES.WAITING;
         order = ChooseOrder(GameController.Instance.menuData.menu);
-        //animator = GetComponent<Animator>();
+        bubble.Refresh(waitTime, order.interfaceIcon);
+        bubble.Wake();
+        bubble.Complete += OnFailure;
     }
 
     public DishData ChooseOrder(List<DishData> menu){
@@ -38,9 +39,20 @@ public class Client : AbstractInteractable
         }
     }
 
+    public void Sit(){
+        state = STATES.SIT;
+        bubble.Hide(true);
+    }
+
     public void Exit(){
         Destroy(gameObject);       
     }
+
+    public void OnFailure(){
+        GameController.Instance.AddPoints(-200);
+        Exit();
+    }
+
     private void OnDestroy()
     {
         ClientSpawn.instance.clientsBeingServed--;

@@ -93,7 +93,7 @@ public class Table : AbstractInteractable
         }
         state = STATES.EMPTY;
         occupants = 0;
-        if(UnityEngine.Random.Range(0, 10) < 2.5) isDirty = true;
+        if(Random.Range(0, 10) < 2.5) isDirty = true;
     }
 
     private void SeatClient(Client client){
@@ -109,6 +109,7 @@ public class Table : AbstractInteractable
             }
             client.ToPosition(seats[occupants].seatPos);
             client.GetComponent<Collider>().enabled = false;
+            client.Sit();
             seats[occupants].clientSeated = client;
             seats[occupants].occupied = true;
             occupants++;
@@ -142,7 +143,6 @@ public class Table : AbstractInteractable
         else{
             Failed();
             Destroy(plate.gameObject);
-            EmptySeats();
         }
     }
 
@@ -150,9 +150,11 @@ public class Table : AbstractInteractable
         Debug.Log("Failed delivery");
         GameController.Instance.FailledDelivery(occupants);
         isDirty = true;
+        EmptySeats();
     }
 
     private IEnumerator Eating(AbstractInteractable Plate, DishData ordered){
+        Debug.Log("Eating");
         state = STATES.IN_USE;
         yield return new WaitForSeconds(ordered.eatTime);
         GameController.Instance.SuccessfullDelivery(tableOrder, occupants);

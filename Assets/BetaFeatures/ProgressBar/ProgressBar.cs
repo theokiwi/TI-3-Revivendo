@@ -18,7 +18,7 @@ public abstract class ProgressBar : MonoBehaviour
 
     #region methods
 
-    protected virtual void Start(){
+    protected virtual void Awake(){
         fillImage.fillAmount = 1;
         mat = CloneMaterial(fillImage);
     }

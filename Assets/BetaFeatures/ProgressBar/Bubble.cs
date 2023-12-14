@@ -9,8 +9,8 @@ public class Bubble : ProgressBar
     public GameObject bubble;
     [SerializeField] private Image displayedImage;
 
-    protected override void Start(){
-        base.Start();
+    protected override void Awake(){
+        base.Awake();
         if(duration == 0) duration = 5;
         state =_States.STATIC;
         progress = 1;
