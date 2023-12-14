@@ -14,7 +14,7 @@ public class KitchenChef : AbstractInteractable
         }
     }
 
-    private void FinishedCooking()
+    public void FinishedCooking()
     {
         dishesCooking--;
         if(dishesCooking <= 0)

@@ -24,7 +24,7 @@ public class GameController : Singleton<GameController>
     public int lostClients;
 
     [SerializeField] Dispenser[] dispensers;
-
+    [SerializeField] KitchenChef chef;
 
     private void Start()
     {
@@ -165,6 +165,7 @@ public class GameController : Singleton<GameController>
     {
         yield return new WaitForSeconds(dish.preparationTime);
         plates.Enqueue(dish.inPlateObj);
+        chef.FinishedCooking();
     }
 
     // Instancia o proximo prato na posição do dispenser.

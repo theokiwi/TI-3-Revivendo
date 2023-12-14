@@ -10,10 +10,17 @@ public class Events : Singleton<Events>
     
     public List<GameObject> scenarios = new List<GameObject>();
    
+    private void FixedUpdate() {
+        if(Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            ChangeSeason();
+        }
+    }
+
    public void Awake(){
     currentSeason = Seasons.Standart;
    }
-   public void ChangeSeason(int seasonsPassed){
+   public void ChangeSeason(){
         Debug.Log(gameObject);
     switch (currentSeason){
         case Seasons.Standart:

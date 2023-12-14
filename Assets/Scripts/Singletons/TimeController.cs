@@ -3,16 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//se eu apaguei coisas que eram supostas de em algum universo paralelo serem usados pra alguma coisa, voces que lutem pq no momento tava servindo pra nada -alu
 public class TimeController : Singleton<TimeController>
 {
-    public enum Days : int {Dia1, Dia2, Dia3 };
     public int contadorDias {get; private set;} //botei o get público pro resto do código poder saber que dia é  -alu
     private float timer = 0.00f;
     public float minutes {get; private set;}    //botei o get público pro resto do código poder saber que horas são  -alu
-    private float seconds;
     private int endHour = 2; //dois minutos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     public float timeMultiplier = 20f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 2
-    public Days currentDay {get; private set;}  //botei o get público pro resto do código poder saber que dia é  -alu
     public int dayCount;
     public int seasonsPassed;
     public TMP_Text dayCounter;
@@ -22,7 +20,7 @@ public class TimeController : Singleton<TimeController>
 
     public void Start()
     {
-        currentDay = Days.Dia1;
+        
     }
 
     public void FixedUpdate()
@@ -48,36 +46,29 @@ public class TimeController : Singleton<TimeController>
     {
         GameController.Instance.GameOver();
         minutes = 0;
-        currentDay++;
-        if ((int)currentDay > 2)
-        {
-            currentDay = 0;
-        }
         contadorDias++;
-        UnityEngine.Debug.Log(contadorDias);
-        if (contadorDias == 3)
+        if (contadorDias >= 3)
         {
             contadorDias = 0;
             ChangeWeek(); //informa que acabou a semana
         }
-        UnityEngine.Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
+        //Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
         timer = 0; //reseta o dia que � equivalente a passar pro proximo dia. 
     }
 
     private void UpdateUI(){
         timeLeft = Mathf.RoundToInt((60 * endHour) - (timer + minutes * 60));
         timerText.text = $"time left : {timeLeft}";
-        dayCounter.text = $"Day : {currentDay}";
+        dayCounter.text = $"Day : {contadorDias}";
     }
 
     public void ChangeWeek(){ 
-        UnityEngine.Debug.Log("ChangedWeek");
+        Debug.Log("ChangedWeek");
         if (seasonsPassed > 5){ //serve pra contar em qual estação a gente está
             seasonsPassed = 0;
         }
-        seasonsPassed++; 
-        contadorDias = 0;
-        Events.Instance.ChangeSeason(seasonsPassed);
+        seasonsPassed++;
+        Events.Instance.ChangeSeason();
     }
 
     

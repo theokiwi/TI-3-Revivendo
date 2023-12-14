@@ -1335,6 +1335,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198370520}
   m_CullTransparentMesh: 1
+--- !u!114 &202205502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094673922050433598, guid: 283b82f61d4630f4eaf34a452ca98340, type: 3}
+  m_PrefabInstance: {fileID: 1356960681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac6f9e1e25cc24c9646f4114651f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &215215078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3694445941891669807, guid: 429ac644e63ec7090907c344ee606c0b, type: 3}
@@ -1570,6 +1581,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 65d3f45982f25514b88143d8a0324b60, type: 3}
   m_PrefabInstance: {fileID: 617354609}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &256868138 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9090996952262507737, guid: 283b82f61d4630f4eaf34a452ca98340, type: 3}
+  m_PrefabInstance: {fileID: 1356960681}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72254bd8a5493be4a90943f990d95f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &265992803
 GameObject:
   m_ObjectHideFlags: 0
@@ -13255,7 +13277,8 @@ MonoBehaviour:
   lostClients: 0
   dispensers:
   - {fileID: 936644960}
-  - {fileID: 0}
+  - {fileID: 256868138}
+  chef: {fileID: 0}
 --- !u!4 &582264340
 Transform:
   m_ObjectHideFlags: 0
@@ -33972,6 +33995,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.34000006, y: 5.999999, z: 3.0000007}
   m_Center: {x: -0.15000004, y: 2.9999995, z: -1.5000004}
+--- !u!114 &1516399987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6094673922050433598, guid: 283b82f61d4630f4eaf34a452ca98340, type: 3}
+  m_PrefabInstance: {fileID: 9090996952603553209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac6f9e1e25cc24c9646f4114651f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1516419327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5264946888257569713, guid: fc7454c63519200d7b5ade57dd5c03af, type: 3}
@@ -37295,6 +37329,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PomboBalcao
       objectReference: {fileID: 0}
+    - target: {fileID: 577019380493823554, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1342938176}
+    - target: {fileID: 577019380493823554, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
+      propertyPath: cookingIndicators.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 577019380493823554, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
+      propertyPath: cookingIndicators.Array.data[0]
+      value: 
+      objectReference: {fileID: 1516399987}
+    - target: {fileID: 577019380493823554, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
+      propertyPath: cookingIndicators.Array.data[1]
+      value: 
+      objectReference: {fileID: 202205502}
     - target: {fileID: 577019380493823556, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
       propertyPath: m_RootOrder
       value: 7

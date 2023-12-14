@@ -152,7 +152,8 @@ public class Table : AbstractInteractable
     private void Failed(){
         Debug.Log("Failed delivery");
         GameController.Instance.FailledDelivery(occupants);
-        isDirty = true;
+        isDirty = true; 
+        Instantiate(tableDirt,transform);
         EmptySeats();
     }
 
