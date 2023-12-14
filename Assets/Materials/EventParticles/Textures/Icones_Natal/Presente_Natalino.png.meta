@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e71898b6469d7143bedefa579bd0316
+guid: 7473748e54d052c4d902b267ee4fbcac
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,70 +103,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "Icones_S\xE3oJo\xE3o_0"
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 6
-        width: 81
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d73a43c7e0fc4c94992bc7b10e6a1220
-      internalID: -655478870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Icones_S\xE3oJo\xE3o_1"
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 45
-        width: 96
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e04e1c3bc6320cb4f8a3bb4dbd59ceb6
-      internalID: 207953058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "Icones_S\xE3oJo\xE3o_2"
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 15
-        width: 69
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4f00b2a74f97c841b828b8a61ca8f04
-      internalID: 1014505034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -177,10 +114,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      "Icones_S\xE3oJo\xE3o_0": -655478870
-      "Icones_S\xE3oJo\xE3o_1": 207953058
-      "Icones_S\xE3oJo\xE3o_2": 1014505034
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
