@@ -13,9 +13,6 @@ Shader "Unlit/Toon"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
-
         Pass
         {
             Tags
@@ -26,6 +23,7 @@ Shader "Unlit/Toon"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            #pragma multi_compile_fwdbase
 
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
@@ -40,11 +38,12 @@ Shader "Unlit/Toon"
 
             struct v2f
             {
-                float3 viewDir : TEXCOORD1;
-                float2 uv : TEXCOORD0;
-                float4 vertex : SV_POSITION;
-                float3 worldNormal : NORMAL;
-                SHADOW_COORDS(2)
+                float4 pos : SV_POSITION;
+				float3 worldNormal : NORMAL;
+				float2 uv : TEXCOORD0;
+				float3 viewDir : TEXCOORD1;	
+			
+				SHADOW_COORDS(2)
             };
 
             sampler2D _MainTex;
@@ -62,8 +61,9 @@ Shader "Unlit/Toon"
                 v2f o;
                 o.viewDir = WorldSpaceViewDir(v.vertex);
                 o.worldNormal = UnityObjectToWorldNormal(v.normal);
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+                TRANSFER_SHADOW(o)
                 return o;
             }
 
@@ -71,7 +71,10 @@ Shader "Unlit/Toon"
             {
                 float3 normal = normalize(i.worldNormal);
                 float NdotL = dot(_WorldSpaceLightPos0, normal);
-                float lightIntensity = smoothstep(0, 0.01, NdotL);
+
+                float shadow = SHADOW_ATTENUATION(i);
+                float lightIntensity = smoothstep(0, 0.01, NdotL * shadow);
+
                 float4 light = lightIntensity * _LightColor0;
                 float3 viewDir = normalize(i.viewDir);
 
