@@ -8,11 +8,11 @@ public class ChangeScene : MonoBehaviour
     public void LoadScene(string scene)
     {
         Time.timeScale = 1.0f;
-        AudioManager.instance.Click();
+        AudioManager.Instance.Click();
         SceneManager.LoadScene(scene);
     }
     public void ChangeAudio(string audio)
     {
-        AudioManager.instance.SendMessage(audio);
+        AudioManager.Instance.SendMessage(audio);
     }
 }

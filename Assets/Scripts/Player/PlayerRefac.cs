@@ -67,7 +67,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
             intercating = true;
 
             i.Interact();
-            if(i.GetType() == typeof(Dish))
+            if(i.GetType() == typeof(Dish) || i.GetType() == typeof(Client))
             {
                 animator.SetBool("Plate_On", true);
             }

@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 3341627218696443764}
   m_Layer: 6
   m_Name: BreadRoll
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

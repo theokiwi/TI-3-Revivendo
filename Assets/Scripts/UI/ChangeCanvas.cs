@@ -9,7 +9,7 @@ public class ChangeCanvas : MonoBehaviour
     public int currentCanvasIndex;
     public void LoadCanvas(int i)
     {
-        AudioManager.instance.Click();
+        AudioManager.Instance.Click();
         currentCanvas[currentCanvasIndex].gameObject.SetActive(false);
         currentCanvasIndex = i;
         currentCanvas[i].gameObject.SetActive(true);

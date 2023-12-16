@@ -6,6 +6,6 @@ public class Gambiarra : MonoBehaviour
 {
     void Start()
     {
-        AudioManager.instance.Shop();
+        AudioManager.Instance.Shop();
     }
 }

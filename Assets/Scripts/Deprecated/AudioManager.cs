@@ -3,24 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
-    public static AudioManager instance;
     [SerializeField] AudioSource click,fogao,pegaPedido,item,music;
     [SerializeField] AudioClip shop, ruins;
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-        instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-    }
     private void Start()
     {
         Shop();
