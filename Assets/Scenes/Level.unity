@@ -100687,6 +100687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPreBanca
       objectReference: {fileID: 0}
+    - target: {fileID: 171674575108693372, guid: 96e9d633da754ee4d956d19a555ea258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 8857694973072982210, guid: 96e9d633da754ee4d956d19a555ea258, type: 3}
       propertyPath: m_Controller
       value: 

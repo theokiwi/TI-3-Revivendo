@@ -41,6 +41,10 @@ public class PlayerRefac : Singleton<PlayerRefac>
         if(Input.GetKeyDown(KeyCode.Escape)){
             ESC_action.Invoke();
         }
+        if(Vector3.Distance(agent.destination, transform.position) < .5f)
+        {
+            animator.SetBool("Walk_On", false);
+        }
     }
 
     private void OnTriggerEnter(Collider other){
@@ -82,7 +86,6 @@ public class PlayerRefac : Singleton<PlayerRefac>
     private bool HasReachedDestination(Transform destination){
         float distance = Vector3.Distance(transform.position, destination.position);
         if(distance <= 2.25f){
-            animator.SetBool("Walk_On", false);
             return true;
         }
         return false;
@@ -162,6 +165,10 @@ public class PlayerRefac : Singleton<PlayerRefac>
         void OnClick(RaycastHit hit){
             if(hit.transform.CompareTag("Floor")){
                 agent.destination = hit.point;
+                if(Vector3.Distance(agent.destination, transform.position) > .5f)
+                {
+                    animator.SetBool("Walk_On", true);
+                }
                 return;
             }
             if(NavMesh.SamplePosition(hit.transform.position, out NavMeshHit data, 3f, NavMesh.AllAreas)){
@@ -174,7 +181,12 @@ public class PlayerRefac : Singleton<PlayerRefac>
                 interaction = hit.transform.GetComponent<AbstractInteractable>();
                 Highlight(targetObject, HL_shader, Color.yellow);
                 HLObject = null;
+                if(Vector3.Distance(agent.destination, transform.position) > .5f)
+                {
+                    animator.SetBool("Walk_On", true);
+                }
             }
+            
         }
     }
 
