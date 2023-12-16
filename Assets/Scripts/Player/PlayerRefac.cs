@@ -15,7 +15,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
     [SerializeField] float  slowCD, slowTime;
     private bool slow;
     private bool intercating;
-
+    [SerializeField] private Animator animator;
 
     private void Start(){
         intercating = false;
@@ -63,6 +63,14 @@ public class PlayerRefac : Singleton<PlayerRefac>
             intercating = true;
 
             i.Interact();
+            if(i.GetType() == typeof(Dish))
+            {
+                animator.SetBool("Plate_On", true);
+            }
+            if(i.GetType() == typeof(Table))
+            {
+                animator.SetBool("Plate_On", false);
+            }
             interaction = null;
             Highlight(targetObject, default_shader, Color.blue);
             targetObject = null;
@@ -74,6 +82,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
     private bool HasReachedDestination(Transform destination){
         float distance = Vector3.Distance(transform.position, destination.position);
         if(distance <= 2.25f){
+            animator.SetBool("Walk_On", false);
             return true;
         }
         return false;
@@ -128,6 +137,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
             }
             if(Input.GetMouseButtonDown(1)){
                 if(rightClick != null) rightClick.Action();
+                animator.SetBool("Plate_On", false);        //nao tem como saber daqui direito quando que o prato sai entao qualquer botao direito desliga a animacao
             }
         }
         else if(HLObject != null){
@@ -159,6 +169,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
                     Highlight(targetObject, default_shader, Color.blue);
                 }
                 agent.destination = data.position;
+                animator.SetBool("Walk_On", true);
                 targetObject = hit.transform.gameObject;
                 interaction = hit.transform.GetComponent<AbstractInteractable>();
                 Highlight(targetObject, HL_shader, Color.yellow);

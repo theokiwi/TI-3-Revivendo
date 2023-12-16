@@ -85,6 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slowCD: 0
   slowTime: 0
+  animator: {fileID: 8857694973072982210}
   holdPos: {fileID: 171674575108693372}
   heldObject: {fileID: 0}
   interaction: {fileID: 0}
@@ -221,3 +222,29 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6427ea9302e9d1845ba50130e9dcaee4, type: 3}
   m_PrefabInstance: {fileID: 7159170050894430659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8042042360632229010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6427ea9302e9d1845ba50130e9dcaee4, type: 3}
+  m_PrefabInstance: {fileID: 7159170050894430659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8857694973072982210
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8042042360632229010}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

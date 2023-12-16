@@ -32665,7 +32665,7 @@ MonoBehaviour:
   dispensers:
   - {fileID: 936644960}
   - {fileID: 256868138}
-  chef: {fileID: 0}
+  chef: {fileID: 2118351949}
 --- !u!4 &582264340
 Transform:
   m_ObjectHideFlags: 0
@@ -100150,6 +100150,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4245733821731280838, guid: f75644ebf009b8e459dba17291b12467, type: 3}
   m_PrefabInstance: {fileID: 2097166504}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2118351949 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 577019380493823554, guid: 5c6f74d877b91ee4288a1ceff51877b5, type: 3}
+  m_PrefabInstance: {fileID: 577019379389092008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52711b722a0b2074790ed9270fde731f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &197701134514812308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100676,6 +100687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerPreBanca
       objectReference: {fileID: 0}
+    - target: {fileID: 8857694973072982210, guid: 96e9d633da754ee4d956d19a555ea258, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 773cbf4de148d7f47850a46cba865500, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96e9d633da754ee4d956d19a555ea258, type: 3}
 --- !u!1 &8849555604871130665
