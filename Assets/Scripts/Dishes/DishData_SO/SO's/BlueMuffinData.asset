@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishType: Muffin Azul
   price: 2
-  preparationTime: 2
-  waitTime: 10
+  preparationTime: 5
+  waitTime: 15
   eatTime: 2
   inPlateObj: {fileID: 4669510561832915608, guid: bc5b27db219070041a28030d55fcc093, type: 3}
   interfaceIcon: {fileID: 0}
