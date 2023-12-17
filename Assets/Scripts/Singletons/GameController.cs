@@ -68,6 +68,14 @@ public class GameController : Singleton<GameController>
     public void FixedUpdate()
     {
         ServePlate();
+        foreach (Bubble bubble in bubbles)
+        {
+            if (!(bubble.State == Bubble._States.COUNTING))
+            {
+                bubble.Hide(true);
+                bubble.Sleep(true);
+            }
+        }
     }
 
     //calcula a pontuacao (TODO: refazer quando tiver um sistema de satisfacao pros clientes)
@@ -191,12 +199,7 @@ public class GameController : Singleton<GameController>
         foreach(Dispenser dispenser in dispensers){   
             if(!dispenser.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), dispenser.transform.position + dispenser.transform.up/2, dispenser.transform.rotation);
-                foreach(Bubble bubble in bubbles){         
-                    if(!(bubble.State == Bubble._States.COUNTING)){
-                        bubble.Sleep(true);
-                        bubble.Hide(true);
-                    }
-                }
+                
             }
         }
     }

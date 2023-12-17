@@ -32,6 +32,7 @@ public class Events : Singleton<Events>
         case Seasons.Christmas:
         currentSeason = Seasons.Standart;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[0];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[0];
@@ -41,6 +42,7 @@ public class Events : Singleton<Events>
         case Seasons.Standart:
         currentSeason = Seasons.Carnival;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[1];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[1];
@@ -50,6 +52,7 @@ public class Events : Singleton<Events>
         case Seasons.Carnival:
         currentSeason = Seasons.Easter;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[2];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[2];
@@ -59,6 +62,7 @@ public class Events : Singleton<Events>
         case Seasons.Easter:
         currentSeason = Seasons.Valentines;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[3];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[3];
@@ -68,6 +72,7 @@ public class Events : Singleton<Events>
         case Seasons.Valentines:
         currentSeason = Seasons.FestaJulina;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[4];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[4];
@@ -77,6 +82,7 @@ public class Events : Singleton<Events>
         case Seasons.FestaJulina:
         currentSeason = Seasons.Halloween;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[5];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[5];
@@ -87,6 +93,7 @@ public class Events : Singleton<Events>
         case Seasons.Halloween:
         currentSeason = Seasons.Christmas;
         currentScenario.SetActive(false);
+        currentParticle.SetActive(false);
         currentScenario = scenarios[6];
         currentScenario.SetActive(true);
         currentParticle = eventParticles[6];

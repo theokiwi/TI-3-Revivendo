@@ -26,6 +26,7 @@ public class TimeController : Singleton<TimeController>
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
+            timeMultiplier = 30;
             ChangeWeek();
         }
     }
@@ -53,7 +54,7 @@ public class TimeController : Singleton<TimeController>
     {
         minutes = 0;
         contadorDias++;
-        if (contadorDias >= 3)
+        if (contadorDias == 3)
         {
             contadorDias = 0;
             ChangeWeek(); //informa que acabou a semana

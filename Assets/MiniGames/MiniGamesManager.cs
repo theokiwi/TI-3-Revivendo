@@ -23,16 +23,23 @@ public class MiniGamesManager : MonoBehaviour
             CrumbMiniGame c = g.GetComponentInChildren<CrumbMiniGame>();
             c.table = table;
         }
+        else if (name == "Counter")
+        {
+            Instantiate(counterminigame);
+        }
         else if(name == "Bonfire")
         {
+            TimeController.Instance.timeMultiplier = 0;
             Instantiate(bonfireminigame);
         }
         else if (name == "Halloween")
         {
+            TimeController.Instance.timeMultiplier = 0;
             Instantiate(halloweenminigame);
         }
         else if (name == "Valentine")
         {
+            TimeController.Instance.timeMultiplier = 0;
             Instantiate(valentineminigame);
         }
     }

@@ -45,4 +45,8 @@ public class BonfireMiniGame : MonoBehaviour
         MiniGamesManager.instance.ExitMiniGame();
         Destroy(minigame,t);
     }
+    private void OnDestroy()
+    {
+        GameController.Instance.GameOver();
+    }
 }

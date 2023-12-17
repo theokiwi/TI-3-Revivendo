@@ -22,7 +22,7 @@ public class HalloweenMiniGame : MonoBehaviour
         timer -= Time.deltaTime;
         timerText.text = $"{(int)timer}";
         if(timer < 0)
-        {
+        {       
             EndMiniGame();
         }
     }
@@ -36,6 +36,7 @@ public class HalloweenMiniGame : MonoBehaviour
     }
     public void EndMiniGame()
     {
+        GameController.Instance.GameOver();
         Destroy(minigame);
     }
     public void SpawnCandy()
