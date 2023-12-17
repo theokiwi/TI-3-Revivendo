@@ -120,7 +120,7 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        tableBubble.Refresh(client.waitTime * 2,client.order.interfaceIcon);
+        tableBubble.Refresh(client.waitTime,client.order.interfaceIcon);
         tableBubble.Wake();
         return client.order;
     }
