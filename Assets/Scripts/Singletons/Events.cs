@@ -25,7 +25,7 @@ public class Events : Singleton<Events>
    public void ChangeSeason(){
         Debug.Log(gameObject);
     switch (currentSeason){
-        case Seasons.Standart:
+        case Seasons.Christmas:
         currentSeason = Seasons.Standart;
         currentScenario.SetActive(false);
         currentScenario = scenarios[0];
@@ -34,7 +34,7 @@ public class Events : Singleton<Events>
         currentParticle.SetActive(true);
         Debug.Log("Changed 0");
             break;
-        case Seasons.Carnival:
+        case Seasons.Standart:
         currentSeason = Seasons.Carnival;
         currentScenario.SetActive(false);
         currentScenario = scenarios[1];
@@ -43,7 +43,7 @@ public class Events : Singleton<Events>
         currentParticle.SetActive(true);
         Debug.Log("Changed 1");
             break;
-        case Seasons.Easter:
+        case Seasons.Carnival:
         currentSeason = Seasons.Easter;
         currentScenario.SetActive(false);
         currentScenario = scenarios[2];
@@ -52,7 +52,7 @@ public class Events : Singleton<Events>
         currentParticle.SetActive(true);
         Debug.Log("Changed 2");
             break;
-        case Seasons.Valentines:
+        case Seasons.Easter:
         currentSeason = Seasons.Valentines;
         currentScenario.SetActive(false);
         currentScenario = scenarios[3];
@@ -61,7 +61,7 @@ public class Events : Singleton<Events>
         currentParticle.SetActive(true);
         Debug.Log("Changed 3");
             break;
-        case Seasons.FestaJulina:
+        case Seasons.Valentines:
         currentSeason = Seasons.FestaJulina;
         currentScenario.SetActive(false);
         currentScenario = scenarios[4];
@@ -70,7 +70,7 @@ public class Events : Singleton<Events>
         currentParticle.SetActive(true);
         Debug.Log("Changed 4");
             break;
-        case Seasons.Halloween:
+        case Seasons.FestaJulina:
         currentSeason = Seasons.Halloween;
         currentScenario.SetActive(false);
         currentScenario = scenarios[5];
@@ -80,7 +80,7 @@ public class Events : Singleton<Events>
         Debug.Log("Changed 5");
         
             break;
-        case Seasons.Christmas:
+        case Seasons.Halloween:
         currentSeason = Seasons.Christmas;
         currentScenario.SetActive(false);
         currentScenario = scenarios[6];
