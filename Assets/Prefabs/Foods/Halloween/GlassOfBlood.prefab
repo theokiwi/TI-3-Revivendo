@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2214975978377895735}
   - component: {fileID: 4420796264901364444}
   - component: {fileID: 3296854132090297529}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GlassOfBlood
   m_TagString: Pickable
   m_Icon: {fileID: 0}

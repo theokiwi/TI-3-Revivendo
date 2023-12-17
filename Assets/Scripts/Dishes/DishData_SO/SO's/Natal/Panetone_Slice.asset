@@ -17,4 +17,4 @@ MonoBehaviour:
   waitTime: 25
   eatTime: 2
   inPlateObj: {fileID: 241856498695693084, guid: a7aceaff99a756f4295ac0ea0c8c90da, type: 3}
-  interfaceIcon: {fileID: 0}
+  interfaceIcon: {fileID: 21300000, guid: 8b233faab6f35e24482a4cfc11a4e07f, type: 3}

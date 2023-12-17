@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5168337777124116592}
   - component: {fileID: 5441627348671424642}
   - component: {fileID: 9023701502803724897}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fish_Bait
   m_TagString: Pickable
   m_Icon: {fileID: 0}

@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8539827707960799187}
   - component: {fileID: 3296124922055497797}
   - component: {fileID: 81775801991222725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EasterEgg
   m_TagString: Pickable
   m_Icon: {fileID: 0}

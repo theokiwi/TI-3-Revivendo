@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7792244217629821556}
   - component: {fileID: 8943390355079078961}
   - component: {fileID: 5081443375860953656}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HotCocoa
   m_TagString: Pickable
   m_Icon: {fileID: 0}

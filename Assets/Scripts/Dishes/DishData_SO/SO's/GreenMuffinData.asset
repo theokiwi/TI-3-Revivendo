@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: GreenMuffinData
   m_EditorClassIdentifier: 
-  dishType: Muffin Verde
   price: 2
   preparationTime: 5
   waitTime: 15
   eatTime: 2.5
   inPlateObj: {fileID: 5595869923005312661, guid: 93dd827e9a365b1429823f79a2cf6feb, type: 3}
-  interfaceIcon: {fileID: 0}
+  interfaceIcon: {fileID: 21300000, guid: 0941c802c60a9934fb8f783d2b511115, type: 3}

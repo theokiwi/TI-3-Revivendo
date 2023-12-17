@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6050922640886894237}
   - component: {fileID: -5673292205622540538}
   - component: {fileID: 4187223669254349662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PumpkinPie
   m_TagString: Pickable
   m_Icon: {fileID: 0}

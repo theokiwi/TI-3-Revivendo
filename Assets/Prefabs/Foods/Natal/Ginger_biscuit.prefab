@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 6521854381263850814}
   - component: {fileID: 6520055517079602447}
   - component: {fileID: 9189515392034073627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ginger_biscuit
   m_TagString: Pickable
   m_Icon: {fileID: 0}

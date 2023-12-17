@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4726392732839049587}
   - component: {fileID: 2285713960292036418}
   - component: {fileID: 3751548940460984921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glass_milk
   m_TagString: Pickable
   m_Icon: {fileID: 0}

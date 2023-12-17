@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: BlueMuffinData
   m_EditorClassIdentifier: 
-  dishType: Muffin Azul
   price: 2
   preparationTime: 5
   waitTime: 15
   eatTime: 2
   inPlateObj: {fileID: 4669510561832915608, guid: bc5b27db219070041a28030d55fcc093, type: 3}
-  interfaceIcon: {fileID: 21300000, guid: d34344744e08f2143a6f05f0db36fbc9, type: 3}
+  interfaceIcon: {fileID: 21300000, guid: 11c003d2a5628734b9a74d270af2dc28, type: 3}

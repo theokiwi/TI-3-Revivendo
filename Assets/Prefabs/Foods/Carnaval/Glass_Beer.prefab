@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 1249158094327400523}
   - component: {fileID: -4494715508067592006}
   - component: {fileID: -8089890229448015017}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Glass_Beer
   m_TagString: Pickable
   m_Icon: {fileID: 0}

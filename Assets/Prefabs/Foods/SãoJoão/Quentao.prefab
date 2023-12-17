@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7041598232932730939}
   - component: {fileID: 8952170867656420272}
   - component: {fileID: 9187701243232277284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Quentao
   m_TagString: Pickable
   m_Icon: {fileID: 0}
