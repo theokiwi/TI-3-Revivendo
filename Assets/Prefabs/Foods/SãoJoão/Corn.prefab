@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2852212603835842391}
   m_Layer: 0
   m_Name: Corn
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: 383d7e4b35913474683b2488b70f3ccd, type: 2}
-  dirt: {fileID: 0}
+  dirt: {fileID: 3827541871914501968, guid: 1b71b859277f7af46acf92123c5277bf, type: 3}
 --- !u!1 &8683013249824785568
 GameObject:
   m_ObjectHideFlags: 0

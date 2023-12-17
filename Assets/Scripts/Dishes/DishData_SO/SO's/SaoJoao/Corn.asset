@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Corn
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
+  price: 5
+  preparationTime: 8
+  waitTime: 15
+  eatTime: 5
+  inPlateObj: {fileID: 2745336760130192874, guid: e71fe439002b35646be2f461e24d54d6, type: 3}
   interfaceIcon: {fileID: 0}

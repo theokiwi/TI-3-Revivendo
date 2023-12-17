@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8783856673516372767}
   m_Layer: 0
   m_Name: Milkshake
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: 0920bbc739145e1409638937f0eea130, type: 2}
-  dirt: {fileID: 0}
+  dirt: {fileID: 3827541871914501968, guid: 1b71b859277f7af46acf92123c5277bf, type: 3}
 --- !u!1 &3442483353224439355
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Glass_Beer
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
-  interfaceIcon: {fileID: 0}
+  price: 2
+  preparationTime: 1.5
+  waitTime: 12
+  eatTime: 4
+  inPlateObj: {fileID: 6215846936672860194, guid: 45032900951229643a49c10b3a8fd467, type: 3}
+  interfaceIcon: {fileID: 21300000, guid: 9ed33f75938dcba4099c13a2e30cf91e, type: 3}

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: HotCocoa
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
-  interfaceIcon: {fileID: 0}
+  price: 3
+  preparationTime: 3
+  waitTime: 15
+  eatTime: 2
+  inPlateObj: {fileID: 1386259144430853368, guid: aee8449044de9984f8186f37ca82ed0a, type: 3}
+  interfaceIcon: {fileID: 21300000, guid: 93a3570cc1fb5c54c8d3b67b32c782e7, type: 3}

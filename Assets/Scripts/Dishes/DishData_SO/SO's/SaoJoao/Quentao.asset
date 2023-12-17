@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Quentao
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
+  price: 6
+  preparationTime: 2
+  waitTime: 10
+  eatTime: 8
+  inPlateObj: {fileID: 1653252157413810180, guid: cdc5ec7aad92e7f459bcb81db2774b02, type: 3}
   interfaceIcon: {fileID: 0}

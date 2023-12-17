@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Ginger_Biscuit
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
+  price: 3
+  preparationTime: 10
+  waitTime: 15
+  eatTime: 3
+  inPlateObj: {fileID: 2398729270760969806, guid: a941eac0a08d8a24da3c30fc7ad8a2cf, type: 3}
   interfaceIcon: {fileID: 0}

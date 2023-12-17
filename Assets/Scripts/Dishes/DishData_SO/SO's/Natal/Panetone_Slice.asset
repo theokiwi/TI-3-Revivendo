@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Panetone_Slice
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
+  price: 12
+  preparationTime: 15
+  waitTime: 25
+  eatTime: 2
+  inPlateObj: {fileID: 241856498695693084, guid: a7aceaff99a756f4295ac0ea0c8c90da, type: 3}
   interfaceIcon: {fileID: 0}

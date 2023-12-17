@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: BreadRollsData
   m_EditorClassIdentifier: 
-  dishType: "P\xE3ezinhos"
   price: 3
   preparationTime: 4
   waitTime: 15
   eatTime: 3
   inPlateObj: {fileID: 7649655171256345682, guid: dceadc27be4a2ce409508c3f08a98751, type: 3}
-  interfaceIcon: {fileID: 0}
+  interfaceIcon: {fileID: 21300000, guid: b1d1f10c5e795154baf899951d4039b4, type: 3}

@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: -8089890229448015017}
   m_Layer: 0
   m_Name: Glass_Beer
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: 958ad8d5a1e713f4382330db812cbe48, type: 2}
-  dirt: {fileID: 0}
+  dirt: {fileID: 3827541871914501968, guid: 1b71b859277f7af46acf92123c5277bf, type: 3}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ee610c8ee1170e439acf9cdc8770a69, type: 3}
+  m_Name: MenuCarnaval
+  m_EditorClassIdentifier: 
+  menu:
+  - {fileID: 11400000, guid: b548fad02255d9349b79708456b45955, type: 2}
+  - {fileID: 11400000, guid: b8aa1b1c79fb84049a02649f53f613ff, type: 2}
+  - {fileID: 11400000, guid: dbbafea263869624d88bd140ad68e012, type: 2}
+  - {fileID: 11400000, guid: c6acaea4cf6ca0b478fdf632a73484db, type: 2}
+  - {fileID: 11400000, guid: 4d31c6b7f2ecead46a044c1c1d596f9d, type: 2}
+  - {fileID: 11400000, guid: 958ad8d5a1e713f4382330db812cbe48, type: 2}

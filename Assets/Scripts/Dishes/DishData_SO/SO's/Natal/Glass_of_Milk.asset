@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Glass_of_Milk
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
+  price: 1
+  preparationTime: 0.5
+  waitTime: 15
+  eatTime: 1.5
+  inPlateObj: {fileID: 2121515022360828512, guid: 78f98980f05be764686e1cd0dfc04969, type: 3}
   interfaceIcon: {fileID: 0}

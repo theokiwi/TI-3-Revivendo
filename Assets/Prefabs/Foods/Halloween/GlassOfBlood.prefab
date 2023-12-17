@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3296854132090297529}
   m_Layer: 0
   m_Name: GlassOfBlood
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: 922995030d72ba0418ea700594ea6ea4, type: 2}
-  dirt: {fileID: 0}
+  dirt: {fileID: 3827541871914501968, guid: 1b71b859277f7af46acf92123c5277bf, type: 3}

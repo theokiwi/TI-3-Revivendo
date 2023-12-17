@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8207299312896133565}
   m_Layer: 0
   m_Name: Slice_panettone
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dish: {fileID: 11400000, guid: 90e4f54e322d62a459ec318c5d33d0b0, type: 2}
-  dirt: {fileID: 0}
+  dirt: {fileID: 3827541871914501968, guid: 1b71b859277f7af46acf92123c5277bf, type: 3}
 --- !u!1 &317939781933063356
 GameObject:
   m_ObjectHideFlags: 0

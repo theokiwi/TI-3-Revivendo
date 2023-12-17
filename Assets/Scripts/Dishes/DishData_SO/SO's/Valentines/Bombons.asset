@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Bombons
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
-  interfaceIcon: {fileID: 0}
+  price: 6
+  preparationTime: 5
+  waitTime: 15
+  eatTime: 3
+  inPlateObj: {fileID: 5939681622239844980, guid: ff87023212e721142914c6266543786e, type: 3}
+  interfaceIcon: {fileID: 21300000, guid: 05e89e35db4c10940b2ef59fd11744f3, type: 3}

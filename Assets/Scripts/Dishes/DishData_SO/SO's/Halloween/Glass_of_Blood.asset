@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: Glass_of_Blood
   m_EditorClassIdentifier: 
-  dishType: 
-  price: 0
-  preparationTime: 0
-  waitTime: 0
-  eatTime: 0
-  inPlateObj: {fileID: 0}
-  interfaceIcon: {fileID: 0}
+  price: 4
+  preparationTime: 2.5
+  waitTime: 10
+  eatTime: 1.5
+  inPlateObj: {fileID: 6064242057295508942, guid: eea9bf59a6ef29a46bde997f0a95118f, type: 3}
+  interfaceIcon: {fileID: 21300000, guid: 367dee429112388449d2859b91398f63, type: 3}
