@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Select_FullScreen : MonoBehaviour
 {
-    public void Start()
+    public void Activate()
     {
         Screen.fullScreen = !Screen.fullScreen;
     }
