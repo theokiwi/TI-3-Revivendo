@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dishType: Muffin Verde
   price: 2
-  preparationTime: 1.5
-  waitTime: 10
+  preparationTime: 5
+  waitTime: 15
   eatTime: 2.5
   inPlateObj: {fileID: 5595869923005312661, guid: 93dd827e9a365b1429823f79a2cf6feb, type: 3}
   interfaceIcon: {fileID: 0}

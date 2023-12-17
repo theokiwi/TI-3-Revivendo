@@ -28,7 +28,6 @@ public class ClientSpawn : MonoBehaviour
                 Debug.Log("New Client");
             }
         }
-        TimeController.Instance.EndDay();
     }
 
     private void OnDrawGizmos() {
