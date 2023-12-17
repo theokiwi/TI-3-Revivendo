@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2121515022360828543}
   - component: {fileID: 4726392732839049587}
+  - component: {fileID: 2285713960292036418}
+  - component: {fileID: 3751548940460984921}
   m_Layer: 0
   m_Name: Glass_milk
   m_TagString: Untagged
@@ -46,6 +48,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.2740274, y: 0.62180823, z: 0.28592873}
   m_Center: {x: -0.002975285, y: 0.3040364, z: 0.000000029802322}
+--- !u!54 &2285713960292036418
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121515022360828512}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3751548940460984921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121515022360828512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f04973c945f0814a92265b6b5d3bbe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dish: {fileID: 0}
+  dirt: {fileID: 0}
 --- !u!1 &8977353706801238981
 GameObject:
   m_ObjectHideFlags: 0

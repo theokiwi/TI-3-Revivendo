@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "new DishData", menuName = "Scriptable Objects/DishData")] //deixa criar arquivo aprertando botão direito na janela projeto
 public class DishData : ScriptableObject
 {
-    public string dishType;
     public int price;   //quanto dinheiro dá
     public float preparationTime; //quanto tempo pra cozinhar
     public float waitTime;  //quanto tempo o cliente espera

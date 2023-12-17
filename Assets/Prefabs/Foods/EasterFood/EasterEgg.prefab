@@ -95,6 +95,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4129982134218550440}
   - component: {fileID: 8539827707960799187}
+  - component: {fileID: 3296124922055497797}
+  - component: {fileID: 81775801991222725}
   m_Layer: 0
   m_Name: EasterEgg
   m_TagString: Untagged
@@ -132,6 +134,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.61096215, y: 0.4651236, z: 1.1421529}
   m_Center: {x: 0.044055343, y: 0.2674382, z: -0.24645418}
+--- !u!54 &3296124922055497797
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205954576238002051}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &81775801991222725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6205954576238002051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f04973c945f0814a92265b6b5d3bbe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dish: {fileID: 0}
+  dirt: {fileID: 0}
 --- !u!1 &7261741066324805528
 GameObject:
   m_ObjectHideFlags: 0
