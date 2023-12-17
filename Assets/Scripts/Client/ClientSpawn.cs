@@ -23,8 +23,6 @@ public class ClientSpawn : MonoBehaviour
     {
         timeLeft = 0;
         timer = new Timer_CountDown();
-        remainingClients = maxClients;
-        clientsBeingServed = 0;
     }
 
     private void FixedUpdate(){
