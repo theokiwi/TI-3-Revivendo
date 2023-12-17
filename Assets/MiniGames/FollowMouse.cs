@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowMouse : MonoBehaviour
 {
-    enum States {FOLLOW,FOLLOWINX};
+    enum States {FOLLOW,FOLLOWINX, FOLLOWINY};
     [SerializeField] States state;
     [SerializeField] float max;
     Rigidbody rb;
@@ -22,6 +22,10 @@ public class FollowMouse : MonoBehaviour
         {
             DoFollowX();
         }
+        else if (state == States.FOLLOWINY)
+        {
+            DoFollowY();
+        }
     }
     public void DoFollow()
     {
@@ -30,6 +34,11 @@ public class FollowMouse : MonoBehaviour
     public void DoFollowX()
     {
         Vector2 v = new Vector2(Input.mousePosition.x, transform.position.y);
+        transform.position = v;
+    }
+    public void DoFollowY()
+    {
+        Vector2 v = new Vector2(transform.position.x, Input.mousePosition.y);
         transform.position = v;
     }
 }

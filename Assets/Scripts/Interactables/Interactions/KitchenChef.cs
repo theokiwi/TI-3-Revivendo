@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class KitchenChef : AbstractInteractable
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] private Bubble[] cookingIndicators;
-    private int dishesCooking;
+    public int dishesCooking;
     private void Start()
     {
         foreach(Bubble indicator in cookingIndicators)
@@ -24,10 +24,16 @@ public class KitchenChef : AbstractInteractable
     }
 
     public override void Interact(){
-        try{
-            GameController.Instance.StartCooking(GameController.Instance.orders.Dequeue());
-            dishesCooking++;
-            animator.SetBool("Cooking", true);
-        }catch{}
+        if (GameController.Instance.orders.Count > 0)
+        {
+            try
+            {
+                MiniGamesManager.instance.StartMiniGame("Counter");
+                //GameController.Instance.StartCooking(GameController.Instance.orders.Dequeue());
+                //dishesCooking++;
+                //animator.SetBool("Cooking", true);
+            }
+            catch { }
+        }
     }
 }

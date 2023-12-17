@@ -7,6 +7,8 @@ public class CounterMinigame : MonoBehaviour
 {
     [SerializeField] Slider slider;
     public static CounterMinigame instance;
+    [SerializeField] GameObject minigame;
+    [SerializeField] KitchenChef chef;
     private void Awake()
     {
         instance = this;
@@ -14,13 +16,7 @@ public class CounterMinigame : MonoBehaviour
     void Start()
     {
         slider.maxValue = GameController.Instance.orders.Count;
-        for(int i = 0; i < slider.maxValue; i++)
-        {
-            foreach(DishData d in GameController.Instance.orders)
-            {
-
-            }
-        }
+        chef = FindAnyObjectByType<KitchenChef>();
     }
     public void Task()
     {
@@ -30,7 +26,11 @@ public class CounterMinigame : MonoBehaviour
             for(int i = 0; i < slider.value; i++)
             {
                 GameController.Instance.StartCooking(GameController.Instance.orders.Dequeue());
+                chef.dishesCooking++;
             }
+            chef.animator.SetBool("Cooking", true);
+            Destroy(minigame);
+            MiniGamesManager.instance.ExitMiniGame();
         }
     }
 }
