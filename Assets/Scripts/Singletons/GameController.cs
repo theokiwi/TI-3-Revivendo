@@ -37,9 +37,7 @@ public class GameController : Singleton<GameController>
     private void StartGame() 
     {
         money = 0;
-        points = 0;
         UpdateMoney();
-        numberOfOrders.text = $"{0}";
 
         PauseGame(false);
 
@@ -49,10 +47,15 @@ public class GameController : Singleton<GameController>
     }
 
     //reinicia todos os valores referentes a performance no dia
-    private void StartDay() 
+    public void StartDay() 
     {
+        numberOfOrders.text = $"{0}";
+        AddPoints(-points);
         lostClients = 0;
-
+        ClientSpawn.instance.StartDay();
+        Time.timeScale = 1;
+        TimeController.Instance.timeMultiplier = 1;
+        endScreen.gameObject.SetActive(false);
         plates = new Queue<GameObject>();
         orders = new Queue<DishData>();
         SanitationController.Instance.DayChange();
@@ -118,6 +121,7 @@ public class GameController : Singleton<GameController>
 
     public void GameOver()
     {
+        AudioManager.Instance.Shop();
         Time.timeScale = 0;
         TimeController.Instance.timeMultiplier = 0;
         End.Instance.EndUpdate();

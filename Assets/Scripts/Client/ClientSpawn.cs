@@ -8,6 +8,7 @@ public class ClientSpawn : MonoBehaviour
     [SerializeField] private float timeLeft;
     [SerializeField] private ITimer timer;
     [SerializeField] private LayerMask layerMask;
+    public int maxClients = 1000;
     public static ClientSpawn instance;
     //public int clientsBeingServed = 0;
 
@@ -16,8 +17,14 @@ public class ClientSpawn : MonoBehaviour
         instance = this;
     }
     private void Start(){
+        StartDay();
+    }
+    public void StartDay()
+    {
         timeLeft = 0;
         timer = new Timer_CountDown();
+        remainingClients = maxClients;
+        clientsBeingServed = 0;
     }
 
     private void FixedUpdate(){

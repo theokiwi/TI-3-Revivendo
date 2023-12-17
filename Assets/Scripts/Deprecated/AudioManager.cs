@@ -10,6 +10,7 @@ public class AudioManager : Singleton<AudioManager>
     private void Start()
     {
         Shop();
+        DontDestroyOnLoad(gameObject);
     }
     public void Click()
     {

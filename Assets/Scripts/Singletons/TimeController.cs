@@ -12,7 +12,7 @@ public class TimeController : Singleton<TimeController>
     private int endHour = 2; //dois minutos                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
     public float timeMultiplier = 20f; // permite acelerar o tempo no inspetor, pra ele nao fazer diferen�a tem que deixar em 2
     public int dayCount;
-    public int seasonsPassed;
+    public int seasonsPassed = 0;
     public TMP_Text dayCounter;
     public TMP_Text timerText;
     public int timeLeft;
@@ -21,6 +21,13 @@ public class TimeController : Singleton<TimeController>
     public void Start()
     {
         
+    }
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ChangeWeek();
+        }
     }
 
     public void FixedUpdate()
@@ -44,7 +51,6 @@ public class TimeController : Singleton<TimeController>
     }
     public void EndDay()
     {
-        GameController.Instance.GameOver();
         minutes = 0;
         contadorDias++;
         if (contadorDias >= 3)
@@ -54,6 +60,22 @@ public class TimeController : Singleton<TimeController>
         }
         //Debug.Log("Novo dia " + currentDay);// Pra ver funcionando � s� ligar os Debug.Log ta desligado porque ele flooda o console
         timer = 0; //reseta o dia que � equivalente a passar pro proximo dia. 
+        if(Events.Instance.ReturnSeason() == Events.Seasons.FestaJulina)
+        {
+            MiniGamesManager.instance.StartMiniGame("Bonfire");
+        }
+        else if(Events.Instance.ReturnSeason() == Events.Seasons.Halloween)
+        {
+            MiniGamesManager.instance.StartMiniGame("Halloween");
+        }
+        else if (Events.Instance.ReturnSeason() == Events.Seasons.Valentines)
+        {
+            MiniGamesManager.instance.StartMiniGame("Valentine");
+        }
+        else
+        {
+            GameController.Instance.GameOver();
+        }
     }
 
     private void UpdateUI(){

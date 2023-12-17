@@ -18,6 +18,10 @@ public class Events : Singleton<Events>
             ChangeSeason();
         }
     }
+    public Seasons ReturnSeason()
+    {
+        return currentSeason;
+    }
 
    public void Awake(){
     currentSeason = Seasons.Standart;
@@ -91,6 +95,5 @@ public class Events : Singleton<Events>
             break;
         
     }
-
    }
 }
