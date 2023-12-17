@@ -25,6 +25,7 @@ public class GameController : Singleton<GameController>
 
     [SerializeField] Dispenser[] dispensers;
     [SerializeField] KitchenChef chef;
+    [SerializeField] Bubble[] bubbles;
 
     private void Start()
     {
@@ -55,6 +56,10 @@ public class GameController : Singleton<GameController>
         plates = new Queue<GameObject>();
         orders = new Queue<DishData>();
         SanitationController.Instance.DayChange();
+        foreach(Bubble bubble in bubbles)
+        {
+            bubble.Hide(true);
+        }
     }
 
     public void FixedUpdate()
@@ -163,16 +168,31 @@ public class GameController : Singleton<GameController>
     // Faz uma contagem e, após, adiciona o objeto do prato cozinhado à fila de pratos a serem servidos.
     public IEnumerator Cook(DishData dish)
     {
+        foreach(Bubble bubble in bubbles){          //eu sei que isso aqui vai bugar alguma hora, se bugar fodase não corrijam pq não tem condição fazer isso aqui direito -alu
+            if(!(bubble.State == Bubble._States.COUNTING)){
+                bubble.Refresh(dish.preparationTime, dish.interfaceIcon);
+                bubble.Wake();
+                break;
+            }
+        }
+        
         yield return new WaitForSeconds(dish.preparationTime);
         plates.Enqueue(dish.inPlateObj);
+        
         chef.FinishedCooking();
     }
 
     // Instancia o proximo prato na posição do dispenser.
     public void ServePlate(){
-        foreach(Dispenser data in dispensers){   
-            if(!data.IsOccupied() && plates.Count > 0){
-                Instantiate(plates.Dequeue(), data.transform.position + data.transform.up/2, data.transform.rotation);
+        foreach(Dispenser dispenser in dispensers){   
+            if(!dispenser.IsOccupied() && plates.Count > 0){
+                Instantiate(plates.Dequeue(), dispenser.transform.position + dispenser.transform.up/2, dispenser.transform.rotation);
+                foreach(Bubble bubble in bubbles){         
+                    if(!(bubble.State == Bubble._States.COUNTING)){
+                        bubble.Sleep(true);
+                        bubble.Hide(true);
+                    }
+                }
             }
         }
     }

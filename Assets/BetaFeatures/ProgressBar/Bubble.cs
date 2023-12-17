@@ -9,6 +9,10 @@ public class Bubble : ProgressBar
     public GameObject bubble;
     [SerializeField] private Image displayedImage;
 
+    public _States State {
+        get => state;
+    }
+
 
     protected override void Awake(){
         base.Awake();
@@ -36,9 +40,9 @@ public class Bubble : ProgressBar
         this.duration = duration;
     }
 
-    public void Hide(bool show){
-        Sleep(show);
-        bubble.SetActive(!show);
+    public void Hide(bool value){
+        Sleep(value);
+        bubble.SetActive(!value);
     }
 
     protected override void OnCounting(){

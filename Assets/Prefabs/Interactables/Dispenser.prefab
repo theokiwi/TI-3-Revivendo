@@ -151,6 +151,7 @@ MonoBehaviour:
   plateLayer:
     serializedVersion: 2
     m_Bits: 64
+  bubble: {fileID: 6094673922050433598}
 --- !u!1001 &5985955270097599075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,3 +254,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5795946386507539005, guid: fa6a7d5de08bb9c48b336c8a5acd9c04, type: 3}
   m_PrefabInstance: {fileID: 5985955270097599075}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6094673922050433598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 542335477444532317, guid: fa6a7d5de08bb9c48b336c8a5acd9c04, type: 3}
+  m_PrefabInstance: {fileID: 5985955270097599075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ac6f9e1e25cc24c9646f4114651f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

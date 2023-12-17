@@ -7,7 +7,6 @@ public class Dispenser : MonoBehaviour
     [SerializeField] float maxDistance ;
     [SerializeField] LayerMask plateLayer;
 
-
     private void FixedUpdate(){
         IsOccupied();
     }
