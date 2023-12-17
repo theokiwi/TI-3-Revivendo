@@ -23,7 +23,7 @@ public class PlayerRefac : Singleton<PlayerRefac>
         agent = GetComponent<NavMeshAgent>();
         //E_action += GameController.Instance.OpenKitchen;
         ESC_action += GameController.Instance.PauseToggle;
-        default_shader = Shader.Find("Standard");
+        default_shader = Shader.Find("Unlit/Toon");
         maxSpeed = agent.speed;
         minSpeed = maxSpeed/3;
     }
