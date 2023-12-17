@@ -266,7 +266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f04973c945f0814a92265b6b5d3bbe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dish: {fileID: 0}
+  dish: {fileID: 11400000, guid: d58b7c81ce0913140b341bad719e23e4, type: 2}
   dirt: {fileID: 0}
 --- !u!135 &-6252838832823231901
 SphereCollider:
