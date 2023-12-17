@@ -440,7 +440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32e8226eb7c077b4c9b6e450331b2ba6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81f42263c3042df418bc169f5d92bb3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
+  max: 0
 --- !u!61 &679722327415293023
 BoxCollider2D:
   m_ObjectHideFlags: 0

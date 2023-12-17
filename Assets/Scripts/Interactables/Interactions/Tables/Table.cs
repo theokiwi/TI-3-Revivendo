@@ -120,7 +120,7 @@ public class Table : AbstractInteractable
     }
 
     private DishData ChooseOrder(Client client) {
-        tableBubble.Refresh(client.waitTime * 2, hasOrderImage);
+        tableBubble.Refresh(client.waitTime * 2,client.order.interfaceIcon);
         tableBubble.Wake();
         return client.order;
     }
@@ -155,6 +155,7 @@ public class Table : AbstractInteractable
         isDirty = true; 
         Instantiate(tableDirt,transform);
         EmptySeats();
+        tableBubble.Hide(true);
     }
 
     private IEnumerator Eating(AbstractInteractable Plate, DishData ordered){
