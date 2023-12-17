@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class ClientSpawn : MonoBehaviour
 {
+    [SerializeField] private int remainingClients;
     [SerializeField] public GameObject client;
     [SerializeField] private int interval;
     [SerializeField] private float timeLeft;
     [SerializeField] private ITimer timer;
     [SerializeField] private LayerMask layerMask;
     public static ClientSpawn instance;
-    //public int clientsBeingServed = 0;
+    public int clientsBeingServed = 0;
 
     private void Awake()
     {
@@ -27,6 +28,10 @@ public class ClientSpawn : MonoBehaviour
                 timeLeft = 1;
                 Debug.Log("New Client");
             }
+        }
+        if(clientsBeingServed <= 0 && remainingClients <= 0)
+        {
+            TimeController.Instance.EndDay();
         }
     }
 
@@ -47,8 +52,11 @@ public class ClientSpawn : MonoBehaviour
     }
 
     private void SpawnClient(){
-        //clientsBeingServed++;
-        Instantiate(client,transform.position,transform.rotation);
+        if(remainingClients > 0){
+            clientsBeingServed++;
+            Instantiate(client,transform.position,transform.rotation);
+            remainingClients--;
+        }
     }
     
 }

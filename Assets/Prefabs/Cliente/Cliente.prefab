@@ -1566,7 +1566,7 @@ MonoBehaviour:
   order: {fileID: 0}
   bubble: {fileID: 8780521413866733000}
   animator: {fileID: 1562494962904706879}
-  waitTime: 20
+  waitTime: 15
 --- !u!65 &5504543524652712103
 BoxCollider:
   m_ObjectHideFlags: 0

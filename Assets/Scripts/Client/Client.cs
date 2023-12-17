@@ -61,7 +61,7 @@ public class Client : AbstractInteractable
 
     private void OnDestroy()
     {
-        //ClientSpawn.instance.clientsBeingServed--;
+        ClientSpawn.instance.clientsBeingServed--;
     }
 
 }

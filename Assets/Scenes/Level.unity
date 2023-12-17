@@ -71467,12 +71467,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 430d1941c3461d94e943c0defe5e1f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remainingClients: 5
   client: {fileID: 8365467431485157805, guid: d7ab15d8e06988546b2e77fa87b13f40, type: 3}
   interval: 5
   timeLeft: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  clientsBeingServed: 0
 --- !u!1 &1354064615 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2497636523394389690, guid: 7562812137cf465eca9bc6ea60438863, type: 3}
