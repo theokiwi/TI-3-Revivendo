@@ -24,7 +24,7 @@ public class TimeController : Singleton<TimeController>
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.P))
+        if (Input.GetKeyUp(KeyCode.F2))
         {
             ChangeWeek();
         }
