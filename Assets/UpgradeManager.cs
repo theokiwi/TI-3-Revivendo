@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
@@ -10,6 +11,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     [HideInInspector] public int cozinhaUpgrades;
     [SerializeField] private int maxCozinhaUpgrades;
     public int[] cozinhaPrecos;
+    [SerializeField] Text mesaUpgradeText, kitchenUpgradeText, marketingUpgradeText, timerUpgradeText;
 
     private void Start() 
     {

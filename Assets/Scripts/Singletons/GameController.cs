@@ -54,6 +54,18 @@ public class GameController : Singleton<GameController>
         if(TimeController.Instance.contadorDias == 3 && Events.Instance.ReturnSeason() == Events.Seasons.Christmas)
         {
             SceneManager.LoadScene("Title Screen");
+            AudioManager.Instance.Shop();
+        }
+        foreach(AbstractInteractable interactable in FindObjectsByType<AbstractInteractable>(sortMode:FindObjectsSortMode.None))
+        {
+            if(interactable.GetType() == typeof(Client) || interactable.GetType() == typeof(Dish))
+            {
+                Destroy(interactable.gameObject);
+            }
+        }
+        foreach(Bubble bubble in FindObjectsByType<Bubble>(sortMode: FindObjectsSortMode.None))
+        {
+            bubble.Hide(true);
         }
         numberOfOrders.text = $"{0}";
         AddPoints(-points);
