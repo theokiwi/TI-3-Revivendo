@@ -1592,10 +1592,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1de8a6bbcfa68af468dd097bda45f4fd, type: 3}
-    m_FontSize: 55
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 56
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -1605,7 +1605,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Controles:\nMovimenta\xE7\xE3o do player: \n\t\n\tBot\xE3o esquerdo do
     mouse\n\nMovimenta\xE7\xE3o da camera:\n\t\n\tRota\xE7\xE3o: Bot\xE3o do meio
-    do mouse\n\tMover: Mover mouse para o canto da tela\n\n\n"
+    do mouse\n\tMover: Mover mouse para o canto da tela\n\nCheats:\n\n\tF1: Cheat
+    de dinheiro\n\tF2: Cheat de troca evento\n\n\n"
 --- !u!222 &331207965
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2799,10 +2800,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1de8a6bbcfa68af468dd097bda45f4fd, type: 3}
-    m_FontSize: 55
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 3
     m_MaxSize: 56
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -2812,7 +2813,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Controles:\nMovimenta\xE7\xE3o do player: \n\t\n\tBot\xE3o esquerdo do
     mouse\n\nMovimenta\xE7\xE3o da camera:\n\t\n\tRota\xE7\xE3o: Bot\xE3o do meio
-    do mouse\n\tMover: Mover mouse para o canto da tela\n\n"
+    do mouse\n\tMover: Mover mouse para o canto da tela\n\nCheats:\n\n\tF1: Cheat
+    de dinheiro\n\tF2: Cheat de troca evento\n\n\n"
 --- !u!222 &646856972
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5965,7 +5967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 354b669accba8654295b069a030738e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 525819f2dc6f5ff4797a4dec007c8c6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6347,7 +6349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0, y: 0.91149265}
   m_AnchorMax: {x: 0, y: 0.91149265}
-  m_AnchoredPosition: {x: 102.5, y: -108}
+  m_AnchoredPosition: {x: 1822, y: 3}
   m_SizeDelta: {x: 141, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1679231253

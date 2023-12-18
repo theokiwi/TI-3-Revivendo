@@ -82,6 +82,13 @@ public class GameController : Singleton<GameController>
             bubble.Hide(true);
         }
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.F1))
+        {
+            AddMoney(20);
+        }
+    }
 
     public void FixedUpdate()
     {

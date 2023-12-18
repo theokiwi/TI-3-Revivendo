@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
@@ -11,7 +12,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
     [HideInInspector] public int cozinhaUpgrades;
     [SerializeField] private int maxCozinhaUpgrades;
     public int[] cozinhaPrecos;
-    [SerializeField] Text mesaUpgradeText, kitchenUpgradeText, marketingUpgradeText, timerUpgradeText;
+    [SerializeField] TMP_Text mesaUpgradeText, kitchenUpgradeText, marketingUpgradeText, timerUpgradeText;
     [HideInInspector] public int esperaUpgrades;
     [SerializeField] private int maxEsperaUpgrades;
     public int[] esperaPrecos;
@@ -33,6 +34,14 @@ public class UpgradeManager : Singleton<UpgradeManager>
         {
             mesas[mesaUpgrades].gameObject.SetActive(true);
             mesaUpgrades++;
+            if(mesaUpgrades < mesas.Length)
+            {
+                mesaUpgradeText.text = $"{mesaPrecos[mesaUpgrades]}";
+            }
+            else
+            {
+                mesaUpgradeText.text = $"MAX";
+            }
         }
     }
     
