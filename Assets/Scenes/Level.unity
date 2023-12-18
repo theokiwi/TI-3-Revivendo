@@ -38858,9 +38858,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399177826}
+      - m_Target: {fileID: 399177828}
         m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: UpgradeEspera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -39146,9 +39146,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 399177826}
-        m_TargetAssemblyTypeName: UIScreen, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 399177828}
+        m_TargetAssemblyTypeName: UpgradeManager, Assembly-CSharp
+        m_MethodName: UpgradeSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -65972,8 +65972,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f73dccf281156e74c868a3746d360c2b, type: 2}
   - {fileID: 11400000, guid: e30ad06d7ef825c40a92083f1417566d, type: 2}
   - {fileID: 11400000, guid: 0a9bbb9833e60434194c9ec40bf178e4, type: 2}
-  - {fileID: 11400000, guid: 01941776a82c2164d9c91c16be2870ba, type: 2}
   - {fileID: 11400000, guid: c23e70944e75ccc458c01773c27e9d9e, type: 2}
+  - {fileID: 11400000, guid: 01941776a82c2164d9c91c16be2870ba, type: 2}
   - {fileID: 11400000, guid: 50b19a4ec87ec2e48ae3a8140991fcd8, type: 2}
   - {fileID: 11400000, guid: 8df9a0edfcfb14b41a7de3a621d45d6d, type: 2}
   currentSeason: 0

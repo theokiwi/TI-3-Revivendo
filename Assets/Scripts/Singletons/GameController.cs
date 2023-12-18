@@ -80,6 +80,7 @@ public class GameController : Singleton<GameController>
         plates = new Queue<GameObject>();
         orders = new Queue<DishData>();
         SanitationController.Instance.DayChange();
+        AudioManager.Instance.Ruins();
         foreach(Bubble bubble in bubbles)
         {
             bubble.Hide(true);
