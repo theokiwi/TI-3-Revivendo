@@ -12,6 +12,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
     [SerializeField] private int maxCozinhaUpgrades;
     public int[] cozinhaPrecos;
     [SerializeField] Text mesaUpgradeText, kitchenUpgradeText, marketingUpgradeText, timerUpgradeText;
+    [HideInInspector] public int esperaUpgrades;
+    [SerializeField] private int maxEsperaUpgrades;
+    public int[] esperaPrecos;
+    [HideInInspector] public float waitMultiplier;
 
     private void Start() 
     {
@@ -30,6 +34,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
             mesaUpgrades++;
         }
     }
+    
+    public void UpgradeEspera()
+    {
+        if(esperaUpgrades >= maxEsperaUpgrades) return;
+        if(GameController.Instance.RemoveMoney(esperaPrecos[esperaUpgrades]));
+    }
+
     public void UpgradeCozinha()
     {
         if(cozinhaUpgrades >= maxCozinhaUpgrades) return;
