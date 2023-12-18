@@ -35,5 +35,6 @@ public class UpgradeManager : Singleton<UpgradeManager>
         {
             cozinhaUpgrades++;
         }
+        GameController.Instance.chefSpeedMult = 1 - (cozinhaUpgrades * 0.1f);
     }
 }

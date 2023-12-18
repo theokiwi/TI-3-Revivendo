@@ -27,6 +27,7 @@ public class GameController : Singleton<GameController>
     [SerializeField] Dispenser[] dispensers;
     [SerializeField] KitchenChef chef;
     [SerializeField] Bubble[] bubbles;
+    [HideInInspector] public float chefSpeedMult;
 
     private void Start()
     {
@@ -187,13 +188,13 @@ public class GameController : Singleton<GameController>
     {
         foreach(Bubble bubble in bubbles){          //eu sei que isso aqui vai bugar alguma hora, se bugar fodase não corrijam pq não tem condição fazer isso aqui direito -alu
             if(!(bubble.State == Bubble._States.COUNTING)){
-                bubble.Refresh(dish.preparationTime, dish.interfaceIcon);
+                bubble.Refresh(dish.preparationTime * chefSpeedMult, dish.interfaceIcon);
                 bubble.Wake();
                 break;
             }
         }
-        
-        yield return new WaitForSeconds(dish.preparationTime);
+
+        yield return new WaitForSeconds(dish.preparationTime * chefSpeedMult);
         plates.Enqueue(dish.inPlateObj);
         
         chef.FinishedCooking();
@@ -204,7 +205,6 @@ public class GameController : Singleton<GameController>
         foreach(Dispenser dispenser in dispensers){   
             if(!dispenser.IsOccupied() && plates.Count > 0){
                 Instantiate(plates.Dequeue(), dispenser.transform.position + dispenser.transform.up/2, dispenser.transform.rotation);
-                
             }
         }
     }

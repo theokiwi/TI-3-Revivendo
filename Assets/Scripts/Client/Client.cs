@@ -14,13 +14,14 @@ public class Client : AbstractInteractable
     [SerializeField] private Bubble bubble;
     [SerializeField] private Animator animator;
     public float waitTime;
+    [HideInInspector] public float waitMultiplier;
 
 
     private void Start(){
         //Debug.Log("hiiii");
         state = STATES.WAITING;
         order = ChooseOrder(GameController.Instance.menuData.menu);
-        bubble.Refresh(waitTime, order.interfaceIcon);
+        bubble.Refresh(waitTime * waitMultiplier, order.interfaceIcon);
         bubble.Wake();
         bubble.Complete += OnFailure;
     }

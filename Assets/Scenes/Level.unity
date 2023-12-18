@@ -27114,8 +27114,8 @@ MonoBehaviour:
   - {fileID: 1033895227}
   mesaPrecos: 0200000005000000
   cozinhaUpgrades: 0
-  maxCozinhaUpgrades: 3
-  cozinhaPrecos: 
+  maxCozinhaUpgrades: 5
+  cozinhaPrecos: 0000000000000000000000000000000000000000
 --- !u!1 &415812207
 GameObject:
   m_ObjectHideFlags: 0
@@ -33162,6 +33162,7 @@ MonoBehaviour:
   bubbles:
   - {fileID: 1516399987}
   - {fileID: 202205502}
+  chefSpeedMult: 0
 --- !u!4 &582264340
 Transform:
   m_ObjectHideFlags: 0
