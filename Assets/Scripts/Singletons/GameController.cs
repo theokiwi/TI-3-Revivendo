@@ -70,7 +70,10 @@ public class GameController : Singleton<GameController>
         numberOfOrders.text = $"{0}";
         AddPoints(-points);
         lostClients = 0;
-        ClientSpawn.instance.StartDay();
+        foreach(ClientSpawn spawn in FindObjectsOfType<ClientSpawn>())
+        {
+            spawn.StartDay();
+        }
         Time.timeScale = 1;
         TimeController.Instance.timeMultiplier = 1;
         endScreen.gameObject.SetActive(false);

@@ -9,13 +9,8 @@ public class ClientSpawn : MonoBehaviour
     [SerializeField] private ITimer timer;
     [SerializeField] private LayerMask layerMask;
     public int maxClients = 1000;
-    public static ClientSpawn instance;
     //public int clientsBeingServed = 0;
 
-    private void Awake()
-    {
-        instance = this;
-    }
     private void Start(){
         StartDay();
     }

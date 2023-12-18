@@ -9,6 +9,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
     [HideInInspector] public int mesaUpgrades;
     [SerializeField] private Table[] mesas;
     public int[] mesaPrecos;
+    [HideInInspector] public int spawnUpgrades;
+    [SerializeField] private ClientSpawn[] spawns;
+    public int[] spawnPrecos;
+
     [HideInInspector] public int cozinhaUpgrades;
     [SerializeField] private int maxCozinhaUpgrades;
     public int[] cozinhaPrecos;
@@ -25,6 +29,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
             table.gameObject.SetActive(false);
         }
         waitMultiplier = 1;
+        GameController.Instance.chefSpeedMult = 1;
+
+        mesaUpgradeText.text = $"{mesaPrecos[mesaUpgrades]}"; 
+        timerUpgradeText.text = $"{esperaPrecos[esperaUpgrades]}";
+        marketingUpgradeText.text = $"{spawnPrecos[spawnUpgrades]}";
+        kitchenUpgradeText.text = $"{cozinhaPrecos[cozinhaUpgrades]}";
+
     }
 
     public void UpgradeMesa()
@@ -50,7 +61,35 @@ public class UpgradeManager : Singleton<UpgradeManager>
         if(esperaUpgrades >= maxEsperaUpgrades) return;
         if(GameController.Instance.RemoveMoney(esperaPrecos[esperaUpgrades]))
         {
-            
+            esperaUpgrades++;
+            waitMultiplier = 1 + 0.1f * esperaUpgrades;
+            if(esperaUpgrades < maxEsperaUpgrades)
+            {
+                timerUpgradeText.text = $"{esperaPrecos[esperaUpgrades]}";
+            }
+            else
+            {
+                timerUpgradeText.text = $"MAX";
+            }
+        }
+    }
+
+    public void UpgradeSpawn()
+    {
+        if(spawnUpgrades >= spawns.Length) return;
+        if(GameController.Instance.RemoveMoney(spawnPrecos[spawnUpgrades]))
+        {
+            spawns[spawnUpgrades].gameObject.SetActive(true);
+            spawnUpgrades++;
+
+            if(spawnUpgrades < spawns.Length)
+            {
+                marketingUpgradeText.text = $"{spawnPrecos[spawnUpgrades]}";
+            }
+            else
+            {
+                marketingUpgradeText.text = $"MAX";
+            }
         }
     }
 
@@ -60,6 +99,14 @@ public class UpgradeManager : Singleton<UpgradeManager>
         if(GameController.Instance.RemoveMoney(cozinhaPrecos[cozinhaUpgrades]))
         {
             cozinhaUpgrades++;
+            if(cozinhaUpgrades < maxCozinhaUpgrades)
+            {
+                kitchenUpgradeText.text = $"{cozinhaPrecos[cozinhaUpgrades]}";
+            }
+            else
+            {
+                kitchenUpgradeText.text = $"MAX";
+            }
         }
         GameController.Instance.chefSpeedMult = 1 - (cozinhaUpgrades * 0.1f);
     }
