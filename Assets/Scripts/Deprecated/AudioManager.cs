@@ -7,10 +7,16 @@ public class AudioManager : Singleton<AudioManager>
 {
     [SerializeField] AudioSource click,fogao,pegaPedido,item,music;
     [SerializeField] AudioClip shop, ruins;
-    private void Start()
+    private void Awake()
     {
         Shop();
-        DontDestroyOnLoad(gameObject);
+        if(Instance != this){
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
     }
     public void Click()
     {

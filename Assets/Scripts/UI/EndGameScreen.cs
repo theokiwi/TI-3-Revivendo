@@ -3,7 +3,6 @@ using TMPro;
 
 public class EndGameScreen : UIScreen
 {
-    [SerializeField] private UIElement[] uiElements;
 
     protected override void OnHide()
     {
@@ -12,7 +11,7 @@ public class EndGameScreen : UIScreen
 
     protected override void OnPopup()
     {
-        foreach(UIElement element in uiElements)
+        foreach(UIElement element in elements)
         {
             element.UpdateUI();
         }
