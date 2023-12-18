@@ -23,6 +23,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
         {
             table.gameObject.SetActive(false);
         }
+        waitMultiplier = 1;
     }
 
     public void UpgradeMesa()
@@ -38,7 +39,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
     public void UpgradeEspera()
     {
         if(esperaUpgrades >= maxEsperaUpgrades) return;
-        if(GameController.Instance.RemoveMoney(esperaPrecos[esperaUpgrades]));
+        if(GameController.Instance.RemoveMoney(esperaPrecos[esperaUpgrades]))
+        {
+            
+        }
     }
 
     public void UpgradeCozinha()
