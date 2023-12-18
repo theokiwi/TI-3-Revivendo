@@ -24,9 +24,8 @@ public class TimeController : Singleton<TimeController>
     }
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.P))
         {
-            timeMultiplier = 30;
             ChangeWeek();
         }
     }
@@ -54,7 +53,7 @@ public class TimeController : Singleton<TimeController>
     {
         minutes = 0;
         contadorDias++;
-        if (contadorDias == 3)
+        if (contadorDias == 3 && Events.Instance.ReturnSeason() != Events.Seasons.Christmas)
         {
             contadorDias = 0;
             ChangeWeek(); //informa que acabou a semana

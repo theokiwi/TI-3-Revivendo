@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GameController : Singleton<GameController>
 {
@@ -49,6 +50,10 @@ public class GameController : Singleton<GameController>
     //reinicia todos os valores referentes a performance no dia
     public void StartDay() 
     {
+        if(TimeController.Instance.contadorDias == 3 && Events.Instance.ReturnSeason() == Events.Seasons.Christmas)
+        {
+            SceneManager.LoadScene("Title Screen");
+        }
         numberOfOrders.text = $"{0}";
         AddPoints(-points);
         lostClients = 0;

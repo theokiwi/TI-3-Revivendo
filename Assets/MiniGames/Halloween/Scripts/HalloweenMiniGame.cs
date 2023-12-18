@@ -36,6 +36,7 @@ public class HalloweenMiniGame : MonoBehaviour
     }
     public void EndMiniGame()
     {
+        MiniGamesManager.instance.ExitMiniGame();
         GameController.Instance.GameOver();
         Destroy(minigame);
     }

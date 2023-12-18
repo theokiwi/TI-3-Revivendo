@@ -21,6 +21,7 @@ public class ValentineMinigame : MonoBehaviour
         timer.text = "" + (int)time;
         if(time <= 0)
         {
+            MiniGamesManager.instance.ExitMiniGame();
             GameController.Instance.GameOver();
             Destroy(minigame);
         }

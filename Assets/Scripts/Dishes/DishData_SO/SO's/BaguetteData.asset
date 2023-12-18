@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53bc356974f7a1f45afda813b6574e18, type: 3}
   m_Name: BaguetteData
   m_EditorClassIdentifier: 
-  dishType: Fatia de Baguette
   price: 3
   preparationTime: 4
   waitTime: 15
   eatTime: 4
   inPlateObj: {fileID: 7486238059286296159, guid: 6806f10f3ee92044ab0ef8d711615633, type: 3}
-  interfaceIcon: {fileID: 0}
+  interfaceIcon: {fileID: 21300000, guid: 70c2dfb7aa530aa48a11b83ea9b20964, type: 3}
